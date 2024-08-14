@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-08-14T16:44:59.053373" rpa="false" schemaversion="5">
+<suite id="s1" name="TC 001" source="C:\Users\Admin\OneDrive - Kiatnakin Phatra Bank Public Company Limited\Desktop\Automate Test SLG\test_cases\channel\TC_001.robot">
+<test id="s1-t1" name="Open Browser SLG" line="6">
+<kw name="Open Browser To URL" owner="channel_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-08-14T16:44:59.508778" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/config/ChannelList'.</msg>
+<arg>${HOME_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-08-14T16:44:59.508778" elapsed="7.358544"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-08-14T16:45:06.868350" elapsed="0.373086"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-14T16:45:12.242719" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-14T16:45:07.242014" elapsed="5.000705"/>
+</kw>
+<status status="PASS" start="2024-08-14T16:44:59.507780" elapsed="12.734939"/>
+</kw>
+<kw name="Click Button Add" owner="channel_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-14T16:45:12.245903" level="INFO">Clicking element '//div[@class="MuiBox-root css-70qvj9"]'.</msg>
+<arg>${Button_Add_ConfigurationGroup}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T16:45:12.244882" elapsed="0.644686"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-14T16:45:17.892826" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-14T16:45:12.891566" elapsed="5.001790"/>
+</kw>
+<status status="PASS" start="2024-08-14T16:45:12.244256" elapsed="5.649100"/>
+</kw>
+<kw name="INPUT DATA" owner="channel_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T16:45:17.895893" level="INFO">Typing text 'sssss' into text field 'name=channel_name'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_NAME}</arg>
+<arg>${channel_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T16:45:17.894927" elapsed="0.602808"/>
+</kw>
+<kw name="Click Dropdown And Select Option" owner="channel_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-14T16:45:18.500729" level="INFO">Clicking element 'id=mui-component-select-channel_file_type'.</msg>
+<arg>${dropdown_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T16:45:18.499726" elapsed="0.238487"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${option_locator}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-08-14T16:45:18.739737" elapsed="0.072586"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-14T16:45:18.814925" level="INFO">Clicking element '//li[@data-value="txt"]'.</msg>
+<arg>${option_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T16:45:18.813328" elapsed="0.282700"/>
+</kw>
+<arg>${CLICK_DROPDOWN_CHANNEL_FILE_TYPE}</arg>
+<arg>${CHOOSE_CHANNEL_FILE_TYPE}</arg>
+<status status="PASS" start="2024-08-14T16:45:18.498736" elapsed="0.597292"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T16:45:19.115445" level="INFO">Typing text 'aaaasss' into text field 'name=channel_delimiter'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_DELIMITER}</arg>
+<arg>${channel_file_delimiter}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T16:45:19.105138" elapsed="0.784288"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-14T16:45:24.890737" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-14T16:45:19.890477" elapsed="5.000787"/>
+</kw>
+<arg>sssss</arg>
+<arg>aaaasss</arg>
+<status status="PASS" start="2024-08-14T16:45:17.894927" elapsed="6.996337"/>
+</kw>
+<status status="PASS" start="2024-08-14T16:44:59.505782" elapsed="25.386509"/>
+</test>
+<status status="PASS" start="2024-08-14T16:44:59.054947" elapsed="25.840889"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC 001">TC 001</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
