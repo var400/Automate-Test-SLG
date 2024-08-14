@@ -1,271 +1,526 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-08-14T21:43:36.353147" rpa="false" schemaversion="5">
-<suite id="s1" name="TC 001" source="C:\Users\Admin\OneDrive - Kiatnakin Phatra Bank Public Company Limited\Desktop\Automate Test SLG\test_cases\channel\TC_001.robot">
-<test id="s1-t1" name="TC_002:TEST2" line="19">
+<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-08-14T22:19:52.897811" rpa="false" schemaversion="5">
+<suite id="s1" name="TC 001" source="C:\Users\Admin\OneDrive - Kiatnakin Phatra Bank Public Company Limited\Desktop\TEST SLG AUTOMATE\Automate-Test-SLG\test_cases\channel\TC_001.robot">
+<test id="s1-t1" name="TC_001:TEST12" line="11">
 <kw name="Open Browser To URL" owner="channel_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:37.021405" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/config/ChannelList'.</msg>
+<msg time="2024-08-14T22:19:53.480998" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/config/ChannelList'.</msg>
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-08-14T21:43:37.021405" elapsed="6.682706"/>
+<status status="PASS" start="2024-08-14T22:19:53.480998" elapsed="7.594275"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-08-14T21:43:43.704111" elapsed="0.281672"/>
+<status status="PASS" start="2024-08-14T22:20:01.076271" elapsed="0.230536"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-08-14T21:43:48.987397" level="INFO">Slept 5 seconds.</msg>
+<msg time="2024-08-14T22:20:06.308124" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-08-14T21:43:43.986786" elapsed="5.000611"/>
+<status status="PASS" start="2024-08-14T22:20:01.306807" elapsed="5.001829"/>
 </kw>
 <arg>${HOME_URL}</arg>
 <arg>${BROWSER}</arg>
-<status status="PASS" start="2024-08-14T21:43:37.019894" elapsed="11.967503"/>
+<status status="PASS" start="2024-08-14T22:19:53.480164" elapsed="12.828472"/>
 </kw>
 <kw name="Click Button Add" owner="channel_keywords">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:48.989428" level="INFO">Clicking element '//div[@class="MuiBox-root css-70qvj9"]'.</msg>
+<msg time="2024-08-14T22:20:06.314654" level="INFO">Clicking element '//div[@class="MuiBox-root css-70qvj9"]'.</msg>
 <arg>${Button_Add_ConfigurationGroup}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:48.988430" elapsed="0.259106"/>
+<status status="PASS" start="2024-08-14T22:20:06.312656" elapsed="0.357068"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-08-14T21:43:50.247750" level="INFO">Slept 1 second.</msg>
+<msg time="2024-08-14T22:20:07.672176" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-08-14T21:43:49.247536" elapsed="1.000214"/>
+<status status="PASS" start="2024-08-14T22:20:06.671722" elapsed="1.000999"/>
 </kw>
-<status status="PASS" start="2024-08-14T21:43:48.988430" elapsed="1.259320"/>
+<status status="PASS" start="2024-08-14T22:20:06.311656" elapsed="1.361139"/>
 </kw>
 <kw name="Input Data" owner="channel_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:50.252797" level="INFO">Typing text 'example2' into text field 'name=channel_name'.</msg>
+<msg time="2024-08-14T22:20:07.677958" level="INFO">Typing text 'ssss' into text field 'name=channel_name'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_NAME}</arg>
 <arg>${data['channel_name']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:50.250799" elapsed="0.362341"/>
+<status status="PASS" start="2024-08-14T22:20:07.675728" elapsed="0.517420"/>
 </kw>
 <kw name="Click Dropdown And Select Option" owner="channel_keywords">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:50.617141" level="INFO">Clicking element 'id=mui-component-select-channel_file_type'.</msg>
+<msg time="2024-08-14T22:20:08.204147" level="INFO">Clicking element 'id=mui-component-select-channel_file_type'.</msg>
 <arg>${dropdown_locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:50.617141" elapsed="0.147505"/>
+<status status="PASS" start="2024-08-14T22:20:08.202158" elapsed="0.257280"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>//li[@data-value="${option_value}"]</arg>
 <arg>timeout=5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-08-14T21:43:50.764910" elapsed="0.062982"/>
+<status status="PASS" start="2024-08-14T22:20:08.460441" elapsed="0.098949"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:50.829599" level="INFO">Clicking element '//li[@data-value="csv"]'.</msg>
+<msg time="2024-08-14T22:20:08.563394" level="INFO">Clicking element '//li[@data-value="txt"]'.</msg>
 <arg>//li[@data-value="${option_value}"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:50.828399" elapsed="0.174102"/>
+<status status="PASS" start="2024-08-14T22:20:08.561389" elapsed="0.281913"/>
 </kw>
 <arg>${CLICK_DROPDOWN_CHANNEL_FILE_TYPE}</arg>
 <arg>${data['channel_file_type']}</arg>
-<status status="PASS" start="2024-08-14T21:43:50.614140" elapsed="0.389363"/>
+<status status="PASS" start="2024-08-14T22:20:08.195161" elapsed="0.649144"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:51.011500" level="INFO">Typing text 'bbb' into text field 'name=channel_delimiter'.</msg>
+<msg time="2024-08-14T22:20:08.851858" level="INFO">Typing text 'aaaasss' into text field 'name=channel_delimiter'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_DELIMITER}</arg>
 <arg>${data['channel_file_delimiter']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:51.005498" elapsed="0.590858"/>
+<status status="PASS" start="2024-08-14T22:20:08.846303" elapsed="0.490763"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:51.602357" level="INFO">Typing text 'example_label3' into text field 'name=channel_label'.</msg>
+<msg time="2024-08-14T22:20:09.340066" level="INFO">Typing text 'aaaaa' into text field 'name=channel_label'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_LABEL}</arg>
 <arg>${data['channel_label']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:51.597357" elapsed="0.956502"/>
+<status status="PASS" start="2024-08-14T22:20:09.338066" elapsed="0.250769"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:52.561860" level="INFO">Typing text 'format' into text field 'name=channel_file_name_format'.</msg>
+<msg time="2024-08-14T22:20:09.591835" level="INFO">Typing text 'sddsd' into text field 'name=channel_file_name_format'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_FILE_NAME_FORMAT}</arg>
 <arg>${data['channel_file_name_format']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:52.554856" elapsed="0.728058"/>
+<status status="PASS" start="2024-08-14T22:20:09.589836" elapsed="0.234320"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:53.289911" level="INFO">Typing text 'text' into text field 'name=channel_format'.</msg>
+<msg time="2024-08-14T22:20:09.826316" level="INFO">Typing text 'ggggg' into text field 'name=channel_format'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_FORMAT}</arg>
 <arg>${data['channel_format']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:53.283914" elapsed="0.924430"/>
+<status status="PASS" start="2024-08-14T22:20:09.824702" elapsed="0.211327"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:54.219712" level="INFO">Typing text 'temp_path' into text field 'name=channel_temp_path'.</msg>
+<msg time="2024-08-14T22:20:10.038031" level="INFO">Typing text 'ddssd' into text field 'name=channel_temp_path'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_TEMP_PATH}</arg>
 <arg>${data['channel_temp_path']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:54.210033" elapsed="1.077757"/>
+<status status="PASS" start="2024-08-14T22:20:10.036029" elapsed="0.199006"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:55.295003" level="INFO">Typing text 'target_path' into text field 'name=channel_target_path'.</msg>
+<msg time="2024-08-14T22:20:10.238043" level="INFO">Typing text 'dsxc' into text field 'name=channel_target_path'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_TARGET_PATH}</arg>
 <arg>${data['channel_target_path']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:55.288927" elapsed="0.765707"/>
+<status status="PASS" start="2024-08-14T22:20:10.236042" elapsed="0.244375"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:56.061630" level="INFO">Typing text 'host' into text field 'name=channel_host'.</msg>
+<msg time="2024-08-14T22:20:10.483417" level="INFO">Typing text 'sdadssa' into text field 'name=channel_host'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_HOST}</arg>
 <arg>${data['channel_host']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:56.055641" elapsed="0.542166"/>
+<status status="PASS" start="2024-08-14T22:20:10.481418" elapsed="0.269266"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:56.604827" level="INFO">Typing text 'user' into text field 'name=channel_user'.</msg>
+<msg time="2024-08-14T22:20:10.752683" level="INFO">Typing text 'adssda' into text field 'name=channel_user'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_USER}</arg>
 <arg>${data['channel_user']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:56.598806" elapsed="0.357463"/>
+<status status="PASS" start="2024-08-14T22:20:10.750684" elapsed="0.240914"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:56.960286" level="INFO">Typing text 'pass' into text field 'name=channel_pass'.</msg>
+<msg time="2024-08-14T22:20:10.993590" level="INFO">Typing text 'sdadssa' into text field 'name=channel_pass'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_PASS}</arg>
 <arg>${data['channel_pass']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:56.957247" elapsed="0.324369"/>
+<status status="PASS" start="2024-08-14T22:20:10.991598" elapsed="0.241992"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:57.283611" level="INFO">Typing text '003' into text field 'name=channel_port'.</msg>
+<msg time="2024-08-14T22:20:11.235581" level="INFO">Typing text '002' into text field 'name=channel_port'.</msg>
 <arg>${INPUT_TEXT_BOX_CHANNEL_PORT}</arg>
 <arg>${data['channel_port']}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.281616" elapsed="0.272729"/>
+<status status="PASS" start="2024-08-14T22:20:11.234581" elapsed="0.189622"/>
 </kw>
 <kw name="CHECK IS ACTIVE" owner="channel_keywords">
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Select Checkbox" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:57.560345" level="INFO">Selecting checkbox 'name=is_active'.</msg>
+<msg time="2024-08-14T22:20:11.429201" level="INFO">Selecting checkbox 'name=is_active'.</msg>
 <arg>${CHECK_IS_ACTIVE}</arg>
 <doc>Selects the checkbox identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.559347" elapsed="0.096153"/>
+<status status="PASS" start="2024-08-14T22:20:11.428201" elapsed="0.081314"/>
 </kw>
 <arg>'${option_value}' == 'true'</arg>
 <arg>Select Checkbox</arg>
 <arg>${CHECK_IS_ACTIVE}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.558349" elapsed="0.098157"/>
+<status status="PASS" start="2024-08-14T22:20:11.427201" elapsed="0.082314"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>'${option_value}' == 'false'</arg>
 <arg>Unselect Checkbox</arg>
 <arg>${CHECK_IS_ACTIVE}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.656506" elapsed="0.000995"/>
+<status status="PASS" start="2024-08-14T22:20:11.509515" elapsed="0.000999"/>
 </kw>
 <arg>${data['is_active']}</arg>
-<status status="PASS" start="2024-08-14T21:43:57.555347" elapsed="0.103154"/>
+<status status="PASS" start="2024-08-14T22:20:11.425202" elapsed="0.086312"/>
 </kw>
 <kw name="CHECK IS HEADER" owner="channel_keywords">
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Select Checkbox" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:57.662501" level="INFO">Selecting checkbox 'name=is_header'.</msg>
+<msg time="2024-08-14T22:20:11.515516" level="INFO">Selecting checkbox 'name=is_header'.</msg>
 <arg>${CHECK_IS_HEADER}</arg>
 <doc>Selects the checkbox identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.662501" elapsed="0.288375"/>
+<status status="PASS" start="2024-08-14T22:20:11.514516" elapsed="0.268761"/>
 </kw>
 <arg>'${option_value}' == 'true'</arg>
 <arg>Select Checkbox</arg>
 <arg>${CHECK_IS_HEADER}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.661499" elapsed="0.289377"/>
+<status status="PASS" start="2024-08-14T22:20:11.514516" elapsed="0.268761"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>'${option_value}' == 'false'</arg>
 <arg>Unselect Checkbox</arg>
 <arg>${CHECK_IS_HEADER}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.951872" elapsed="0.000000"/>
+<status status="PASS" start="2024-08-14T22:20:11.784278" elapsed="0.001000"/>
 </kw>
 <arg>${data['is_header']}</arg>
-<status status="PASS" start="2024-08-14T21:43:57.658501" elapsed="0.294375"/>
+<status status="PASS" start="2024-08-14T22:20:11.511514" elapsed="0.273764"/>
 </kw>
 <kw name="CHECK IS TEOHONG" owner="channel_keywords">
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Select Checkbox" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:43:57.957878" level="INFO">Selecting checkbox 'name=is_teohong'.</msg>
+<msg time="2024-08-14T22:20:11.793350" level="INFO">Selecting checkbox 'name=is_teohong'.</msg>
 <arg>${CHECK_IS_TEOHONG}</arg>
 <doc>Selects the checkbox identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.956899" elapsed="0.390233"/>
+<status status="PASS" start="2024-08-14T22:20:11.791941" elapsed="0.455947"/>
 </kw>
 <arg>'${option_value}' == 'true'</arg>
 <arg>Select Checkbox</arg>
 <arg>${CHECK_IS_TEOHONG}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-08-14T21:43:57.955900" elapsed="0.392233"/>
+<status status="PASS" start="2024-08-14T22:20:11.790929" elapsed="0.457958"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <arg>'${option_value}' == 'false'</arg>
 <arg>Unselect Checkbox</arg>
 <arg>${CHECK_IS_TEOHONG}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-08-14T21:43:58.349136" elapsed="0.001992"/>
+<status status="PASS" start="2024-08-14T22:20:12.249894" elapsed="0.001997"/>
 </kw>
 <arg>${data['is_teohong']}</arg>
-<status status="PASS" start="2024-08-14T21:43:57.952876" elapsed="0.399260"/>
+<status status="PASS" start="2024-08-14T22:20:11.786280" elapsed="0.466635"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-08-14T21:44:03.354728" level="INFO">Slept 5 seconds.</msg>
+<msg time="2024-08-14T22:20:17.255356" level="INFO">Slept 5 seconds.</msg>
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-08-14T21:43:58.353133" elapsed="5.001595"/>
+<status status="PASS" start="2024-08-14T22:20:12.253904" elapsed="5.001452"/>
 </kw>
-<arg>${TC_002}</arg>
-<status status="PASS" start="2024-08-14T21:43:50.249798" elapsed="13.104930"/>
+<arg>${TC_001}</arg>
+<status status="PASS" start="2024-08-14T22:20:07.674438" elapsed="9.580918"/>
 </kw>
 <kw name="Click Button Save" owner="channel_keywords">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:44:03.369258" level="INFO">Clicking button '//button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-tj0q4n-MuiButtonBase-root-MuiButton-root" and (.='Save')]'.</msg>
+<msg time="2024-08-14T22:20:17.258370" level="INFO">Clicking button '//button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-tj0q4n-MuiButtonBase-root-MuiButton-root" and (.='Save')]'.</msg>
 <arg>${SAVE_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-08-14T21:44:03.369258" elapsed="0.619286"/>
+<status status="PASS" start="2024-08-14T22:20:17.257370" elapsed="0.265606"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-08-14T21:44:04.989047" level="INFO">Slept 1 second.</msg>
+<msg time="2024-08-14T22:20:18.524581" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-08-14T21:44:03.988544" elapsed="1.000503"/>
+<status status="PASS" start="2024-08-14T22:20:17.523992" elapsed="1.001115"/>
 </kw>
-<status status="PASS" start="2024-08-14T21:44:03.368256" elapsed="1.620791"/>
+<status status="PASS" start="2024-08-14T22:20:17.256372" elapsed="1.268735"/>
 </kw>
-<kw name="Alert Message" owner="channel_keywords">
+<kw name="Alert Message Error" owner="channel_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2024-08-14T21:44:15.451228" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-32.png"&gt;&lt;img src="selenium-screenshot-32.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-08-14T21:44:15.452235" level="FAIL">Element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' not visible after 10 seconds.</msg>
-<arg>${ALERT_MESSAGE}</arg>
+<arg>${ALERT_MESSAGE_ERROR}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2024-08-14T21:44:04.991087" elapsed="10.466142">Element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' not visible after 10 seconds.</status>
+<status status="PASS" start="2024-08-14T22:20:18.528136" elapsed="0.070198"/>
 </kw>
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<arg>${ALERT_MESSAGE}</arg>
+<msg time="2024-08-14T22:20:18.599351" level="INFO">Verifying element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2' contains exact text 'Duplicate channel label.'.</msg>
+<arg>${ALERT_MESSAGE_ERROR}</arg>
 <arg>${expected_result}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="NOT RUN" start="2024-08-14T21:44:15.458229" elapsed="0.000000"/>
+<status status="PASS" start="2024-08-14T22:20:18.599351" elapsed="0.056098"/>
+</kw>
+<arg>Duplicate channel label.</arg>
+<status status="PASS" start="2024-08-14T22:20:18.527138" elapsed="0.129314"/>
+</kw>
+<status status="PASS" start="2024-08-14T22:19:53.479163" elapsed="25.178282"/>
+</test>
+<test id="s1-t2" name="TC_002:TEST2" line="19">
+<kw name="Open Browser To URL" owner="channel_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:18.663462" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/config/ChannelList'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-08-14T22:20:18.662454" elapsed="5.149303"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-08-14T22:20:23.812761" elapsed="0.342077"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-14T22:20:29.156367" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-14T22:20:24.154838" elapsed="5.001529"/>
+</kw>
+<arg>${HOME_URL}</arg>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2024-08-14T22:20:18.661447" elapsed="10.494920"/>
+</kw>
+<kw name="Click Button Add" owner="channel_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:29.158580" level="INFO">Clicking element '//div[@class="MuiBox-root css-70qvj9"]'.</msg>
+<arg>${Button_Add_ConfigurationGroup}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:29.157596" elapsed="0.309848"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-14T22:20:30.467935" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-14T22:20:29.467444" elapsed="1.000491"/>
+</kw>
+<status status="PASS" start="2024-08-14T22:20:29.157596" elapsed="1.310339"/>
+</kw>
+<kw name="Input Data" owner="channel_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:30.470958" level="INFO">Typing text 'example2' into text field 'name=channel_name'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_NAME}</arg>
+<arg>${data['channel_name']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:30.469971" elapsed="0.220050"/>
+</kw>
+<kw name="Click Dropdown And Select Option" owner="channel_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:30.692023" level="INFO">Clicking element 'id=mui-component-select-channel_file_type'.</msg>
+<arg>${dropdown_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:30.692023" elapsed="0.130549"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//li[@data-value="${option_value}"]</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-08-14T22:20:30.822572" elapsed="0.042360"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:30.865935" level="INFO">Clicking element '//li[@data-value="csv"]'.</msg>
+<arg>//li[@data-value="${option_value}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:30.865935" elapsed="0.115004"/>
+</kw>
+<arg>${CLICK_DROPDOWN_CHANNEL_FILE_TYPE}</arg>
+<arg>${data['channel_file_type']}</arg>
+<status status="PASS" start="2024-08-14T22:20:30.691023" elapsed="0.289916"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:30.981940" level="INFO">Typing text 'bbb' into text field 'name=channel_delimiter'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_DELIMITER}</arg>
+<arg>${data['channel_file_delimiter']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:30.980939" elapsed="0.325057"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:31.309998" level="INFO">Typing text 'example_label3' into text field 'name=channel_label'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_LABEL}</arg>
+<arg>${data['channel_label']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:31.307000" elapsed="0.468237"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:31.777238" level="INFO">Typing text 'format' into text field 'name=channel_file_name_format'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_FILE_NAME_FORMAT}</arg>
+<arg>${data['channel_file_name_format']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:31.776237" elapsed="0.510704"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:32.288939" level="INFO">Typing text 'text' into text field 'name=channel_format'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_FORMAT}</arg>
+<arg>${data['channel_format']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:32.287943" elapsed="0.447060"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:32.737003" level="INFO">Typing text 'temp_path' into text field 'name=channel_temp_path'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_TEMP_PATH}</arg>
+<arg>${data['channel_temp_path']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:32.735003" elapsed="0.489024"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:33.225027" level="INFO">Typing text 'target_path' into text field 'name=channel_target_path'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_TARGET_PATH}</arg>
+<arg>${data['channel_target_path']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:33.224027" elapsed="0.543414"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:33.768442" level="INFO">Typing text 'host' into text field 'name=channel_host'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_HOST}</arg>
+<arg>${data['channel_host']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:33.767441" elapsed="0.495558"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:34.266996" level="INFO">Typing text 'user' into text field 'name=channel_user'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_USER}</arg>
+<arg>${data['channel_user']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:34.263997" elapsed="0.571065"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:34.840583" level="INFO">Typing text 'pass' into text field 'name=channel_pass'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_PASS}</arg>
+<arg>${data['channel_pass']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:34.836585" elapsed="0.523788"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:35.362377" level="INFO">Typing text '003' into text field 'name=channel_port'.</msg>
+<arg>${INPUT_TEXT_BOX_CHANNEL_PORT}</arg>
+<arg>${data['channel_port']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:35.360373" elapsed="0.513132"/>
+</kw>
+<kw name="CHECK IS ACTIVE" owner="channel_keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:35.883754" level="INFO">Selecting checkbox 'name=is_active'.</msg>
+<arg>${CHECK_IS_ACTIVE}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:35.876338" elapsed="0.244406"/>
+</kw>
+<arg>'${option_value}' == 'true'</arg>
+<arg>Select Checkbox</arg>
+<arg>${CHECK_IS_ACTIVE}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-14T22:20:35.875803" elapsed="0.244941"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${option_value}' == 'false'</arg>
+<arg>Unselect Checkbox</arg>
+<arg>${CHECK_IS_ACTIVE}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-14T22:20:36.121742" elapsed="0.002000"/>
+</kw>
+<arg>${data['is_active']}</arg>
+<status status="PASS" start="2024-08-14T22:20:35.873996" elapsed="0.250746"/>
+</kw>
+<kw name="CHECK IS HEADER" owner="channel_keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:36.131919" level="INFO">Selecting checkbox 'name=is_header'.</msg>
+<arg>${CHECK_IS_HEADER}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:36.131919" elapsed="0.404930"/>
+</kw>
+<arg>'${option_value}' == 'true'</arg>
+<arg>Select Checkbox</arg>
+<arg>${CHECK_IS_HEADER}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-14T22:20:36.128962" elapsed="0.407887"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${option_value}' == 'false'</arg>
+<arg>Unselect Checkbox</arg>
+<arg>${CHECK_IS_HEADER}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-14T22:20:36.537850" elapsed="0.000000"/>
+</kw>
+<arg>${data['is_header']}</arg>
+<status status="PASS" start="2024-08-14T22:20:36.125742" elapsed="0.412108"/>
+</kw>
+<kw name="CHECK IS TEOHONG" owner="channel_keywords">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:36.540854" level="INFO">Selecting checkbox 'name=is_teohong'.</msg>
+<arg>${CHECK_IS_TEOHONG}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:36.539852" elapsed="0.647949"/>
+</kw>
+<arg>'${option_value}' == 'true'</arg>
+<arg>Select Checkbox</arg>
+<arg>${CHECK_IS_TEOHONG}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-14T22:20:36.539852" elapsed="0.647949"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${option_value}' == 'false'</arg>
+<arg>Unselect Checkbox</arg>
+<arg>${CHECK_IS_TEOHONG}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-14T22:20:37.188800" elapsed="0.000000"/>
+</kw>
+<arg>${data['is_teohong']}</arg>
+<status status="PASS" start="2024-08-14T22:20:36.538853" elapsed="0.649947"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-14T22:20:42.189368" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-14T22:20:37.188800" elapsed="5.000568"/>
+</kw>
+<arg>${TC_002}</arg>
+<status status="PASS" start="2024-08-14T22:20:30.468958" elapsed="11.720410"/>
+</kw>
+<kw name="Click Button Save" owner="channel_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:42.191407" level="INFO">Clicking button '//button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-tj0q4n-MuiButtonBase-root-MuiButton-root" and (.='Save')]'.</msg>
+<arg>${SAVE_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-08-14T22:20:42.191407" elapsed="0.137993"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-14T22:20:43.330778" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-14T22:20:42.330387" elapsed="1.000391"/>
+</kw>
+<status status="PASS" start="2024-08-14T22:20:42.190388" elapsed="1.140390"/>
+</kw>
+<kw name="Alert Message Success" owner="channel_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ALERT_MESSAGE_SUCCESS}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-08-14T22:20:43.331894" elapsed="0.030006"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-08-14T22:20:43.362900" level="INFO">Verifying element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' contains exact text 'Save Complete.'.</msg>
+<msg time="2024-08-14T22:20:43.591924" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-33.png"&gt;&lt;img src="selenium-screenshot-33.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-08-14T22:20:43.591924" level="FAIL">The text of element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' should have been 'Save Complete.' but it was 'Duplicate channel label.'.</msg>
+<arg>${ALERT_MESSAGE_SUCCESS}</arg>
+<arg>${expected_result}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="FAIL" start="2024-08-14T22:20:43.361900" elapsed="0.232022">The text of element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' should have been 'Save Complete.' but it was 'Duplicate channel label.'.</status>
 </kw>
 <arg>Save Complete.</arg>
-<status status="FAIL" start="2024-08-14T21:44:04.991087" elapsed="10.467142">Element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' not visible after 10 seconds.</status>
+<status status="FAIL" start="2024-08-14T22:20:43.331894" elapsed="0.262028">The text of element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' should have been 'Save Complete.' but it was 'Duplicate channel label.'.</status>
 </kw>
-<status status="FAIL" start="2024-08-14T21:43:37.019894" elapsed="38.439337">Element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' not visible after 10 seconds.</status>
+<status status="FAIL" start="2024-08-14T22:20:18.660462" elapsed="24.934467">The text of element '//div[@class="swal2-popup swal2-modal swal2-icon-error swal2-show"]//h2 ' should have been 'Save Complete.' but it was 'Duplicate channel label.'.</status>
 </test>
-<status status="FAIL" start="2024-08-14T21:43:36.355149" elapsed="39.107084"/>
+<status status="FAIL" start="2024-08-14T22:19:52.900462" elapsed="50.697127"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="TC 001">TC 001</stat>
+<stat pass="1" fail="1" skip="0" id="s1" name="TC 001">TC 001</stat>
 </suite>
 </statistics>
 <errors>
