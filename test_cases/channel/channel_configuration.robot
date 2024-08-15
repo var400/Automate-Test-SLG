@@ -2,27 +2,27 @@
 Library    SeleniumLibrary
 Resource   ../../resources/Keywords/channel_keywords.robot
 Resource   ../../resources/variables/global_variables.robot
-Variables    ../../resources/variables/channel_data.yaml
+Resource    ../../resources/variables/channel_variables.robot
 
 *** Test Cases ***
 READ DATA FROM YMAL
-    Log To Console    READ DATA ${TC_001}
+    Log To Console    READ DATA ${TC_001.result}
     # Auto Input Data    ${TC_001}
 
 TC_001:TEST12
     #Load Channel Data    TC_001
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
     Click Button Add
-    Auto Input Data      ${TC_001}    channel_name,channel_delimiter,channel_label,channel_file_name_format,channel_format,channel_temp_path,channel_target_path,channel_host,channel_user,channel_pass,channel_port
-    Sleep    5s
+    Auto Input Data      ${TC_001}    ${CHOOSE_KEY_INPUT_TEXT}
+    Sleep    ${DELAY}
     Click Button Save
-    Alert Message Error    ${TC_001.result.expeted_result}
+    Alert Message Error    ${TC_001.result.expected_result}
 
 TC_002:TEST2
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
     Click Button Add
     Input Data     ${TC_002}
     Click Button Save
-    Alert Message Success   Success Complete.
+    Alert Message Success   ${TC_001.result.expected_result}
 
 # robot --test "READ DATA FROM YAML" path/to/your/test_cases/channel/TC_001.robot
