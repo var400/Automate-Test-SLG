@@ -14,6 +14,18 @@ CHECK IS TEOHONG
     Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${CHECK_IS_TEOHONG}
     Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${CHECK_IS_TEOHONG}
 
+CHECK IS ACTIVE
+    [Arguments]    ${option_value}
+    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${CHECK_IS_ACTIVE}
+    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${CHECK_IS_ACTIVE}
+
+Click Dropdown And Select Option
+    [Arguments]    ${dropdown_locator}    ${option_value}
+    Click Element    ${dropdown_locator}
+    Wait Until Element Is Visible    //li[@data-value="${option_value}"]    timeout=5s
+    Click Element    //li[@data-value="${option_value}"]
+
+
 Input Data
     [Arguments]     ${data} 
     Wait Until Keyword Succeeds   5x    5s     INPUT TEXT      ${INPUT_TEXT_BOX_CHANNEL_NAME}      ${data.channel_name}

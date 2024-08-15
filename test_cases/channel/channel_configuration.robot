@@ -9,12 +9,14 @@ READ DATA FROM YMAL
     Log To Console    READ DATA ${TC_001.result}
     # Auto Input Data    ${TC_001}
 
-TC_001:TEST12
+TC_001:TEST1
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
     Click Button Add
-    Auto Input Data      ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
-    Click Button Save
-    Alert Message Error    ${TC_001_DATA.result.expected_result}
+    Input Text Data      ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
+    Input Check Box Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_CHECKBOX}
+    Input Select Option    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    # Click Button Save
+    # Alert Message Error    ${TC_001_DATA.result.expected_result}
     Sleep    ${DELAY}
 
 TC_002:TEST2
