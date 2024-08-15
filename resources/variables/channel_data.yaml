@@ -10,17 +10,36 @@ TC_001:
   channel_host: "sdadssa"
   channel_user: "adssda"
   channel_pass: "sdadssa"
-  channel_port: "002"
+  channel_port: 22
   is_active: "true"
   is_header: "true"
   is_teohong: "true"
   result:
-    expeted_result: Duplicate channel label.
+    expected_result: Save Complete.
 
 TC_002:
+  channel_name: "ssss"
+  channel_file_type: "txt"
+  channel_delimiter: "aaaa"
+  channel_label: "aaaaa"
+  channel_file_name_format: "sddsd"
+  channel_format: "ggggg"
+  channel_temp_path: "ddssd"
+  channel_target_path: "dsxc"
+  channel_host: "sdadssa"
+  channel_user: "adssda"
+  channel_pass: "sdadssa"
+  channel_port: 22
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "true"
+  result:
+    expected_result: Duplicate channel label.
+
+TC_003:
   channel_name: "example2"
   channel_file_type: "csv"
-  channel_delimiter:  ""
+  channel_delimiter:  "|"
   channel_label: "example_label3"
   channel_file_name_format: "format"
   channel_format: "text"
@@ -29,9 +48,9 @@ TC_002:
   channel_host: "host"
   channel_user: "user"
   channel_pass: "pass"
-  channel_port: "003"
+  channel_port: 333
   is_active: "true"
   is_header: "true"
   is_teohong: "true"
   result:
-    expeted_result: Duplicate channel label.
+    expected_result: Save Complete.

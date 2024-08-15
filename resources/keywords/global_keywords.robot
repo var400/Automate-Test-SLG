@@ -51,7 +51,8 @@ Input Text Data
 
 Input Check Box Data   #Work With Check Status Data Check Box
     [Arguments]    ${data}    ${choose_key}
-    FOR    ${key}    ${value}    IN    &{data}
+
+    FOR    ${key}    ${value}   IN    &{data}
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s     Check Status Data Check Box    ${key}    ${value}
     END
 
