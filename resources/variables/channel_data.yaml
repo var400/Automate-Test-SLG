@@ -1,7 +1,7 @@
 TC_001:
   channel_name: "ssss"
   channel_file_type: "txt"
-  channel_file_delimiter: "aaaasss"
+  channel_delimiter: "aaaasss"
   channel_label: "aaaaa"
   channel_file_name_format: "sddsd"
   channel_format: "ggggg"
@@ -14,11 +14,13 @@ TC_001:
   is_active: "true"
   is_header: "true"
   is_teohong: "true"
+  result:
+    expeted_result: Duplicate channel label.
 
 TC_002:
   channel_name: "example2"
   channel_file_type: "csv"
-  channel_file_delimiter: "bbb"
+  channel_delimiter: "bbb"
   channel_label: "example_label3"
   channel_file_name_format: "format"
   channel_format: "text"
@@ -31,3 +33,5 @@ TC_002:
   is_active: "true"
   is_header: "true"
   is_teohong: "true"
+  result:
+    expeted_result: Duplicate channel label.

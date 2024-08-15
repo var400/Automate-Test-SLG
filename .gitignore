@@ -1,2 +1,6 @@
 /.venv/*
 selenium-screenshot*.png
+interactive_console_output.xml
+log.html 
+output.xml
+report.html
