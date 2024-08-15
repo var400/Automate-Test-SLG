@@ -1,6 +1,16 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource   ../../resources/locators/common_locators.robot
+Resource   ../../resources/locators/global_locators.robot
+
+#Open Browser To URL
+#Click Button Add
+#Click Dropdown And Select Option
+#CHECK IS ACTIVE
+#Click Button Save
+#Click Button Cancel
+#Alert Message Success
+#Alert Message Error
+#Auto Input Data
 
 *** Keywords ***
 Open Browser To URL

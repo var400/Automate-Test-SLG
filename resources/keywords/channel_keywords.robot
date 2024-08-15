@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource   ../../resources/keywords/common_keywords.robot
+Resource   ../../resources/keywords/global_keywords.robot
 Resource   ../../resources/locators/channel_locators.robot
 
 *** Keywords ***

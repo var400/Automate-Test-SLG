@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource   ../../resources/Keywords/channel_keywords.robot
-Resource   ../../resources/variables/common_variables.robot
+Resource   ../../resources/variables/global_variables.robot
 Variables    ../../resources/variables/channel_data.yaml
 
 *** Test Cases ***
