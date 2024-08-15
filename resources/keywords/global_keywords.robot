@@ -10,7 +10,9 @@ Resource   ../../resources/locators/global_locators.robot
 #Click Button Cancel
 #Alert Message Success
 #Alert Message Error
-#Auto Input Data
+#Input Text Data
+#Input Check Box Data
+#Input Select Option Data
 
 *** Keywords ***
 Open Browser To URL
@@ -22,13 +24,6 @@ Open Browser To URL
 Click Button Add
     Click Element   ${Button_Add_ConfigurationGroup}
     Sleep    1s
-
-# Click Dropdown And Select Option
-#     [Arguments]    ${dropdown_locator}    ${option_value}
-#     Click Element    ${dropdown_locator}
-#     Wait Until Element Is Visible    //li[@data-value="${option_value}"]    timeout=5s
-#     Click Element    //li[@data-value="${option_value}"]
-
 
 Click Button Save
     Click Button    ${SAVE_BUTTON}
@@ -51,7 +46,7 @@ Alert Message Error
 Input Text Data
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
-        Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s     INPUT TEXT   name=${key}    ${value}
+        Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s     INPUT TEXT   ${TEXT_INPUT_DATA}${key}    ${value}
     END
 
 Input Check Box Data   #Work With Check Status Data Check Box
@@ -62,13 +57,13 @@ Input Check Box Data   #Work With Check Status Data Check Box
 
 Check Status Data Check Box   #Work With Input Check Box Data 
     [Arguments]    ${option_locator}    ${option_value}
-    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    name=${option_locator}
-    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    name=${option_locator}
+    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${CHECK_BOX_INPUT_DATA}${option_locator}
+    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${CHECK_BOX_INPUT_DATA}${option_locator}
 
-Input Select Option
+Input Select Option Data
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
-        Run Keyword If    '${key}' in '${choose_key}'    Click Element    id=mui-component-select-${key}
+        Run Keyword If    '${key}' in '${choose_key}'    Click Element    ${DROPDOWN_INPUT_DATA}${key}
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Element Is Visible    //li[@data-value="${value}"]    timeout=5s
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s    Click Element    //li[@data-value="${value}"]
     END
