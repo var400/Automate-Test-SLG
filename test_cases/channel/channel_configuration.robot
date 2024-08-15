@@ -23,6 +23,6 @@ TC_002:TEST2
     Click Button Add
     Input Data     ${TC_002}
     Click Button Save
-    Alert Message Success   Duplicate channel label.
+    Alert Message Success   Success Complete.
 
 # robot --test "READ DATA FROM YAML" path/to/your/test_cases/channel/TC_001.robot
