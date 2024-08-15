@@ -10,7 +10,6 @@ READ DATA FROM YMAL
     # Auto Input Data    ${TC_001}
 
 TC_001:TEST12
-    #Load Channel Data    TC_001
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
     Click Button Add
     Auto Input Data      ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}

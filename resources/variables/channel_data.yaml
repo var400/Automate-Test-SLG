@@ -1,7 +1,7 @@
 TC_001:
   channel_name: "ssss"
   channel_file_type: "txt"
-  channel_delimiter: "aaaasss"
+  channel_delimiter: 
   channel_label: "aaaaa"
   channel_file_name_format: "sddsd"
   channel_format: "ggggg"
@@ -20,7 +20,7 @@ TC_001:
 TC_002:
   channel_name: "example2"
   channel_file_type: "csv"
-  channel_delimiter: "bbb"
+  channel_delimiter:  ""
   channel_label: "example_label3"
   channel_file_name_format: "format"
   channel_format: "text"
