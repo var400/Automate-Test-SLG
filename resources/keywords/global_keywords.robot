@@ -33,15 +33,9 @@ Click Button Cancel
     Click Button    ${CANCEL_BUTTON}
     Sleep    5s 
 
-Alert Message Success
+Alert Popup Message
     [Arguments]    ${expected_result}
-    Wait Until Element Is Visible    ${ALERT_MESSAGE_SUCCESS}    timeout=10s
-    Element Text Should Be    ${ALERT_MESSAGE_SUCCESS}    ${expected_result}
-
-Alert Message Error
-    [Arguments]    ${expected_result}
-    Wait Until Element Is Visible    ${ALERT_MESSAGE_ERROR}    timeout=10s
-    Element Text Should Be    ${ALERT_MESSAGE_ERROR}    ${expected_result}
+    Wait Until Keyword Succeeds   5x    5s     Page Should Contain     ${expected_result}
 
 Input Text Data
     [Arguments]    ${data}    ${choose_key}

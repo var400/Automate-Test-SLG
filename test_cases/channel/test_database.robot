@@ -13,7 +13,7 @@ ${DBPort}         5432
 ${DBUser}         postgres
 
 *** Test Cases ***
-Select channel
+Get Data Id channel
     @{queryResults} =    Description    SELECT * FROM slg.mst_channel_config;
     Log Many    @{queryResults}
     #Should Be Equal As Strings    ${queryResults[0]}

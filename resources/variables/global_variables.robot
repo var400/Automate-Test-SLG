@@ -10,3 +10,4 @@ ${COMMON_CONFIGURATION_URL}    ${BASE_URL}config/CommonCriteriaList
 ${SPECIFIC_COMMON_CONFIGURATION_URL}    ${BASE_URL}config/SpecificCriteriaList
 ${DATASOURCE_CONFIGURATION_URL}    ${BASE_URL}config/datasourceList
 ${PRESEGMENT_CONFIGURATION_URL}    ${BASE_URL}config/PresegmentList
+${PROFILE_CONFIGURATION_URL}    ${BASE_URL}config/ProfileList
