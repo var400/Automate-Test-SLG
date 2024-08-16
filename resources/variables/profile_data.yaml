@@ -1,0 +1,25 @@
+TC_015:
+  profile_name: "Test Profile"
+  profile_group: "Product Type"
+  profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
+  is_active: "true"
+  result:
+    expected_result: Save Complete.
+
+
+TC_016:
+  profile_name: "Test Profile 2"
+  profile_group: "Product Type"
+  profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
+  is_active: "false"
+  result:
+    expected_result: Save Complete.
+
+
+TC_017:
+  profile_name: ""
+  profile_group: "Product Type"
+  profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
+  is_active: "false"
+  result:
+    expected_result: This value cannot be null.
