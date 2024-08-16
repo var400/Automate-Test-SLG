@@ -10,17 +10,19 @@ Resource    ../../resources/locators/profile_locators.robot
 *** Test Cases ***
 Test Database
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    "where ${CONDITION}='${TC_001_DATA.channel_label}'"
-    Log To Console      ${CHANNEL_ID}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    "where ${CONDITION}='${TC_015_DATA.profile_name}'"
+    Log To Console      ${PROFILE_ID}
     #${CHNNEL_ID}=    Get Data Id  ${QRY_GET_DATA_ID}
-    #Click Edit Botton    ${CHNNEL_ID}
+    # Click Edit Botton    ${PROFILE_ID}
     #Click Delete Botton    ${CHNNEL_ID}
-    #Sleep    ${DELAY}
+    # Sleep    ${DELAY}
 
 
-# Test Database
-#     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-#     Click Button Back
+TC_002
+    [Documentation]    กรณีกดปุ่ม "ย้อนกลับ"
+    Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
+    Click Button Back
+    Sleep    ${DELAY}
 
 
 TC_015 

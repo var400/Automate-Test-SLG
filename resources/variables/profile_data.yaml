@@ -17,9 +17,27 @@ TC_016:
 
 
 TC_017:
+  profile_name: "Prepaid"
+  profile_group: "Product Type"
+  profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
+  is_active: "true"
+  result:
+    expected_result: Duplicate name
+
+
+TC_018:
   profile_name: ""
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
+  is_active: "true"
+  result:
+    expected_result: This value cannot be null.
+
+
+TC_019:
+  profile_name: ""
+  profile_group: ""
+  profile_table: ""
   is_active: "false"
   result:
     expected_result: This value cannot be null.

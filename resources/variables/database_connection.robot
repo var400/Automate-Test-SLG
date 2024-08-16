@@ -1,6 +1,6 @@
 *** Variables ***
 ${DBHost}         localhost
-${DBName}         postgres
-${DBPass}         p@ssw0rd
+${DBName}         slg
+${DBPass}         mysecretpassword
 ${DBPort}         5432
 ${DBUser}         postgres

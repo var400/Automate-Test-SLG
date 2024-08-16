@@ -39,8 +39,8 @@ Click Button Cancel
     Click Button    ${LOCATOR_CANCEL_BUTTON}
     Sleep    5s 
 
-Click Button Back To Dashboard
-    Click Element    //div[@class="MuiBox-root css-1pgize9"]//button
+Click Button Back
+    Click Element    ${LOCATOR_BUTTON_BACK}
 
 Click Edit Botton
     [Arguments]    ${data_id}
