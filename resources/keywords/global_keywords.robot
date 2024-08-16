@@ -1,6 +1,12 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    DatabaseLibrary
+Library    OperatingSystem
+Library    Collections
+Library    BuiltIn
+Library    ../../libs/yaml_helper.py
 Resource   ../../resources/locators/global_locators.robot
+Resource   ../../resources/variables/database_connection.robot
 
 #Open Browser To URL
 #Click Button Add
@@ -22,16 +28,27 @@ Open Browser To URL
     Sleep    5s
 
 Click Button Add
-    Click Element   ${Button_Add_ConfigurationGroup}
+    Click Element   ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
     Sleep    1s
 
 Click Button Save
-    Click Button    ${SAVE_BUTTON}
+    Click Button    ${LOCATOR_SAVE_BUTTON}
     Sleep    1s
 
 Click Button Cancel
-    Click Button    ${CANCEL_BUTTON}
+    Click Button    ${LOCATOR_CANCEL_BUTTON}
     Sleep    5s 
+
+Click Button Back To Dashboard
+    Click Element    //div[@class="MuiBox-root css-1pgize9"]//button
+
+Click Edit Botton
+    [Arguments]    ${data_id}
+    Click Element    //div[@data-id="${data_id}"]//div[@data-field="Detail" ]
+
+Click Delete Botton
+    [Arguments]    ${data_id}
+    Click Element    //div[@data-id="${data_id}"]//div[@data-field="Delete" ]
 
 Alert Popup Message
     [Arguments]    ${expected_result}
@@ -40,7 +57,7 @@ Alert Popup Message
 Input Text Data
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
-        Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s     INPUT TEXT   ${TEXT_INPUT_DATA}${key}    ${value}
+        Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s     INPUT TEXT   ${LOCATOR_TEXT_INPUT_DATA}${key}    ${value}
     END
 
 Input Check Box Data   #Work With Check Status Data Check Box
@@ -52,13 +69,24 @@ Input Check Box Data   #Work With Check Status Data Check Box
 
 Check Status Data Check Box   #Work With Input Check Box Data 
     [Arguments]    ${option_locator}    ${option_value}
-    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${CHECK_BOX_INPUT_DATA}${option_locator}
-    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${CHECK_BOX_INPUT_DATA}${option_locator}
+    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
+    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
 
 Input Select Option Data
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
-        Run Keyword If    '${key}' in '${choose_key}'    Click Element    ${DROPDOWN_INPUT_DATA}${key}
+        Run Keyword If    '${key}' in '${choose_key}'    Click Element    ${LOCATOR_DROPDOWN_INPUT_DATA}${key}
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Element Is Visible    //li[@data-value="${value}"]    timeout=5s
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s    Click Element    //li[@data-value="${value}"]
     END
+    
+Get Data Id
+    [Arguments]    ${column}    ${table}    ${condition}
+    Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
+    ${script_qry} =    Set Variable    SELECT ${column} FROM ${table} ${condition}
+    ${queryResults} =    Query    ${script_qry}
+    ${result} =    Set Variable    ${queryResults[0][0]}
+    Disconnect From Database
+    [Return]    ${result}
+
+        

@@ -13,9 +13,9 @@ ${DBPort}         5432
 ${DBUser}         postgres
 
 *** Test Cases ***
-Get Data Id channel
-    @{queryResults} =    Description    SELECT * FROM slg.mst_channel_config;
-    Log Many    @{queryResults}
+Get Data
+    ${queryResults} =    Query    SELECT * FROM slg.mst_channel_config;
+    Log To Console    ${queryResults}
     #Should Be Equal As Strings    ${queryResults[0]}
 
 etrieve records from person table
