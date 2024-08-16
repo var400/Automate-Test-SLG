@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    RequestsLibrary
 Resource   ../../resources/Keywords/channel_keywords.robot
 Resource   ../../resources/variables/global_variables.robot
 Resource    ../../resources/variables/channel_variables.robot
@@ -18,7 +19,9 @@ TC_001
     Input Select Option Data   ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     Click Button Save
     Wait Until Keyword Succeeds   5x    5s     Page Should Contain     ${TC_001_DATA.result.expected_result}
-    Sleep    ${DELAY}
+    Create Session    myapi    http://localhost:44300/api/MasterController
+    ${response}=    GET On Session  http://localhost:44300/api/MasterController/GetChannelList
+    Log To Console    ${response.text}
     Close Browser
 
 TC_002
