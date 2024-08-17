@@ -81,12 +81,6 @@ Check Status Data Check Box   #Work With Input Check Box Data
     Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
     Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
     
-Auto Insert Data
-    [Arguments]    ${data}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}
-    Input Text Data    ${data}    ${text_choose_key}
-    Input Check Box Data    ${data}    ${check_box_choose_key}
-    Input Select Option Data    ${data}    ${select_option_choose_key}
-    
 Get Data Id
     [Arguments]    ${column}    ${table}    ${condition}
     Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
@@ -96,44 +90,6 @@ Get Data Id
     ${result} =    Set Variable    ${queryResults[0][0]}
     Disconnect From Database
     [RETURN]    ${result}
-    
-#Auto Check List Data 
-#    [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
-#        IF    '${data['is_active']}' == 'true'
-#            Element Should Be Visible    //div[@data-id="${data_id}"]
-#			FOR    ${key}    ${value}    IN    &{data}
-#				Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
-#				Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]      ${value}
-#				Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="true"]
-#				Run Keyword If    '${key}' in '${choose_key_boolean}'   Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="true"]
-#			END
-#        ELSE IF    '${data['is_active']}' == 'false'
-#            Element Should Not Be Visible    //div[@data-id="${data_id}"]
-#			Click Show All Status    any
-#			FOR    ${key}    ${value}    IN    &{data}
-#				Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
-#				Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]      ${value}
-#				Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="false"]
-#				Run Keyword If    '${key}' in '${choose_key_boolean}'    Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="false"]
-#			END
-#        END
-
-Auto Check List Data 
-    [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
-    IF    '${data['is_active']}' == 'true'
-        Check List Data Is Visible    ${data_id}
-		FOR    ${key}    ${value}    IN    &{data}
-            Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
-            Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
-		END
-    ELSE IF    '${data['is_active']}' == 'false'
-        Check List Data Is Not Visible    ${data_id}
-		Click Show Status    any
-		FOR    ${key}    ${value}    IN    &{data}
-            Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
-            Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
-		END
-    END
 
 Check List Data Is Visible
     [Arguments]    ${data_id}
@@ -157,7 +113,6 @@ Check List Status Data
         Run Keyword If    '${key}' in '${choose_key_boolean}'    Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
     END
 
-
 Click Show Status
     [Arguments]    ${status}
     Scroll Until Find Element    100    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}
@@ -179,4 +134,27 @@ Scroll Until Find Element
         Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
         Sleep    1s    # รอให้การ scroll มีผล
         ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
+    END
+
+Auto Insert Data
+    [Arguments]    ${data}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}
+    Input Text Data    ${data}    ${text_choose_key}
+    Input Check Box Data    ${data}    ${check_box_choose_key}
+    Input Select Option Data    ${data}    ${select_option_choose_key}
+
+Auto Check List Data 
+    [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
+    IF    '${data['is_active']}' == 'true'
+        Check List Data Is Visible    ${data_id}
+		FOR    ${key}    ${value}    IN    &{data}
+            Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
+            Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
+		END
+    ELSE IF    '${data['is_active']}' == 'false'
+        Check List Data Is Not Visible    ${data_id}
+		Click Show Status    any
+		FOR    ${key}    ${value}    IN    &{data}
+            Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
+            Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
+		END
     END

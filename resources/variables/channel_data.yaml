@@ -11,7 +11,7 @@ TC_001:
   channel_user: "adssda"
   channel_pass: "sdadssa"
   channel_port: 22
-  is_active: "true"
+  is_active: "false"
   is_header: "true"
   is_teohong: "true"
   result:
