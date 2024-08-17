@@ -128,7 +128,7 @@ Auto Check List Data
 		END
     ELSE IF    '${data['is_active']}' == 'false'
         Check List Data Is Not Visible    ${data_id}
-		Click Show All Status    any
+		Click Show Status    any
 		FOR    ${key}    ${value}    IN    &{data}
             Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
             Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
@@ -158,7 +158,7 @@ Check List Status Data
     END
 
 
-Click Show All Status
+Click Show Status
     [Arguments]    ${status}
     Scroll Until Find Element    100    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}
     Mouse Over    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}
