@@ -95,27 +95,59 @@ Get Data Id
     ${result} =    Set Variable    ${queryResults[0][0]}
     Disconnect From Database
     [RETURN]    ${result}
+    
+#Auto Check List Data 
+#    [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
+#        IF    '${data['is_active']}' == 'true'
+#            Element Should Be Visible    //div[@data-id="${data_id}"]
+#			FOR    ${key}    ${value}    IN    &{data}
+#				Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
+#				Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]      ${value}
+#				Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="true"]
+#				Run Keyword If    '${key}' in '${choose_key_boolean}'   Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="true"]
+#			END
+#        ELSE IF    '${data['is_active']}' == 'false'
+#            Element Should Not Be Visible    //div[@data-id="${data_id}"]
+#			Click Show All Status    any
+#			FOR    ${key}    ${value}    IN    &{data}
+#				Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
+#				Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]      ${value}
+#				Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="false"]
+#				Run Keyword If    '${key}' in '${choose_key_boolean}'    Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="false"]
+#			END
+#        END
 
 Auto Check List Data 
     [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
         IF    '${data['is_active']}' == 'true'
             Element Should Be Visible    //div[@data-id="${data_id}"]
 			FOR    ${key}    ${value}    IN    &{data}
-				Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
-				Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]      ${value}
-				Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="true"]
-				Run Keyword If    '${key}' in '${choose_key_boolean}'   Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="true"]
+                Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
+                Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
 			END
         ELSE IF    '${data['is_active']}' == 'false'
             Element Should Not Be Visible    //div[@data-id="${data_id}"]
 			Click Show All Status    any
 			FOR    ${key}    ${value}    IN    &{data}
-				Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
-				Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]      ${value}
-				Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="false"]
-				Run Keyword If    '${key}' in '${choose_key_boolean}'    Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="false"]
+                Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
+                Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
 			END
         END
+
+Check List Text Data
+    [Arguments]    ${data_id}    ${data}    ${choose_key_text}
+	FOR    ${key}    ${value}    IN    &{data}
+		Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
+		Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]//div[@data-field="${key}"]      ${value}
+	END
+
+Check List Status Data
+    [Arguments]    ${data_id}    ${data}    ${choose_key_boolean}
+    FOR    ${key}    ${value}    IN    &{data}
+        Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
+        Run Keyword If    '${key}' in '${choose_key_boolean}'    Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
+    END
+
 
 Click Show All Status
     [Arguments]    ${status}
