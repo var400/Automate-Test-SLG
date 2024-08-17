@@ -9,4 +9,5 @@ ${LOCATOR_DROPDOWN_INPUT_DATA}    id=mui-component-select-
 ${LOCATOR_TEXT_INPUT_DATA}    name=
 ${LOCATOR_CHECK_BOX_INPUT_DATA}    name=
 ${LOCATOR_BUTTON_BACK}    //div[@class="MuiBox-root css-1pgize9"]//button
-...    #//h2[@class="swal2-title"]
+${LOCATOR_GROUP_TITLE_LIST}    //div[@class="MuiDataGrid-row--borderBottom css-yrdy0g-MuiDataGrid-columnHeaderRow"]
+${LOCATOR_TITLE_NAME_LIST}    //div[@data-field="is_active"]

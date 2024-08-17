@@ -8,13 +8,13 @@ Resource    ../../resources/variables/channel_variables.robot
 *** Test Cases ***
 READ DATA FROM YMAL
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
-    Click Element    //div[@class="MuiBox-root css-1pgize9"]//button
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    "where ${CONDITION}='${TC_001_DATA.channel_label}'"
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_001_CONDITION}
+    Auto Check List Data   ${CHANNEL_ID}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
     #${CHNNEL_ID}=    Get Data Id  ${QRY_GET_DATA_ID}
     #Click Edit Botton    ${CHNNEL_ID}
     #Click Delete Botton    ${CHNNEL_ID}
-    #Sleep    ${DELAY}
+    # #Sleep    ${DELAY}
 
 TC_001
     [Documentation]    ตรวจสอบกรณีผู้ใช้ทำการเพิ่ม/แก้ไข/ลบ  Channel
