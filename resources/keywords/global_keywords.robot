@@ -116,26 +116,33 @@ Check List Status Data
 Click Show Status
     [Arguments]    ${status}
     Scroll Until Find Element    100    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}
-    Mouse Over    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}
+    Click Element    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}
     Wait Until Element Is Visible    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}//div[@class="MuiDataGrid-menuIcon"]
     Wait Until Keyword Succeeds    5x    5s    Click Element    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}//div[@class="MuiDataGrid-menuIcon"]
     Wait Until Keyword Succeeds    5x    5s    Click Element    //ul[@class="MuiList-root MuiList-padding MuiDataGrid-menuList css-fsg6gs-MuiList-root"]//li[@class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"]//*[text()="Filter"]
     Wait Until Keyword Succeeds    5x    5s    Click Element    //div[@class="MuiDataGrid-panelWrapper css-1miuj5f-MuiDataGrid-panelWrapper"]//div[@class="MuiFormControl-root MuiDataGrid-filterFormValueInput css-1h08ml-MuiFormControl-root-MuiDataGrid-filterFormValueInput"]//div[@role="combobox"]
-    Sleep     1s
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper MuiMenu-paper MuiMenu-paper css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper"]//ul[@role="listbox"]//li[text()="${status}"]
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Sleep     1s
-    Execute JavaScript  window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= 1000
+    Scroll Page    left    100
+
+Scroll Page    
+    [Arguments]    ${control}    ${length}
+    Run Keyword If    '${control}' == 'right'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
+    Run Keyword If    '${control}' == 'left'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
+    Run Keyword If    '${control}' == 'up'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
+    Run Keyword If    '${control}' == 'down'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
+
 
 Scroll Until Find Element
     [Arguments]    ${length}    ${locator_option}
     ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
     WHILE    '${found}' == 'False'
-        Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
+        Scroll Page    right    100
         Sleep    1s    # รอให้การ scroll มีผล
         ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
     END
-
+    
 Auto Insert Data
     [Arguments]    ${data}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}
     Input Text Data    ${data}    ${text_choose_key}
