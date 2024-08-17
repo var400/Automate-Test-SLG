@@ -121,19 +121,27 @@ Get Data Id
 Auto Check List Data 
     [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
     IF    '${data['is_active']}' == 'true'
-        Element Should Be Visible    //div[@data-id="${data_id}"]
+        Check List Data Is Visible    ${data_id}
 		FOR    ${key}    ${value}    IN    &{data}
             Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
             Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
 		END
     ELSE IF    '${data['is_active']}' == 'false'
-        Element Should Not Be Visible    //div[@data-id="${data_id}"]
+        Check List Data Is Not Visible    ${data_id}
 		Click Show All Status    any
 		FOR    ${key}    ${value}    IN    &{data}
             Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
             Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
 		END
     END
+
+Check List Data Is Visible
+    [Arguments]    ${data_id}
+    Element Should Be Visible    //div[@data-id="${data_id}"]
+
+Check List Data Is Not Visible
+    [Arguments]    ${data_id}
+    Element Should Not Be Visible    //div[@data-id="${data_id}"]
 
 Check List Text Data
     [Arguments]    ${data_id}    ${data}    ${choose_key_text}
