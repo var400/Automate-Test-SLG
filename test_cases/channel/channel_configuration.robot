@@ -20,9 +20,7 @@ TC_001
     [Documentation]    ตรวจสอบกรณีผู้ใช้ทำการเพิ่ม/แก้ไข/ลบ  Channel
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
     Click Button Add
-    Input Text Data      ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
-    Input Check Box Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_CHECKBOX}
-    Input Select Option Data   ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     Click Button Save
     Alert Popup Message     ${TC_001_DATA.result.expected_result}
     Close Browser

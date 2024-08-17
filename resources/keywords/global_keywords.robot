@@ -80,7 +80,12 @@ Input Select Option Data
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Element Is Visible    //li[@data-value="${value}"]    timeout=5s
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s    Click Element    //li[@data-value="${value}"]
     END
-
+Auto Insert Data
+    [Arguments]    ${data}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}
+    Input Text Data    ${data}    ${text_choose_key}
+    Input Check Box Data    ${data}    ${check_box_choose_key}
+    Input Select Option Data    ${data}    ${select_option_choose_key}
+    
 Get Data Id
     [Arguments]    ${column}    ${table}    ${condition}
     Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
