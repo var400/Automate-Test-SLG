@@ -4,5 +4,4 @@ interactive_console_output.xml
 log.html 
 output.xml
 report.html
-resources/variables/robotdatabase_connection.robot
-resources\variables\database_connection.robot
+resources/variables/database_connection.robot
