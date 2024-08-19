@@ -141,13 +141,17 @@ Scroll Page
 
 Scroll Until Find Element
     [Arguments]    ${length}    ${locator_option}
-    ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
-    WHILE    '${found}' == 'False'
-        Scroll Page    right    100
-        Sleep    1s    # รอให้การ scroll มีผล
+    Scroll Element Into View    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    ${found_scroll_bar}=    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    IF    '${found_scroll_bar}' == 'true'
         ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
+        WHILE    '${found}' == 'False'
+            Scroll Page    right    100
+            Sleep    1s    # รอให้การ scroll มีผล
+            ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
+        END
     END
-    
+
 Auto Insert Data
     [Arguments]    ${data}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}
     Input Text Data    ${data}    ${text_choose_key}
