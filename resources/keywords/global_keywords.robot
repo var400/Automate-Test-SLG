@@ -26,7 +26,11 @@ Open Browser To URL
     [Arguments]    ${url}    ${browser}
     Open Browser    ${url}    ${browser}
     Maximize Browser Window
+    Resize Browser Window To 80 Percent
     Sleep    5s
+
+Resize Browser Window To 80 Percent
+    Execute javascript       document.body.style.zoom="80%"
 
 Click Button Add
     Click Element   ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
@@ -115,7 +119,7 @@ Auto Check List Data
         Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
         Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
     END
-    
+
 Check List Text Data
     [Arguments]    ${data_id}    ${data}    ${choose_key_text}
 	FOR    ${key}    ${value}    IN    &{data}
