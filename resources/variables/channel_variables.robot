@@ -19,7 +19,6 @@ ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    channel_file_type
 #Set Variable Database
 ${TABLE_NAME}    slg.mst_channel_config
 ${COLUMN_ID}    channel_id
-${CONDITION}    channel_label
 
 #${QRY_DATA_ID}    ${TABLE_NAME}${COLUMN_ID}${CONDITION}
 #GET DATA
@@ -29,7 +28,6 @@ ${TC_003_DATA}    ${TC_003}
 
 #TC_001
 ${TC_001_DATA}    ${TC_001}
-${TC_001_CONDITION}    where ${CONDITION}='${TC_001_DATA.channel_label}'
 ${TC_001_QRY_GET_DATA_ID}    SELECT channel_id FROM slg.mst_channel_config where channel_label='${TC_001_DATA.channel_label}'
 
 #TC_002
