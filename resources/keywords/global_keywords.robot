@@ -224,16 +224,17 @@ Check Status Data Check Box Edit Page   #Work With Input Check Box Data
     Run Keyword If    '${option_value}' == 'true'    Checkbox Should Be Selected    ${option_locator}
     Run Keyword If    '${option_value}' == 'false'   Checkbox Should Not Be Selected    ${option_locator}
 
+
 ####CHANGE DATA EDIT PAGE####
-Auto Change Data Edit Page
+Auto Update Data
     [Arguments]    ${data}   ${choose_key_text}    ${choose_key_select_option}    ${choose_key_check_box}
-    Change Text Data Edit Page    ${data}    ${choose_key_text}
-    Change Select Option Data Edit Page    ${data}    ${choose_key_select_option}
-    Change Check Box Data Edit Page    ${data}    ${choose_key_check_box}
+    Update Text Data    ${data}    ${choose_key_text}
+    Update Select Option Data    ${data}    ${choose_key_select_option}
+    Update Check Box Data    ${data}    ${choose_key_check_box}
     Sleep    5s
 
 
-Change Text Data Edit Page
+Update Text Data
     [Arguments]    ${data}   ${choose_key_text}
     FOR    ${key}    ${value}    IN    &{data}
         IF    '${key}' in '${choose_key_text}'
@@ -253,7 +254,7 @@ Change Text Data Edit Page
         END
     END
 
-Change Select Option Data Edit Page
+Update Select Option Data
     [Arguments]    ${data}   ${choose_key_select_option}
     FOR    ${key}    ${value}    IN    &{data}
         IF    '${key}' in '${choose_key_select_option}'
@@ -268,19 +269,19 @@ Change Select Option Data Edit Page
         END
     END
 
-Change Check Box Data Edit Page
+Update Check Box Data
     [Arguments]    ${data}   ${choose_key_check_box}
     FOR    ${key}    ${value}    IN    &{data}
         IF    '${key}' in '${choose_key_check_box}'
             Wait Until Keyword Succeeds   5x    2s    Scroll Element Into View    name=${key}
             ${data_has_change}=    Wait Until Keyword Succeeds   5x    2s    Run Keyword And Return Status    Textfield Value Should Be   name=${key}    ${value}
             IF    '${data_has_change}' == 'False'
-                Wait Until Keyword Succeeds   5x    2s    Check Status Change Data Check Box   name=${key}    ${value}
+                Wait Until Keyword Succeeds   5x    2s    Check Status Update Check Box Data   name=${key}    ${value}
             END
         END
     END
 
-Check Status Change Data Check Box   #Work With Input Check Box Data 
+Check Status Update Check Box Data
     [Arguments]    ${option_locator}    ${option_value}
     Scroll Element Into View    ${option_locator}
     Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${option_locator}
