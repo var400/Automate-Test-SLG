@@ -47,3 +47,37 @@ Input Data
     #IS_TEOHONG
     Wait Until Keyword Succeeds   5x    5s     CHECK IS TEOHONG    ${data.is_teohong}
     Sleep    5s 
+
+Check Text Data Is True
+    [Arguments]    ${data}    ${choose_key_all_field}    ${choose_key_text}    ${choose_key_select_option}    ${choose_key_check_box}
+	FOR    ${key}    ${value}    IN    &{data}
+        ${tag_name}=    Run Keyword If    '${key}' in '${choose_key_all_field}'    Get Element Attribute    name=${key}    tagName
+        Log To Console    ${tag_name}
+        IF    '${tag_name}' == 'TEXTAREA' and '${key}' in '${choose_key_all_field}'    
+            Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s     Textarea Value Should Be   name=${key}    ${value}
+            Run Keyword If    '${key}' in '${choose_key_select_option}'    Wait Until Keyword Succeeds   5x    5s     Textarea Value Should Be   name=${key}    ${value}
+            IF  '${value}' == 'true'
+                Run Keyword If    '${key}' in '${choose_key_check_box}'    Wait Until Keyword Succeeds   5x    5s     Checkbox Should Be Selected   name=${key}
+            ELSE IF    '${value}' == 'false'
+                Run Keyword If    '${key}' in '${choose_key_check_box}'    Wait Until Keyword Succeeds   5x    5s     Checkbox Should Not Be Selected   name=${key}
+            END
+        ELSE IF    '${tag_name}' == 'INPUT' and '${key}' in '${choose_key_all_field}'    
+            Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s     Textfield Value Should Be   name=${key}    ${value}
+            Run Keyword If    '${key}' in '${choose_key_select_option}'    Wait Until Keyword Succeeds   5x    5s     Textfield Value Should Be   name=${key}    ${value}
+            IF  '${value}' == 'true'
+                Run Keyword If    '${key}' in '${choose_key_check_box}'    Wait Until Keyword Succeeds   5x    5s     Checkbox Should Be Selected   name=${key}
+            ELSE IF    '${value}' == 'false'
+                Run Keyword If    '${key}' in '${choose_key_check_box}'    Wait Until Keyword Succeeds   5x    5s     Checkbox Should Not Be Selected   name=${key}
+            END
+        END
+	END
+
+Check Text Data
+    
+
+Check Element Type
+        [Arguments]    ${locator_option}
+        ${tag_name}=    Get Element Attribute    ${locator_option}    tagName
+        Run Keyword If    '${tag_name}' == 'TEXTAREA'    Log    The element is a textarea
+        Run Keyword If    '${tag_name}' == 'INPUT'    Log    The element is a textfield
+        RETURN    ${tag_name}

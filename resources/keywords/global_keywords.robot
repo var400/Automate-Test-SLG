@@ -115,10 +115,10 @@ Check List Status Data
 
 Click Show Status
     [Arguments]    ${status}
-    Scroll Until Find Element    100    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}
-    Click Element    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}
-    Wait Until Element Is Visible    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}//div[@class="MuiDataGrid-menuIcon"]
-    Wait Until Keyword Succeeds    5x    5s    Click Element    ${LOCATOR_GROUP_TITLE_LIST}${LOCATOR_TITLE_NAME_LIST}//div[@class="MuiDataGrid-menuIcon"]
+    Scroll Until Find Element    100    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}
+    Wait Until Keyword Succeeds    5x    5s    Click Element    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}
+    Wait Until Element Is Visible    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}//div[@class="MuiDataGrid-menuIcon"]
+    Wait Until Keyword Succeeds    5x    5s    Click Element    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}//div[@class="MuiDataGrid-menuIcon"]
     Wait Until Keyword Succeeds    5x    5s    Click Element    //ul[@class="MuiList-root MuiList-padding MuiDataGrid-menuList css-fsg6gs-MuiList-root"]//li[@class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"]//*[text()="Filter"]
     Wait Until Keyword Succeeds    5x    5s    Click Element    //div[@class="MuiDataGrid-panelWrapper css-1miuj5f-MuiDataGrid-panelWrapper"]//div[@class="MuiFormControl-root MuiDataGrid-filterFormValueInput css-1h08ml-MuiFormControl-root-MuiDataGrid-filterFormValueInput"]//div[@role="combobox"]
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper MuiMenu-paper MuiMenu-paper css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper"]//ul[@role="listbox"]//li[text()="${status}"]

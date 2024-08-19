@@ -6,15 +6,12 @@ Resource   ../../resources/variables/global_variables.robot
 Resource    ../../resources/variables/channel_variables.robot
 
 *** Test Cases ***
-READ DATA FROM YMAL
+Test Keyword
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_001_CONDITION}
-    Auto Check List Data   ${CHANNEL_ID}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
-    Log To Console      ${CHANNEL_ID}
-    #${CHNNEL_ID}=    Get Data Id  ${QRY_GET_DATA_ID}
-    #Click Edit Botton    ${CHNNEL_ID}
-    #Click Delete Botton    ${CHNNEL_ID}
-    # #Sleep    ${DELAY}
+    Click Edit Botton    ${CHANNEL_ID}
+    Check Text Data Is True    ${TC_001_DATA}    ${CHOOSE_KEY_EDIT_PAGE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+
 
 TC_001
     [Documentation]    ตรวจสอบกรณีผู้ใช้ทำการเพิ่ม/แก้ไข/ลบ  Channel
