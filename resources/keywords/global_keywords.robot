@@ -132,17 +132,18 @@ Click Show Status
 
 Scroll Page    
     [Arguments]    ${control}    ${length}
-    
-    Run Keyword If    '${control}' == 'right'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
-    Run Keyword If    '${control}' == 'left'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
-    Run Keyword If    '${control}' == 'up'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
-    Run Keyword If    '${control}' == 'down'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
-
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    IF    '${found_scroll_bar}' == 'True'
+        Run Keyword If    '${control}' == 'right'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
+        Run Keyword If    '${control}' == 'left'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
+        Run Keyword If    '${control}' == 'up'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
+        Run Keyword If    '${control}' == 'down'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
+    END
 
 Scroll Until Find Element
     [Arguments]    ${length}    ${locator_option}
-    Scroll Element Into View    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
-    ${found_scroll_bar}    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    # Scroll Element Into View    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
     IF    '${found_scroll_bar}' == 'True'
         ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
         WHILE    '${found}' == 'False'
