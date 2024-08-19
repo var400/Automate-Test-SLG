@@ -2,9 +2,10 @@ TC_015:
   profile_name: "Test Profile"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
-  is_active: "true"
+  is_active: "false"
   result:
     expected_result: Save Complete.
+  condition: where profile_name='Test Profile'
 
 
 TC_016:

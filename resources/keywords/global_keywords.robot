@@ -41,6 +41,7 @@ Click Button Cancel
     Sleep    5s 
 
 Click Button Back
+    Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_BUTTON_BACK}
     Click Element    ${LOCATOR_BUTTON_BACK}
 
 Click Edit Botton
@@ -58,6 +59,7 @@ Alert Popup Message
 Input Text Data
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
+        Run Keyword If    '${key}' in '${choose_key}'    Scroll Element Into View    ${LOCATOR_TEXT_INPUT_DATA}${key}
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s     INPUT TEXT   ${LOCATOR_TEXT_INPUT_DATA}${key}    ${value}
     END
 
@@ -71,13 +73,15 @@ Input Check Box Data   #Work With Check Status Data Check Box
 Input Select Option Data
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
-        Run Keyword If    '${key}' in '${choose_key}'    Click Element    ${LOCATOR_DROPDOWN_INPUT_DATA}${key}
+        Run Keyword If    '${key}' in '${choose_key}'    Scroll Element Into View    //div[@id="mui-component-select-${key}"]
+        Run Keyword If    '${key}' in '${choose_key}'    Click Element    //div[@id="mui-component-select-${key}"]
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Element Is Visible    //li[@data-value="${value}"]    timeout=5s
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s    Click Element    //li[@data-value="${value}"]
     END
 
 Check Status Data Check Box   #Work With Input Check Box Data 
     [Arguments]    ${option_locator}    ${option_value}
+    Scroll Element Into View    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
     Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
     Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
     

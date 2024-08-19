@@ -10,7 +10,8 @@ Resource    ../../resources/locators/profile_locators.robot
 *** Test Cases ***
 Test Database
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    "where ${CONDITION}='${TC_015_DATA.profile_name}'"
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
+    Auto Check List Data   ${PROFILE_ID}     ${TC_015_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
     #${CHNNEL_ID}=    Get Data Id  ${QRY_GET_DATA_ID}
     # Click Edit Botton    ${PROFILE_ID}
@@ -19,8 +20,16 @@ Test Database
 
 
 TC_002
-    [Documentation]    กรณีกดปุ่ม "ย้อนกลับ"
+    [Documentation]    ที่หน้าจอ "Configuration Profile" กรณีกดปุ่ม "ย้อนกลับ"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
+    Click Button Back
+    Sleep    ${DELAY}
+
+
+TC_014
+    [Documentation]    ที่หน้าจอ "Add Profile" กรณีกดปุ่ม "ย้อนกลับ" 
+    Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
+    Click Button Add
     Click Button Back
     Sleep    ${DELAY}
 
@@ -78,9 +87,26 @@ TC_019
     Sleep    ${DELAY}
 
 
+TC_020
+    [Documentation]    กรณีกดปุ่ม "Cancel"
+    Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
+    Click Button Add
+    Click Button Cancel
+    Sleep    ${DELAY}
+
+
+TC_022
+    [Documentation]    ที่หน้าจอ "Edit Profile" กรณีกดปุ่ม "ย้อนกลับ"
+    Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
+
+
+
 
 
 # TC_test
 #     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
 #     Click Button Edit    ${LOCATOR_BUTTON_EDIT_CONFIGURATIONGROUP}
 #     Sleep    ${DELAY}
+
+
+

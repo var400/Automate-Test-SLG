@@ -17,6 +17,8 @@ ${TC_019_DATA}    ${TC_019}
 #GET DATA CHOOSE
 ${CHOOSE_KEY_INPUT_TEXT}    profile_name,profile_group,profile_table
 ${CHOOSE_KEY_INPUT_CHECKBOX}    is_active
+${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    profile_name,profile_group,profile_table
+${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}    is_active
 
 
 #Set Variable Database
