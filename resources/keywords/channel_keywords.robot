@@ -73,7 +73,17 @@ Check Text Data Is True
 	END
 
 Check Text Data
-    
+    [Arguments]    ${tag_name}    ${data}   ${choose_key_text}
+        FOR    ${key}    ${value}    IN    &{data}
+            IF    '${tag_name}' == 'TEXTAREA' and '${key}' in '${choose_key_text}'
+                Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s     Textarea Value Should Be   name=${key}    ${value}
+            ELSE IF    '${tag_name}' == 'INPUT' and '${key}' in '${choose_key_text}'
+                Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s     Textfield Value Should Be   name=${key}    ${value}
+            END
+
+        END
+
+Check Check Data
 
 Check Element Type
         [Arguments]    ${locator_option}

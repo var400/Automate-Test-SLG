@@ -29,8 +29,8 @@ Open Browser To URL
     Resize Browser Window To 80 Percent
     Sleep    5s
 
-Resize Browser Window To 80 Percent
-    Execute javascript       document.body.style.zoom="80%"
+# Resize Browser Window To 80 Percent
+#     Execute javascript       document.body.style.zoom="80%"
 
 Click Button Add
     Click Element   ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
