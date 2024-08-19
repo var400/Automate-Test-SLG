@@ -103,6 +103,19 @@ Check List Data Is Not Visible
     [Arguments]    ${data_id}
     Element Should Not Be Visible    //div[@data-id="${data_id}"]
 
+Auto Check List Data 
+    [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
+    IF    '${data['is_active']}' == 'true'
+        Check List Data Is Visible    ${data_id}
+        Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
+        Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
+    ELSE IF    '${data['is_active']}' == 'false'
+        Check List Data Is Not Visible    ${data_id}
+		Click Show Status    any
+        Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
+        Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
+    END
+    
 Check List Text Data
     [Arguments]    ${data_id}    ${data}    ${choose_key_text}
 	FOR    ${key}    ${value}    IN    &{data}
@@ -158,20 +171,3 @@ Auto Insert Data
     Input Text Data    ${data}    ${text_choose_key}
     Input Check Box Data    ${data}    ${check_box_choose_key}
     Input Select Option Data    ${data}    ${select_option_choose_key}
-
-Auto Check List Data 
-    [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
-    IF    '${data['is_active']}' == 'true'
-        Check List Data Is Visible    ${data_id}
-		FOR    ${key}    ${value}    IN    &{data}
-            Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
-            Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
-		END
-    ELSE IF    '${data['is_active']}' == 'false'
-        Check List Data Is Not Visible    ${data_id}
-		Click Show Status    any
-		FOR    ${key}    ${value}    IN    &{data}
-            Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
-            Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
-		END
-    END
