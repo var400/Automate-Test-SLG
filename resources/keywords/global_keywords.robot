@@ -128,6 +128,7 @@ Click Show Status
 
 Scroll Page    
     [Arguments]    ${control}    ${length}
+    
     Run Keyword If    '${control}' == 'right'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
     Run Keyword If    '${control}' == 'left'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
     Run Keyword If    '${control}' == 'up'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
