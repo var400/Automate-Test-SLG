@@ -15,7 +15,6 @@ ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}    is_active
 ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    channel_name,channel_delimiter,channel_format,channel_label,channel_file_name_format,channel_temp_path,channel_target_path,channel_host,channel_user,channel_pass,channel_port
 ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}    is_active,is_header,is_teohong
 ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    channel_file_type
-${CHOOSE_KEY_EDIT_PAGE}    is_active,is_header,is_teohong,channel_file_type,channel_name,channel_delimiter,channel_format,channel_label,channel_file_name_format,channel_temp_path,channel_target_path,channel_host,channel_user,channel_pass,channel_port
 
 #Set Variable Database
 ${TABLE_NAME}    slg.mst_channel_config

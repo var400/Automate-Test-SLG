@@ -74,6 +74,12 @@ Input Check Box Data   #Work With Check Status Data Check Box
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s     Check Status Data Check Box    ${key}    ${value}
     END
 
+Check Status Data Check Box   #Work With Input Check Box Data 
+    [Arguments]    ${option_locator}    ${option_value}
+    Scroll Element Into View    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
+    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
+    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
+
 Input Select Option Data
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
@@ -82,12 +88,6 @@ Input Select Option Data
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Element Is Visible    //li[@data-value="${value}"]    timeout=5s
         Run Keyword If    '${key}' in '${choose_key}'    Wait Until Keyword Succeeds   5x    5s    Click Element    //li[@data-value="${value}"]
     END
-
-Check Status Data Check Box   #Work With Input Check Box Data 
-    [Arguments]    ${option_locator}    ${option_value}
-    Scroll Element Into View    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
-    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
-    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${LOCATOR_CHECK_BOX_INPUT_DATA}${option_locator}
     
 Get Data Id
     [Arguments]    ${column}    ${table}    ${condition}
@@ -145,7 +145,7 @@ Click Show Status
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper MuiMenu-paper MuiMenu-paper css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper"]//ul[@role="listbox"]//li[text()="${status}"]
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Sleep     1s
-    Scroll Page    left    100
+    Scroll Page    left    500
 
 Scroll Page    
     [Arguments]    ${control}    ${length}
@@ -175,3 +175,48 @@ Auto Insert Data
     Input Text Data    ${data}    ${text_choose_key}
     Input Check Box Data    ${data}    ${check_box_choose_key}
     Input Select Option Data    ${data}    ${select_option_choose_key}
+
+####CHECK EDIT PAGE
+Auto Check Text Data Edit Page
+    [Arguments]    ${data}    ${choose_key_text}    ${choose_key_select_option}    ${choose_key_check_box}
+    Check Text Data Edit Page    ${data}    ${choose_key_text}
+    Check Select Option Data Edit Page    ${data}    ${choose_key_select_option}
+    Check Check Box Data Edit Page    ${data}    ${choose_key_check_box}
+
+Check Text Data Edit Page
+    [Arguments]    ${data}   ${choose_key_text}
+    FOR    ${key}    ${value}    IN    &{data}
+        Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Element Into View    name=${key}
+        ${tag_name}=    Run Keyword If    '${key}' in '${choose_key_text}'    Check Element Type    name=${key}
+        IF    '${tag_name}' == 'TEXTAREA' and '${key}' in '${choose_key_text}'
+            Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s     Textarea Value Should Be   name=${key}    ${value}
+        ELSE IF    '${tag_name}' == 'INPUT' and '${key}' in '${choose_key_text}'
+            Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s     Textfield Value Should Be   name=${key}    ${value}
+        END
+    END
+
+Check Element Type
+    [Arguments]    ${locator_option}
+    ${tag_name}=    Get Element Attribute    ${locator_option}    tagName
+    RETURN    ${tag_name}
+
+
+Check Select Option Data Edit Page
+    [Arguments]    ${data}   ${choose_key_select_option}
+    FOR    ${key}    ${value}    IN    &{data}
+        Run Keyword If    '${key}' in '${choose_key_select_option}'    Scroll Element Into View    name=${key}
+        Run Keyword If    '${key}' in '${choose_key_select_option}'    Wait Until Keyword Succeeds   5x    5s     Textfield Value Should Be   name=${key}    ${value}
+    END
+
+Check Check Box Data Edit Page   #Work With Check Status Data Check Box
+    [Arguments]    ${data}    ${choose_key_check_box}
+
+    FOR    ${key}    ${value}   IN    &{data}
+        Run Keyword If    '${key}' in '${choose_key_check_box}'    Wait Until Keyword Succeeds   5x    5s     Check Status Data Check Box Edit Page    name=${key}    ${value}
+    END
+
+Check Status Data Check Box Edit Page   #Work With Input Check Box Data 
+    [Arguments]    ${option_locator}    ${option_value}
+    Scroll Element Into View    ${option_locator}
+    Run Keyword If    '${option_value}' == 'true'    Checkbox Should Be Selected    ${option_locator}
+    Run Keyword If    '${option_value}' == 'false'   Checkbox Should Not Be Selected    ${option_locator}
