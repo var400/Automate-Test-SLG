@@ -7,6 +7,10 @@ Resource   ../../resources/variables/global_variables.robot
 Resource    ../../resources/variables/channel_variables.robot
 
 *** Test Cases ***
+Clear And Insert Data In Database
+    ${sql_script} =    Get File    ${SQLFilePath}
+    Clear Database    ${sql_script}
+
 Test Keyword
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
     # ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_001_DATA['condition']}

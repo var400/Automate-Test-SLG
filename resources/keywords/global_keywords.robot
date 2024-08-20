@@ -307,3 +307,9 @@ Check Text Alert Validate
         Wait Until Keyword Succeeds   5x    5s    Scroll Element Into View    //div[div[*[@name="${key}"]]]//*[text()="${text_validate}"]
         Wait Until Keyword Succeeds   5x    5s    Element Should Be Visible    //div[div[*[@name="${key}"]]]//*[text()="${text_validate}"]
     END
+
+Clear Database
+    [Arguments]    ${script_sql}
+    Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
+    Wait Until Keyword Succeeds   5x    5s    Execute SQL String    ${script_sql}
+    Disconnect From Database

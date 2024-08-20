@@ -47,4 +47,3 @@ Input Data
     #IS_TEOHONG
     Wait Until Keyword Succeeds   5x    5s     CHECK IS TEOHONG    ${data.is_teohong}
     Sleep    5s 
-
