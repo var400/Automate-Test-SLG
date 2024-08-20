@@ -33,20 +33,25 @@ Resize Browser Window To 80 Percent
     Execute javascript       document.body.style.zoom="80%"
 
 Click Button Add
+    
+    Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
     Click Element   ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
     Sleep    1s
 
 Click Button Save
+    Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_SAVE_BUTTON}
     Click Button    ${LOCATOR_SAVE_BUTTON}
     Sleep    1s
 
 Click Button Cancel
+    Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_CANCEL_BUTTON}
     Click Button    ${LOCATOR_CANCEL_BUTTON}
     Sleep    5s 
 
 Click Button Back
+    Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    //div[@class="MuiBox-root css-1pgize9"]
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_BUTTON_BACK}
-    Click Element    ${LOCATOR_BUTTON_BACK}
+    Wait Until Keyword Succeeds    5x    5s    Click Button    ${LOCATOR_BUTTON_BACK}
 
 Click Edit Botton
     [Arguments]    ${data_id}
@@ -286,3 +291,19 @@ Check Status Update Check Box Data
     Scroll Element Into View    ${option_locator}
     Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${option_locator}
     Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${option_locator}
+
+###CHECK VALIDATE DATA#####
+Check Validate Edit Page
+    [Arguments]    ${data}    ${choose_key_validate}    ${text_validate}
+    FOR    ${key}    ${value}    IN    &{data}
+        IF    '${key}' in '${choose_key_validate}' 
+            Check Text Alert Validate    ${key}    ${value}    ${text_validate}
+        END    
+    END
+
+Check Text Alert Validate
+    [Arguments]    ${key}    ${value}    ${text_validate}
+    IF    '${value}' == ''
+        Wait Until Keyword Succeeds   5x    5s    Scroll Element Into View    //div[div[*[@name="${key}"]]]//*[text()="${text_validate}"]
+        Wait Until Keyword Succeeds   5x    5s    Element Should Be Visible    //div[div[*[@name="${key}"]]]//*[text()="${text_validate}"]
+    END
