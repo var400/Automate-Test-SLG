@@ -75,20 +75,3 @@ TC_005
     Check Validate Edit Page    ${TC_005_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    This value cannot be null.
     # Check Text Alert Validate    channel_name    This value cannot be null.
     Close Browser
-
-*** Keywords ***
-Check Validate Edit Page
-    [Arguments]    ${data}    ${choose_key_validate}    ${text_validate}
-    FOR    ${key}    ${value}    IN    &{data}
-        IF    '${key}' in '${choose_key_validate}' 
-            Check Text Alert Validate    ${key}    ${value}    ${text_validate}
-        END    
-    END
-
-Check Text Alert Validate
-    [Arguments]    ${key}    ${value}    ${text_validate}
-    IF    '${value}' == ''
-        Wait Until Keyword Succeeds   5x    5s    Scroll Element Into View    //div[div[*[@name="${key}"]]]//*[text()="${text_validate}"]
-        Wait Until Keyword Succeeds   5x    5s    Element Should Be Visible    //div[div[*[@name="${key}"]]]//*[text()="${text_validate}"]
-    END
-    
