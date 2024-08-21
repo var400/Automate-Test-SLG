@@ -14,5 +14,6 @@ ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}   //div[@role="columnheader" and @data-field=
 
 ${LOCATOR_ACCEPT_BUTTON_DELETE}   //div[@class="swal2-actions"]//button[text()="Yes"]
 ${LOCATOR_DENY_BUTTON_DELETE}   //div[@class="swal2-actions"]//button[text()="No" and @style="display: inline-block;"]
+${LOCATOR_CANCEL_BUTTON_DELETE}    //button[@type="button" and (.='×')]
 
 ${LOCATOR_SUB_WINDOWS_DETAIL}    //div[@class="MuiDialogContent-root MuiDialogContent-dividers css-1t4vnk2-MuiDialogContent-root"]

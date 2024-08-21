@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Variables    ../../resources/variables/profile_data.yaml
+Variables    ../../resources/variables/src/profile_data.yaml
 
 
 *** Variables ***
@@ -13,6 +13,7 @@ ${COLUMN_ID}    profile_id
 
 
 #GET DATA YAML
+${TC_011_DATA}    ${TC_011}
 ${TC_015_DATA}    ${TC_015}
 ${TC_016_DATA}    ${TC_016}
 ${TC_017_DATA}    ${TC_017} 
@@ -42,4 +43,5 @@ ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}    is_active
 
 #CHECK_VALIDATE
 ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    profile_name
+
 

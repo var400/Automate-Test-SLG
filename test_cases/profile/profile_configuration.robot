@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ../../resources/keywords/global_keywords.robot
+Resource    ../../resources/keywords/profile_keywords.robot
 Resource    ../../resources/variables/global_variables.robot
 Resource    ../../resources/variables/profile_variables.robot
 Resource    ../../resources/locators/profile_locators.robot
@@ -23,6 +24,43 @@ TC_002
     [Documentation]    ที่หน้าจอ "Configuration Profile" กรณีกดปุ่ม "ย้อนกลับ"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Back
+    Check Home Screen
+    Sleep    ${DELAY}
+
+
+TC_010
+    [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "X"
+    Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_011_DATA.condition}
+    Click Delete Botton    ${PROFILE_ID}
+    Alert Popup Message    Do you want to delete item ?
+    Click Button    ${LOCATOR_CANCEL_BUTTON_DELETE}
+    Check List Data Is Visible    ${PROFILE_ID}
+    Sleep    ${DELAY}
+
+
+TC_011
+    [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "Yes"
+    Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_011_DATA.condition}
+    Click Delete Botton    ${PROFILE_ID}
+    Alert Popup Message    Do you want to delete item ?
+    Click Button    ${LOCATOR_ACCEPT_BUTTON_DELETE}
+    Alert Popup Message    Deleted.
+    Check List Data Is Not Visible    ${PROFILE_ID}
+    Click Show Status    any
+    Check List Data Is Visible    ${PROFILE_ID}
+    Sleep    ${DELAY}
+
+
+TC_012
+    [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "No"
+    Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_011_DATA.condition}
+    Click Delete Botton    ${PROFILE_ID}
+    Alert Popup Message    Do you want to delete item ?
+    Click Button    ${LOCATOR_DENY_BUTTON_DELETE}
+    Check List Data Is Visible    ${PROFILE_ID}
     Sleep    ${DELAY}
 
 
@@ -192,3 +230,4 @@ TC_028
     Sleep    ${DELAY}
 
 
+    
