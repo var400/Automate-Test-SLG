@@ -33,7 +33,6 @@ Resize Browser Window To 80 Percent
     Execute javascript       document.body.style.zoom="80%"
 
 Click Button Add
-    
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
     Click Element   ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
     Sleep    1s
