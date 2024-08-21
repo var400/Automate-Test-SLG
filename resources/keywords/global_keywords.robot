@@ -60,6 +60,10 @@ Click Delete Botton
     [Arguments]    ${data_id}
     Click Element    //div[@data-id="${data_id}"]//div[@data-field="Delete" ]
 
+Click Dupplicate Button Group Detail
+    [Arguments]    ${key}
+    Click Element    //div[@data-id="${key}"]//div[@data-field="Dupplicate"]
+    
 Alert Popup Message
     [Arguments]    ${expected_result}
     Wait Until Keyword Succeeds   5x    5s     Page Should Contain     ${expected_result}
@@ -170,7 +174,7 @@ Scroll Until Find Element
         ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
         WHILE    '${found}' == 'False'
             Scroll Page    right    100
-            Sleep    1s    # รอให้การ scroll มีผล
+            # Sleep    1s    # รอให้การ scroll มีผล
             ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
         END
     END

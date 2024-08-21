@@ -16,4 +16,5 @@ ${LOCATOR_ACCEPT_BUTTON_DELETE}   //div[@class="swal2-actions"]//button[text()="
 ${LOCATOR_DENY_BUTTON_DELETE}   //div[@class="swal2-actions"]//button[text()="No" and @style="display: inline-block;"]
 ${LOCATOR_CANCEL_BUTTON_DELETE}    //button[@type="button" and (.='×')]
 
+##ADD DETAIL CONFIG
 ${LOCATOR_SUB_WINDOWS_DETAIL}    //div[@class="MuiDialogContent-root MuiDialogContent-dividers css-1t4vnk2-MuiDialogContent-root"]
