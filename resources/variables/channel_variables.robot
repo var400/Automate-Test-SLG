@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Variables    ../../resources/variables/channel_data.yaml
+Variables    ../../resources/variables/src/channel_data.yaml
 
 *** Variables ***
 ${DELAY}    5s
