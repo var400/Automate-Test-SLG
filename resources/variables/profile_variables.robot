@@ -41,5 +41,5 @@ ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}    is_active
 
 
 #CHECK_VALIDATE
-${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    profile_name,profile_group,profile_table
+${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    profile_name
 

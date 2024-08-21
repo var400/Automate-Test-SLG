@@ -150,9 +150,9 @@ TC_024
 TC_025
     [Documentation]    กรณีระบุ "Profile Name" ที่ มีอยู่แล้ว ในระบบ และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
-    Auto Check Text Data Edit Page    ${TC_015_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_023_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_025_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Alert Popup Message     ${TC_025_DATA.result.expected_result}
@@ -162,9 +162,9 @@ TC_025
 TC_026
     [Documentation]    กรณีไม่ได้ระบุ "Profile Name" และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
-    Auto Check Text Data Edit Page    ${TC_015_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_023_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_026_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_026_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_026_DATA.result.validate_data}
@@ -174,9 +174,9 @@ TC_026
 TC_027
     [Documentation]    กรณีไม่ได้ระบุข้อมูล และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
-    Auto Check Text Data Edit Page    ${TC_015_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_023_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_027_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${EMPTY}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_027_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_027_DATA.result.validate_data}
