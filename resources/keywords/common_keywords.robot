@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
 Resource   ../../resources/keywords/global_keywords.robot
 Resource   ../../resources/locators/common_locators.robot
 
@@ -87,36 +88,92 @@ Get Data Id From Field
     ${group_id}=    Get Element Value From Data Field   ${field}   ${data}    data-id
     [Return]    ${group_id}
 
-Check List Data Dupplicate
-    [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
-    Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
-    Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
-
-    # IF    '${data['is_active']}' == 'true'
-    #     Check List Data Is Visible    ${data_id}
-    #     Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
-    #     Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
-    # ELSE IF    '${data['is_active']}' == 'false'
-    #     Check List Data Is Not Visible    ${data_id}
-	# 	Click Show Status    any
-    #     Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
-    #     Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
-    # END
-    # Scroll Page    left    500
-    
-# Click Edit Button Group Detail
-#     [Arguments]    ${key}
-#     Click Element    //div[@data-id="${key}"]//div[@data-field="Detail"]
-
-# Click Delete Button Group Detail
-#     [Arguments]    ${key}
-#     Click Element    //div[@data-id="${key}"]//div[@data-field="Delete"]
-
-# Click Dupplicate Button Group Detail
-#     [Arguments]    ${key}
-#     Click Element    //div[@data-id="${key}"]//div[@data-field="Dupplicate"]
+Auto Check Text Data Detail Edit Page
+    [Arguments]    ${data}    ${choose_key_auto_complete}    ${choose_key_text}    ${choose_key_select_option}    ${choose_key_check_box}
+    Check Auto Complete Data Detail Edit Page   ${data}    ${choose_key_auto_complete}
+    Check Text Data Edit Page    ${data}    ${choose_key_text}
+    Check Select Option Data Edit Page    ${data}    ${choose_key_select_option}
+    Check Check Box Data Detail Edit Page    ${data}    ${choose_key_check_box}
 
 
-# Click Edit Button Group Detail From Copy Data
-#     [Arguments]    ${index_key}
-#     Click Element    //div[@data-rowindex="${index_key}"]//div[@data-field="Detail"]
+Check Auto Complete Data Detail Edit Page 
+    [Arguments]    ${data}   ${choose_key_auto_complete}
+    FOR    ${key}    ${value}    IN    &{data}
+        IF    '${key}' in '${choose_key_auto_complete}'
+            # ${result}    Set Variable    ${None}
+            ${title}=    Mapping Key Title Name    ${key}
+            IF    '${title}' == 'Field Name'
+                ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
+                ${split_parts}=    Split String    ${text_value}    ${EMPTY}
+                ${result}=    Get From List    ${split_parts}    1
+                Log To Console    ${result} 
+                ${value}=    Evaluate    "${value} ${result}"
+                Log To Console    ${value}
+            END
+            Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input
+            Wait Until Keyword Succeeds   5x    5s     Textfield Value Should Be    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}
+        END
+    END
+
+Check Check Box Data Detail Edit Page   #Work With Check Status Data Check Box
+    [Arguments]    ${data}    ${choose_key_check_box}
+
+    FOR    ${key}    ${value}   IN    &{data}
+        Run Keyword If    '${key}' in '${choose_key_check_box}'    Wait Until Keyword Succeeds   5x    5s     Check Status Data Detail Check Box Edit Page    ${key}    ${value}
+    END
+
+Check Status Data Detail Check Box Edit Page   #Work With Input Check Box Data 
+    [Arguments]    ${option_locator}    ${option_value}
+    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
+    Run Keyword If    '${option_value}' == 'true'    Checkbox Should Be Selected    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
+    Run Keyword If    '${option_value}' == 'false'   Checkbox Should Not Be Selected    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
+
+Auto Update Data Detail
+    [Arguments]    ${data}   ${choose_key_auto_complete}    ${choose_key_text}    ${choose_key_select_option}    ${choose_key_check_box}
+    Update Auto Complete Data    ${data}    ${choose_key_auto_complete}
+    Update Text Data    ${data}    ${choose_key_text}
+    Update Select Option Data    ${data}    ${choose_key_select_option}
+    Update Check Box Data Detail   ${data}    ${choose_key_check_box}
+    Sleep    5s
+
+Update Auto Complete Data
+    [Arguments]    ${data}   ${choose_key_text}
+    FOR    ${key}    ${value}    IN    &{data}
+        IF    '${key}' in '${choose_key_text}'
+            ${title}=    Mapping Key Title Name    ${key}
+            ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
+            ${split_parts}=    Split String    ${text_value}    ${EMPTY}
+            ${result}=    Get From List    ${split_parts}    0
+            # IF    '${title}' == 'Field Name'
+            #     ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
+            #     ${split_parts}=    Split String    ${text_value}    ${EMPTY}
+            #     ${result}=    Get From List    ${split_parts}    0
+            #     # Log To Console    ${result} 
+            #     # ${value}=    Evaluate    "${value} ${result}"
+            #     # Log To Console    ${value}
+            # END
+            IF    '${result}' != '${value}'
+                Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}    ARROW_DOWN    ENTER
+            ELSE
+                Log To Console    ${key} value = ${value} no update on web = ${text_value}
+            END
+        END
+    END
+
+Update Check Box Data Detail
+    [Arguments]    ${data}   ${choose_key_check_box}
+    FOR    ${key}    ${value}    IN    &{data}
+        IF    '${key}' in '${choose_key_check_box}'
+            Wait Until Keyword Succeeds   5x    2s    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${key}"]
+            ${data_has_change}=    Wait Until Keyword Succeeds   5x    2s    Run Keyword And Return Status    Textfield Value Should Be   ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${key}"]    ${value}
+            IF    '${data_has_change}' == 'False'
+                Wait Until Keyword Succeeds   5x    2s    Check Status Update Check Box Data Detail   ${key}    ${value}
+            END
+        END
+    END
+
+Check Status Update Check Box Data Detail   #Work With Input Check Box Data 
+    [Arguments]    ${option_locator}    ${option_value}
+    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
+    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
+    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
