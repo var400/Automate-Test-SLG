@@ -49,6 +49,7 @@ Click Button Cancel
 
 Click Button Back
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    //div[@class="MuiBox-root css-1pgize9"]
+    Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    //div[@class="MuiBox-root css-1pgize9"]
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_BUTTON_BACK}
     Wait Until Keyword Succeeds    5x    5s    Click Button    ${LOCATOR_BUTTON_BACK}
 
