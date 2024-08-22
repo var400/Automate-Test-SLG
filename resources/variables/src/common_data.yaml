@@ -58,3 +58,25 @@ TC_001:
     is_active: "true"
     is_checked: "false"
     is_null: "false"
+
+TC_002:
+  profile_name: ""
+  group_name: ""
+  group_type: ""
+  group_seq: ""
+  group_desc: ""
+  is_active: ""
+  is_disable: ""
+  default_value: ""
+  group_details:
+    DATA_1:
+      schema_name: ""
+      table_name: ""
+      field_name: ""
+      field_label: ""
+      field_value: ""
+      field_desc: ""
+      field_seq: ""
+      is_active: ""
+      is_checked: ""
+      is_null: ""

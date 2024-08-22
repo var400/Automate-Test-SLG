@@ -39,8 +39,8 @@ Test Keyword
     Auto Check List Data    ${new_group_id}    ${TC_001_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Click Edit Botton    ${new_group_id}
     Log To Console    ${new_group_id}
-    Auto Check List Data    ${group_id}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
-    Auto Check List Data    ${group_id}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+    Auto Check List Data    ${new_group_id}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
+    Auto Check List Data    ${new_group_id}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
 
     # Copy Group Detail    ${TC_001_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_COPPY_GROUP_DETAIL}
     # Auto Insert Data Detail    ${TC_001_DATA['group_details']['DATA_3']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
@@ -52,7 +52,7 @@ Test Keyword
     # Click Button Back
     # Auto Check Text Data Edit Page    ${TC_001_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
 
-Test Click Dupplicate
+Test Keyword Test Click Dupplicate
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}     ${BASE_BROWSER}
     Click Button Add
     # Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
@@ -61,11 +61,10 @@ Test Click Dupplicate
     Click Button Save Detail
     ${new_group_id}=    Click Dupplicate Data From    ${TC_001_DATA['group_details']['DATA_1']}
     Click Edit Botton    ${new_group_id}
-    # Auto Check List Data    ${new_group_id}    ${TC_001_DATA['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
-    Auto Check Text Data Edit Page Detail    ${TC_001_DATA['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_EDIT_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
-    Auto Check Text Data Edit Page Detail    ${TC_001_DATA['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_EDIT_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check List Data    ${new_group_id}    ${TC_001_DATA['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+    Auto Check Text Data Detail    ${TC_001_DATA['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
 
-Update Data
+Test Keyword Update Data
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}     ${BASE_BROWSER}
     Click Button Add
     # Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
@@ -74,4 +73,18 @@ Update Data
     Click Button Save Detail
     ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_details']['DATA_1']['field_label']}    field_label
     Click Edit Botton    ${group_id}
-    Auto Update Data Detail    ${TC_001_DATA['group_details']['Change_DATA_1']}    ${CHOOSE_KEY_EDIT_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Update Data Detail    ${TC_001_DATA['group_details']['Change_DATA_1']}    ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+
+Test Keyword Validate
+    Open Browser To URL    ${COMMON_CONFIGURATION_URL}     ${BASE_BROWSER}
+    Click Button Add
+    Click Button Save    
+    Check Validate Edit Page    ${TC_002_DATA}    ${CHOOSE_KEY_VALIDATE_DATA}    This value cannot be null.
+    Click Button Add Detail
+    Click Button Save Detail
+    Check Validate Data Detail    ${TC_002_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_VALIDATE_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_AUTO_COMPLETE}    This value cannot be null.
+    Sleep    5s
+    
+Test Key Word Check Output On Create Critiria Page
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    

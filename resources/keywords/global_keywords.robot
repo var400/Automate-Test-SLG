@@ -316,3 +316,5 @@ Clear Database
     Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
     Wait Until Keyword Succeeds   5x    5s    Execute SQL String    ${script_sql}
     Disconnect From Database
+
+###Keyword With Common Exclude Specific

@@ -88,7 +88,7 @@ Get Data Id From Field
     ${group_id}=    Get Element Value From Data Field   ${field}   ${data}    data-id
     [Return]    ${group_id}
 
-Auto Check Text Data Detail Edit Page
+Auto Check Text Data Detail
     [Arguments]    ${data}    ${choose_key_auto_complete}    ${choose_key_text}    ${choose_key_select_option}    ${choose_key_check_box}
     Check Auto Complete Data Detail Edit Page   ${data}    ${choose_key_auto_complete}
     Check Text Data Edit Page    ${data}    ${choose_key_text}
@@ -144,14 +144,6 @@ Update Auto Complete Data
             ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
             ${split_parts}=    Split String    ${text_value}    ${EMPTY}
             ${result}=    Get From List    ${split_parts}    0
-            # IF    '${title}' == 'Field Name'
-            #     ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
-            #     ${split_parts}=    Split String    ${text_value}    ${EMPTY}
-            #     ${result}=    Get From List    ${split_parts}    0
-            #     # Log To Console    ${result} 
-            #     # ${value}=    Evaluate    "${value} ${result}"
-            #     # Log To Console    ${value}
-            # END
             IF    '${result}' != '${value}'
                 Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}    ARROW_DOWN    ENTER
             ELSE
@@ -177,3 +169,28 @@ Check Status Update Check Box Data Detail   #Work With Input Check Box Data
     Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
     Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
     Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
+
+Check Validate Data Detail
+    [Arguments]    ${data}    ${choose_key_validate}    ${choose_key_validate_auto_complete}    ${text_validate}
+    FOR    ${key}    ${value}    IN    &{data}
+        IF    '${key}' in '${choose_key_validate}'           
+            Check Text Alert Validate    ${key}    ${value}    ${text_validate}   
+        ELSE IF    '${key}' in '${choose_key_validate_auto_complete}'           
+            ${title}=    Mapping Key Title Name    ${key} 
+            Check Text Alert Validate Auto Complete Data Detail    ${title}    ${value}    ${text_validate}
+        END    
+    END
+
+Check Text Alert Validate Data Detail
+    [Arguments]    ${key}    ${value}    ${text_validate}
+    IF    '${value}' == ''
+        Wait Until Keyword Succeeds   5x    5s    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[*[@name="${key}"]]]//*[text()="${text_validate}"]
+        Wait Until Keyword Succeeds   5x    5s    Element Should Be Visible    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[*[@name="${key}"]]]//*[text()="${text_validate}"]
+    END
+
+Check Text Alert Validate Auto Complete Data Detail
+    [Arguments]    ${key}    ${value}    ${text_validate}
+    IF    '${value}' == ''
+        Wait Until Keyword Succeeds   5x    5s    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${key}"]]//*[text()="${text_validate}"]
+        Wait Until Keyword Succeeds   5x    5s    Element Should Be Visible    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${key}"]]//*[text()="${text_validate}"]
+    END
