@@ -175,7 +175,7 @@ Click Show Status
     Scroll Element Into View    //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Sleep     1s
-    Scroll Page    left    500
+    Scroll Page    left    1500
 
 Scroll Page    
     [Arguments]    ${control}    ${length}
