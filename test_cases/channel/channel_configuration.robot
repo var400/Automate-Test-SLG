@@ -392,6 +392,7 @@ TC_040
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_018_DATA.condition}
     Click Show Status    any
+    Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
 
 
