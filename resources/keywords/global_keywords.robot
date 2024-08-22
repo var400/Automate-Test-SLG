@@ -25,7 +25,9 @@ Resource   ../../resources/variables/database_connection.robot
 Open Browser To URL
     [Arguments]    ${url}    ${browser}
     Open Browser    ${url}    ${browser}
-    Maximize Browser Window
+    # Maximize Browser Window
+    # Set Window Size    1024    768
+    # Execute JavaScript    document.body.style.zoom = "80%";
     # Resize Browser Window To 80 Percent
     Sleep    5s
 

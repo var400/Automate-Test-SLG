@@ -5,6 +5,7 @@ Library    String
 Resource   ../../resources/Keywords/common_keywords.robot
 Resource   ../../resources/variables/global_variables.robot
 Resource    ../../resources/variables/common_variables.robot
+Resource    ../channel/test_scholl.robot
 
 *** Test Cases ***
 Clear And Insert Data In Database
@@ -87,5 +88,12 @@ Test Keyword Validate
     
 Test Key Word Check Output On Create Critiria Page
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
-    Scroll Element Into View    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
-    Element Should Be Visible    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]//*[*[text()="Thai ID Card"]]
+    Check Output On Create Critiria Page    ${TC_003_DATA}
+    # Scroll Element Into View    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
+    # ##TEXT BOX
+    # Scroll Element Into View    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]//*[*[text()="TEST TEXT BOX"]]
+    # Element Should Be Visible    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]//*[*[text()="TEST TEXT BOX"]]
+    #     ##Check Default Value
+    #     ## 'default_value' != ''
+    # Textfield Value Should Be    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]//*[@name="TEST TEXT BOX"]    TEST
+    Sleep    5s

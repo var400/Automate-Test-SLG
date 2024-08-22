@@ -34,3 +34,4 @@ ${COLUMN_ID}    channel_id
 #GET DATA
 ${TC_001_DATA}    ${TC_001}
 ${TC_002_DATA}    ${TC_002}
+${TC_003_DATA}    ${TC_003}

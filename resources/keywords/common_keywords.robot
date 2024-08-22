@@ -194,3 +194,20 @@ Check Text Alert Validate Auto Complete Data Detail
         Wait Until Keyword Succeeds   5x    5s    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${key}"]]//*[text()="${text_validate}"]
         Wait Until Keyword Succeeds   5x    5s    Element Should Be Visible    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${key}"]]//*[text()="${text_validate}"]
     END
+
+
+Check Output On Create Critiria Page
+    [Arguments]    ${data_list}
+    ${LOCATOR_HEADER}=    Set Variable    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
+    Scroll Element Into View    ${LOCATOR_HEADER}
+    Scroll Element Into View    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]
+    Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]
+    FOR    ${data}    IN    @{data_list['group_details']}
+        Log To Console    ${data}
+        Log To Console    default_value: ${data_list['group_details']['${data}']['is_checked']}
+        IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
+            Textfield Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    ${data['field_value']}
+        ELSE
+            Textfield Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    ${EMPTY}           
+        END
+    END

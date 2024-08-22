@@ -80,3 +80,25 @@ TC_002:
       is_active: ""
       is_checked: ""
       is_null: ""
+
+TC_003:
+  profile_name: ""
+  group_name: "TEST TEXT BOX"
+  group_type: "text"
+  group_seq: ""
+  group_desc: ""
+  is_active: "active"
+  is_disable: "false"
+  default_value: "TEXT"
+  group_details:
+    DATA_1:
+      schema_name: ""
+      table_name: ""
+      field_name: ""
+      field_label: ""
+      field_value: "TEXT"
+      field_desc: ""
+      field_seq: ""
+      is_active: ""
+      is_checked: "true"
+      is_null: ""
