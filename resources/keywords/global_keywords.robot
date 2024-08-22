@@ -57,11 +57,11 @@ Click Button Back
 
 Click Edit Botton
     [Arguments]    ${data_id}
-    Click Element    //div[@data-id="${data_id}"]//div[@data-field="Detail" ]
+    Click Element    //div[@data-id="${data_id}"]//div[@data-field="Detail"]
 
 Click Delete Botton
     [Arguments]    ${data_id}
-    Click Element    //div[@data-id="${data_id}"]//div[@data-field="Delete" ]
+    Click Element    //div[@data-id="${data_id}"]//div[@data-field="Delete"]
 
 Click Dupplicate Button Group Detail
     [Arguments]    ${key}
