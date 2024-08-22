@@ -205,11 +205,11 @@ Check Output On Create Critiria Page
         Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]
         FOR    ${data}    IN    @{data_list['group_details']}
             IF    '${data_list['group_type']}' == 'text'
-                Check Textbox Cofig    ${data}     ${data_list}    ${LOCATOR_HEADER}
+                Check Textbox Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
             ELSE IF    '${data_list['group_type']}' == 'dropdown'
-                Check Dropdown Cofig    ${data}     ${data_list}    ${LOCATOR_HEADER}
-            ELSE IF    '${data_list['group_type']}' == 'checkbox'
-                Check Checkbox Cofig    ${data}     ${data_list}    ${LOCATOR_HEADER}
+                Check Dropdown Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
+            ELSE IF    '${data_list['group_type']}' in 'checkbox,radio'
+                Check Checkbox Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
             END
         END
     ELSE
@@ -217,25 +217,37 @@ Check Output On Create Critiria Page
         Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]
     END
 
-Check Checkbox Cofig
+Check Checkbox Config
     [Arguments]     ${data}    ${data_list}    ${LOCATOR_HEADER}
     Log To Console    ${data}
     Log To Console    default_value: ${data_list['group_details']['${data}']['is_checked']}
-    Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    type    ${data_list['group_type']}    #Check Type
-    
+    Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    type    ${data_list['group_type']}    #Check Type
+    Element Should Be Visible    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]    #Check field_label
+    Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    value    ${data_list['group_details']['${data}']['field_value']}
     IF    '${data_list['is_disable']}' == 'true'    #Check Read Only
-        Element Should Be Visible    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']} and @disabled"]
+        Scroll Element Into View    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
+        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}" and @disabled]]]
     ELSE
-        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']} and @disabled"]
+        Scroll Element Into View    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
+        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}" and @disabled]]]
+    END
+    Should Not Be Empty    condition
+    IF    '${data_list['group_type']}' == 'checkbox'
+        IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'    #Check Default Value
+            Checkbox Should Be Selected     ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
+        ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
+            Checkbox Should Not Be Selected     ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
+        END
+    ELSE IF    '${data_list['group_type']}' == 'radio'
+        ${checked}=    SeleniumLibrary.Get Element Attribute    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    checked
+        IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'  
+            Run Keyword If    '${checked}' != '${data_list['group_details']['${data}']['is_checked']}'    Fail    Radio button should be selected, but it is not.
+        ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
+            Run Keyword If    '${checked}' != 'None'    Fail    Radio button should not be selected, but it is.
+        END
     END
 
-    # IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'    #Check Default Value
-    #     Textfield Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    ${data_list['group_details']['${data}']['field_value']}
-    # ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
-    #     Textfield Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    ${EMPTY}
-    # END
-
-Check Textbox Cofig
+Check Textbox Config
     [Arguments]     ${data}    ${data_list}    ${LOCATOR_HEADER}
     Log To Console    ${data}
     Log To Console    default_value: ${data_list['group_details']['${data}']['is_checked']}
@@ -253,7 +265,6 @@ Check Textbox Cofig
         Textfield Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    ${EMPTY}
     END
 
-
-    
-Check Dropdown Cofig
+  
+Check Dropdown Config
     [Arguments]     ${data}    ${data_list}    ${LOCATOR_HEADER}

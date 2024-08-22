@@ -36,3 +36,4 @@ ${TC_001_DATA}    ${TC_001}
 ${TC_002_DATA}    ${TC_002}
 ${TC_003_DATA}    ${TC_003}    #test text box
 ${TC_004_DATA}    ${TC_004}    #test check box
+${TC_005_DATA}    ${TC_005}    #test check box

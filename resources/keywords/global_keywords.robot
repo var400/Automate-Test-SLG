@@ -146,7 +146,7 @@ Auto Check List Data
         Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
         Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
     END
-    Scroll Page    left    500
+    Scroll Page    left    1500
 
 Check List Text Data
     [Arguments]    ${data_id}    ${data}    ${choose_key_text}
