@@ -109,10 +109,25 @@ Get Data Id
 
 Check List Data Is Visible
     [Arguments]    ${data_id}
+    Scroll Until Find Data    100    //div[@data-id="${data_id}"]
     Element Should Be Visible    //div[@data-id="${data_id}"]
+
+Scroll Until Find Data
+    [Arguments]    ${length}    ${locator_option}
+    # Scroll Element Into View    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy"]
+    IF    '${found_scroll_bar}' == 'True'
+        ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
+        WHILE    '${found}' == 'False'
+            Scroll Page    down    ${length}
+            # Sleep    1s    # รอให้การ scroll มีผล
+            ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
+        END
+    END
 
 Check List Data Is Not Visible
     [Arguments]    ${data_id}
+    # Scroll Until Find Data    100    //div[@data-id="${data_id}"]
     Element Should Not Be Visible    //div[@data-id="${data_id}"]
 
 Auto Check List Data 
@@ -162,8 +177,8 @@ Scroll Page
     IF    '${found_scroll_bar}' == 'True'
         Run Keyword If    '${control}' == 'right'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
         Run Keyword If    '${control}' == 'left'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
-        Run Keyword If    '${control}' == 'up'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
-        Run Keyword If    '${control}' == 'down'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
+        Run Keyword If    '${control}' == 'up'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy')[0].scrollTop -= ${length}
+        Run Keyword If    '${control}' == 'down'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy')[0].scrollTop += ${length}
     END
 
 Scroll Until Find Element
