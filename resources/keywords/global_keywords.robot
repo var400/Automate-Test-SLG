@@ -140,6 +140,7 @@ Auto Check List Data
     ELSE IF    '${data['is_active']}' == 'false'
         Check List Data Is Not Visible    ${data_id}
 		Click Show Status    any
+        Check List Data Is Visible    ${data_id}
         Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
         Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
     END
