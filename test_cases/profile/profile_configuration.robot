@@ -73,7 +73,7 @@ TC_014
 
 
 TC_015 
-    [Documentation]    กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Active และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Add Profile" กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Active และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Input Text Data    ${TC_015_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
@@ -83,13 +83,14 @@ TC_015
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
+    Check List Data Is Visible   ${PROFILE_ID}
     Auto Check List Data   ${PROFILE_ID}     ${TC_015_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
     Sleep    ${DELAY}
 
 
 TC_016
-    [Documentation]    กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Inactive และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Add Profile" กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Inactive และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Input Text Data    ${TC_016_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
@@ -99,13 +100,14 @@ TC_016
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_016_DATA.condition}
+    Check List Data Is Not Visible   ${PROFILE_ID}
     Auto Check List Data   ${PROFILE_ID}     ${TC_016_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
     Sleep    ${DELAY}
 
 
 TC_017
-    [Documentation]    กรณีระบุ "Profile Name" ที่ มีอยู่แล้ว ในระบบ และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Add Profile" กรณีระบุ "Profile Name" ที่มีอยู่แล้วในระบบ และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Input Text Data    ${TC_017_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
@@ -116,7 +118,7 @@ TC_017
 
 
 TC_018
-    [Documentation]    กรณีไม่ได้ระบุ "Profile Name" และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Add Profile" กรณีไม่ได้ระบุ "Profile Name" และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Input Text Data    ${TC_018_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
@@ -127,7 +129,7 @@ TC_018
 
 
 TC_019
-    [Documentation]    กรณีไม่ได้ระบุข้อมูล และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Add Profile" กรณีไม่ได้ระบุข้อมูล และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Click Button Save
@@ -136,7 +138,7 @@ TC_019
 
 
 TC_020
-    [Documentation]    กรณีกดปุ่ม "Cancel"
+    [Documentation]    ที่หน้าจอ "Add Profile" กรณีกดปุ่ม "Cancel"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Click Button Cancel
@@ -153,7 +155,7 @@ TC_022
 
 
 TC_023
-    [Documentation]    กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Active และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Edit Profile" กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Active และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_016_DATA.condition}
     Click Show Status    any
@@ -164,13 +166,15 @@ TC_023
     Alert Popup Message     ${TC_023_DATA.result.expected_result}
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
+    Check List Data Is Visible   ${PROFILE_ID}
     Auto Check List Data   ${PROFILE_ID}     ${TC_023_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
     Sleep    ${DELAY}
 
 
 TC_024
-    [Documentation]    กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Inactive และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Edit Profile" กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Inactive และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
@@ -180,13 +184,15 @@ TC_024
     Alert Popup Message     ${TC_024_DATA.result.expected_result}
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_024_DATA.condition}
+    Check List Data Is Not Visible   ${PROFILE_ID}
     Auto Check List Data   ${PROFILE_ID}     ${TC_024_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
     Sleep    ${DELAY}
 
 
 TC_025
-    [Documentation]    กรณีระบุ "Profile Name" ที่ มีอยู่แล้ว ในระบบ และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Edit Profile" กรณีระบุ "Profile Name" ที่มีอยู่แล้วในระบบ และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
@@ -198,7 +204,7 @@ TC_025
 
 
 TC_026
-    [Documentation]    กรณีไม่ได้ระบุ "Profile Name" และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Edit Profile" กรณีไม่ได้ระบุ "Profile Name" และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
@@ -210,7 +216,7 @@ TC_026
 
 
 TC_027
-    [Documentation]    กรณีไม่ได้ระบุข้อมูล และกดปุ่ม "Save"
+    [Documentation]    ที่หน้าจอ "Edit Profile" กรณีไม่ได้ระบุข้อมูล และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
@@ -222,7 +228,7 @@ TC_027
 
 
 TC_028
-    [Documentation]    กรณีกดปุ่ม "Cancel"
+    [Documentation]    ที่หน้าจอ "Edit Profile" กรณีกดปุ่ม "Cancel"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
