@@ -87,4 +87,5 @@ Test Keyword Validate
     
 Test Key Word Check Output On Create Critiria Page
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
-    
+    Scroll Element Into View    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
+    Element Should Be Visible    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]//*[*[text()="Thai ID Card"]]
