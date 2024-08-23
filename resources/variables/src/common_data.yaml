@@ -161,7 +161,7 @@ TC_004:
 TC_005:
   profile_name: ""
   group_name: "Device"
-  group_type: "radio"
+  group_type: "dropdown"
   group_seq: ""
   group_desc: ""
   is_active: "true"

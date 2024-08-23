@@ -221,30 +221,34 @@ Check Checkbox Config
     [Arguments]     ${data}    ${data_list}    ${LOCATOR_HEADER}
     Log To Console    ${data}
     Log To Console    default_value: ${data_list['group_details']['${data}']['is_checked']}
-    Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    type    ${data_list['group_type']}    #Check Type
-    Element Should Be Visible    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]    #Check field_label
-    Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    value    ${data_list['group_details']['${data}']['field_value']}
-    IF    '${data_list['is_disable']}' == 'true'    #Check Read Only
-        Scroll Element Into View    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
-        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}" and @disabled]]]
+    IF    '${data_list['group_details']['${data}']['is_active']}' == 'true'
+        Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    type    ${data_list['group_type']}    #Check Type
+        Element Should Be Visible    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]    #Check field_label
+        Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    value    ${data_list['group_details']['${data}']['field_value']}
+        IF    '${data_list['is_disable']}' == 'true'    #Check Read Only
+            Scroll Element Into View    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
+            Element Should Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}" and @disabled]]]
+        ELSE
+            Scroll Element Into View    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
+            Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}" and @disabled]]]
+        END
+        Should Not Be Empty    condition
+        IF    '${data_list['group_type']}' == 'checkbox'
+            IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'    #Check Default Value
+                Checkbox Should Be Selected     ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
+            ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
+                Checkbox Should Not Be Selected     ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
+            END
+        ELSE IF    '${data_list['group_type']}' == 'radio'
+            ${checked}=    SeleniumLibrary.Get Element Attribute    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    checked
+            IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'  
+                Run Keyword If    '${checked}' != '${data_list['group_details']['${data}']['is_checked']}'    Fail    Radio button should be selected, but it is not.
+            ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
+                Run Keyword If    '${checked}' != 'None'    Fail    Radio button should not be selected, but it is.
+            END
+        END
     ELSE
-        Scroll Element Into View    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
-        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}" and @disabled]]]
-    END
-    Should Not Be Empty    condition
-    IF    '${data_list['group_type']}' == 'checkbox'
-        IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'    #Check Default Value
-            Checkbox Should Be Selected     ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
-        ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
-            Checkbox Should Not Be Selected     ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]
-        END
-    ELSE IF    '${data_list['group_type']}' == 'radio'
-        ${checked}=    SeleniumLibrary.Get Element Attribute    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_value']}"]    checked
-        IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'  
-            Run Keyword If    '${checked}' != '${data_list['group_details']['${data}']['is_checked']}'    Fail    Radio button should be selected, but it is not.
-        ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
-            Run Keyword If    '${checked}' != 'None'    Fail    Radio button should not be selected, but it is.
-        END
+        Element Should Not Be Visible    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]    #Check field_label
     END
 
 Check Textbox Config
@@ -268,3 +272,28 @@ Check Textbox Config
   
 Check Dropdown Config
     [Arguments]     ${data}    ${data_list}    ${LOCATOR_HEADER}
+    Log To Console    ${data}
+    Log To Console    default_value: ${data_list['group_details']['${data}']['is_checked']}
+    IF    '${data_list['group_details']['${data}']['is_active']}' == 'true'
+        Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//input    type    search    #Check Type
+        # Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[@data-testid="ArrowDropDownIcon"]
+        # Sleep    1s
+        # Element Should Be Visible    //div[@role="presentation" and @class="MuiPopper-root MuiAutocomplete-popper css-1s5lphu-MuiPopper-root-MuiAutocomplete-popper"]
+        # # ...    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]    #Check field_label
+        IF    '${data_list['is_disable']}' == 'true'    #Check Read Only
+            Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//input[@disabled]
+        ELSE
+            Element Should Not Be Visible   ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//input[@disabled]
+        END
+
+        IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'    #Check Default Value
+            Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//input[@value="${data_list['group_details']['${data}']['field_label']}"]
+        ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
+            Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//input[@value="${data_list['group_details']['${data}']['field_label']}"]
+        END
+        Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//input     DELETE    ${data_list['group_details']['${data}']['field_label']}    ARROW_DOWN    ENTER
+        Sleep    2s
+        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//input[@value="${data_list['group_details']['${data}']['field_label']}"]
+    ELSE 
+        Element Should Not Be Visible    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]    #Check field_label
+    END
