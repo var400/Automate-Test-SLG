@@ -1,8 +1,8 @@
-TC_001:
+TC_010:
   channel_name: "SMS"
   channel_file_type: "txt"
   channel_delimiter: "|"
-  channel_label: "Channel Prepaid"
+  channel_label: "New Channel"
   channel_file_name_format: "[date]_[planlead_id]"
   channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
   channel_temp_path: "/temp/slg"
@@ -14,80 +14,11 @@ TC_001:
   is_active: "true"
   is_header: "true"
   is_teohong: "false"
-  condition: where channel_label='Channel Prepaid'
-  result:
-    expected_result: Save Complete.
-
-TC_002:
-  channel_name: "SMS"
-  channel_file_type: "csv"
-  channel_delimiter: ","
-  channel_label: "Channel Prepaid Update"
-  channel_file_name_format: "[date]_[planlead_id]_[offer_code]"
-  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY"
-  channel_temp_path: "/temp/slg/update"
-  channel_target_path: "/upload/slg/update"
-  channel_host: "localhost"
-  channel_user: "admin"
-  channel_pass: "admin"
-  channel_port: "22"
-  is_active: "true"
-  is_header: "false"
-  is_teohong: "true"
-  condition: where channel_label='Channel Prepaid'
-  result:
-    expected_result: Save Complete.
-
-TC_003:
-  channel_name: "SMS"
-  channel_file_type: "csv"
-  channel_delimiter: ","
-  channel_label: "Channel Prepaid"
-  channel_file_name_format: "[date]_[planlead_id]_[offer_code]"
-  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
-  channel_temp_path: "/temp/slg"
-  channel_target_path: "/upload/slg"
-  channel_host: "localhost"
-  channel_user: "admin"
-  channel_pass: "admin"
-  channel_port: "22"
-  is_active: "true"
-  is_header: "true"
-  is_teohong: "false"
-  condition: where channel_label='Channel Prepaid'
-  result:
-    expected_result: Duplicate channel label.
-
-TC_004:
-  condition: where channel_label='Channel Prepaid'
-  result:
-    expected_result: Save Complete.
-
-TC_005:
-  channel_name: ""
-  channel_file_type: ""
-  channel_delimiter: ""
-  channel_label: ""
-  channel_file_name_format: ""
-  channel_format: ""
-  channel_temp_path: ""
-  channel_target_path: ""
-  channel_host: ""
-  channel_user: ""
-  channel_pass: ""
-  channel_port: "22"
-  is_active: ""
-  is_header: ""
-  is_teohong: ""
-  condition: where channel_label='Channel Prepaid'
+  condition: where channel_label='New Channel'
   result:
     expected_result: Save Complete.
 
 
-
-
-
-#YAML
 TC_015:
   channel_name: "SMS"
   channel_file_type: "txt"
@@ -534,6 +465,436 @@ TC_036:
   is_teohong: "false"
   result:
     validate_data: This value cannot be null.
+
+
+TC_040:
+  channel_name: "SMS"
+  channel_file_type: "txt"
+  channel_delimiter: "|"
+  channel_label: "New Channel 4_Edit"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "true"
+  condition: where channel_label='New Channel 4_Edit'
+  result:
+    expected_result: Save Complete.
+
+
+TC_041:
+  channel_name: "SMS"
+  channel_file_type: "txt"
+  channel_delimiter: "|"
+  channel_label: "New Channel 3_Edit"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  condition: where channel_label='New Channel 3_Edit'
+  result:
+    expected_result: Save Complete.
+
+
+TC_042:
+  channel_name: "SMS"
+  channel_file_type: "txt"
+  channel_delimiter: "|"
+  channel_label: "New Channel 2_Edit"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "false"
+  is_teohong: "false"
+  condition: where channel_label='New Channel 2_Edit'
+  result:
+    expected_result: Save Complete.
+
+
+TC_043:
+  channel_name: "SMS"
+  channel_file_type: "txt"
+  channel_delimiter: "|"
+  channel_label: "New Channel 1_Edit"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "false"
+  is_header: "false"
+  is_teohong: "false"
+  condition: where channel_label='New Channel 1_Edit'
+  result:
+    expected_result: Save Complete.
+
+
+TC_044:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 8_Edit"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "true"
+  condition: where channel_label='New Channel 8_Edit'
+  result:
+    expected_result: Save Complete.
+
+
+TC_045:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 7_Edit"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  condition: where channel_label='New Channel 7_Edit'
+  result:
+    expected_result: Save Complete.
+
+
+TC_046:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 6_Edit"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "false"
+  is_teohong: "false"
+  condition: where channel_label='New Channel 6_Edit'
+  result:
+    expected_result: Save Complete.
+
+
+TC_047:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 5_Edit"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "false"
+  is_header: "false"
+  is_teohong: "false"
+  condition: where channel_label='New Channel 5_Edit'
+  result:
+    expected_result: Save Complete.
+
+
+TC_048:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "Template Prepaid"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    expected_result: Duplicate channel label.
+
+
+TC_049:
+  channel_name: ""
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 10"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_050:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: ""
+  channel_label: "New Channel 11"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_051:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: ""
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_052:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 12"
+  channel_file_name_format: ""
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_053:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 13"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: ""
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_054:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 14"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: ""
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_055:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 15"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: ""
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_056:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 16"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: ""
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_057:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 17"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: ""
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_058:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 18"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: ""
+  channel_port: "22"
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_059:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "New Channel 19"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: ""
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_060:
+  channel_name: ""
+  channel_file_type: "csv"
+  channel_delimiter: ""
+  channel_label: ""
+  channel_file_name_format: ""
+  channel_format: ""
+  channel_temp_path: ""
+  channel_target_path: ""
+  channel_host: ""
+  channel_user: ""
+  channel_pass: ""
+  channel_port: ""
+  is_active: "true"
+  is_header: "true"
+  is_teohong: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
 
 
 

@@ -1,4 +1,4 @@
-TC_011:
+TC_010:
   profile_name: "Test Profile"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"

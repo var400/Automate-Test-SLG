@@ -16,11 +16,7 @@ ${COLUMN_ID}    channel_id
 
 
 #GET DATA
-${TC_001_DATA}    ${TC_001}
-${TC_002_DATA}    ${TC_002}
-${TC_003_DATA}    ${TC_003}
-${TC_004_DATA}    ${TC_004}
-${TC_005_DATA}    ${TC_005}
+${TC_010_DATA}    ${TC_010}
 ${TC_015_DATA}    ${TC_015}
 ${TC_016_DATA}    ${TC_016}
 ${TC_017_DATA}    ${TC_017}
@@ -43,6 +39,27 @@ ${TC_033_DATA}    ${TC_033}
 ${TC_034_DATA}    ${TC_034}
 ${TC_035_DATA}    ${TC_035}
 ${TC_036_DATA}    ${TC_036}
+${TC_040_DATA}    ${TC_040}
+${TC_041_DATA}    ${TC_041}
+${TC_042_DATA}    ${TC_042}
+${TC_043_DATA}    ${TC_043}
+${TC_044_DATA}    ${TC_044}
+${TC_045_DATA}    ${TC_045}
+${TC_046_DATA}    ${TC_046}
+${TC_047_DATA}    ${TC_047}
+${TC_048_DATA}    ${TC_048}
+${TC_049_DATA}    ${TC_049}
+${TC_050_DATA}    ${TC_050}
+${TC_051_DATA}    ${TC_051}
+${TC_052_DATA}    ${TC_052}
+${TC_053_DATA}    ${TC_053}
+${TC_054_DATA}    ${TC_054}
+${TC_055_DATA}    ${TC_055}
+${TC_056_DATA}    ${TC_056}
+${TC_057_DATA}    ${TC_057}
+${TC_058_DATA}    ${TC_058}
+${TC_059_DATA}    ${TC_059}
+${TC_060_DATA}    ${TC_060}
 
 
 #CHANNEL LIST

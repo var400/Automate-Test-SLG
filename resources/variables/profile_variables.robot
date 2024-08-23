@@ -13,7 +13,7 @@ ${COLUMN_ID}    profile_id
 
 
 #GET DATA YAML
-${TC_011_DATA}    ${TC_011}
+${TC_010_DATA}    ${TC_010}
 ${TC_015_DATA}    ${TC_015}
 ${TC_016_DATA}    ${TC_016}
 ${TC_017_DATA}    ${TC_017} 
@@ -36,7 +36,7 @@ ${CHOOSE_KEY_INPUT_TEXT}    profile_name,profile_group,profile_table
 ${CHOOSE_KEY_INPUT_CHECKBOX}    is_active
 
 
-#EDIT PROFILE
+#UPDATE/CHECK EDIT PAGE PROFILE
 ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    profile_name,profile_group,profile_table
 ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}    is_active
 

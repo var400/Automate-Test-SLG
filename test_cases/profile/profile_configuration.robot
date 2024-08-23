@@ -9,29 +9,18 @@ Resource    ../../resources/locators/profile_locators.robot
 
 
 *** Test Cases ***
-# Test Database
-#     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-#     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
-#     Auto Check List Data   ${PROFILE_ID}     ${TC_015_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
-#     Log To Console      ${PROFILE_ID}
-#     #${CHNNEL_ID}=    Get Data Id  ${QRY_GET_DATA_ID}
-#     # Click Edit Botton    ${PROFILE_ID}
-#     #Click Delete Botton    ${CHNNEL_ID}
-#     # Sleep    ${DELAY}
-
-
 TC_002
     [Documentation]    ที่หน้าจอ "Configuration Profile" กรณีกดปุ่ม "ย้อนกลับ"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Back
-    Check Home Screen
+    Check Screen    Main
     Sleep    ${DELAY}
 
 
 TC_010
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "X"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_011_DATA.condition}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_010_DATA.condition}
     Click Delete Botton    ${PROFILE_ID}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_CANCEL_BUTTON_DELETE}
@@ -42,7 +31,7 @@ TC_010
 TC_011
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "Yes"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_011_DATA.condition}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_010_DATA.condition}
     Click Delete Botton    ${PROFILE_ID}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_ACCEPT_BUTTON_DELETE}
@@ -56,7 +45,7 @@ TC_011
 TC_012
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "No"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_011_DATA.condition}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_010_DATA.condition}
     Click Delete Botton    ${PROFILE_ID}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_DENY_BUTTON_DELETE}
@@ -69,6 +58,7 @@ TC_014
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Click Button Back
+    Check the Screen    Configuration Profile
     Sleep    ${DELAY}
 
 

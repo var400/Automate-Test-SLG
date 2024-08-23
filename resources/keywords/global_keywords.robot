@@ -25,7 +25,7 @@ Resource   ../../resources/variables/database_connection.robot
 Open Browser To URL
     [Arguments]    ${url}    ${browser}
     Open Browser    ${url}    ${browser}
-    # Maximize Browser Window
+    Maximize Browser Window
     # Set Window Size    1024    768
     # Execute JavaScript    document.body.style.zoom = "80%";
     # Resize Browser Window To 80 Percent
@@ -337,5 +337,9 @@ Clear Database
     Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
     Wait Until Keyword Succeeds   5x    5s    Execute SQL String    ${script_sql}
     Disconnect From Database
+
+Check Screen
+    [Arguments]    ${screen_name}
+    Wait Until Keyword Succeeds   5x    5s     Page Should Contain    ${screen_name}
 
 ###Keyword With Common Exclude Specific
