@@ -87,8 +87,10 @@ Test Keyword Validate
     Sleep    5s
     
 Test Key Word Check Output On Create Critiria Page
-    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
-    Check Output On Create Critiria Page    ${TC_005_DATA}
+    # Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    # # Check Output On Create Critiria Page    ${TC_005_DATA}
+    # Check Preview Script    ${TC_005_DATA}
+    Generate Script2    ${TC_005_DATA}
     # Scroll Element Into View    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
     # ##TEXT BOX
     # Scroll Element Into View    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]//*[*[text()="TEST TEXT BOX"]]
