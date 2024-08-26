@@ -4,8 +4,6 @@ TC_010:
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
   condition: where profile_name='Test Profile'
-  result:
-    expected_result: Save Complete.
 
 
 TC_015:

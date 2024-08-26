@@ -47,3 +47,20 @@ Input Data
     #IS_TEOHONG
     Wait Until Keyword Succeeds   5x    5s     CHECK IS TEOHONG    ${data.is_teohong}
     Sleep    5s 
+
+
+Check Output On Screen Create Criteria For Output Templete
+    [Arguments]    ${channel_label_name}    ${channel_is_active}    ${channel_is_teohong}
+    ${LOCATOR_HEADER}=    Set Variable    //*[*[*[*[h5[(.='Campaign Detail')]]]]]
+    ${LOCATOR_TITLE}=    Set Variable    //*[*[text()="Output Template"]]
+    IF    '${channel_is_active}' == 'true'
+        IF    '${channel_is_teohong}' == 'true'
+            Wait Until Keyword Succeeds   5x    5s    Click Element    //div[@id="mui-component-select-OutputTemplate"]
+            Wait Until Keyword Succeeds   5x    5s    Element Should Not Be Visible    //li[(.='${channel_label_name}')]
+        ELSE IF    '${channel_is_teohong}' == 'false'
+            Wait Until Keyword Succeeds   5x    5s    Click Element    //div[@id="mui-component-select-OutputTemplate"]
+            Wait Until Keyword Succeeds   5x    5s    Element Text Should Be    //li[(.='${channel_label_name}')]    ${channel_label_name}
+        END
+    ELSE IF  '${channel_is_active}' == 'false'
+        Wait Until Keyword Succeeds   5x    5s    Element Should Not Be Visible    //li[(.='${channel_label_name}')]
+    END

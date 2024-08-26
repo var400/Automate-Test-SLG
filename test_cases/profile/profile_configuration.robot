@@ -7,7 +7,6 @@ Resource    ../../resources/variables/profile_variables.robot
 Resource    ../../resources/locators/profile_locators.robot
 
 
-
 *** Test Cases ***
 TC_002
     [Documentation]    ที่หน้าจอ "Configuration Profile" กรณีกดปุ่ม "ย้อนกลับ"
@@ -58,7 +57,7 @@ TC_014
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Click Button Back
-    Check the Screen    Configuration Profile
+    Check Screen    Configuration Profile
     Sleep    ${DELAY}
 
 
@@ -66,16 +65,18 @@ TC_015
     [Documentation]    ที่หน้าจอ "Add Profile" กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Active และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
-    Input Text Data    ${TC_015_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
-    Input Check Box Data    ${TC_015_DATA}    ${CHOOSE_KEY_INPUT_CHECKBOX}
+    Auto Insert Data    ${TC_015_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${EMPTY}
     Click Button Save
     Alert Popup Message     ${TC_015_DATA.result.expected_result}
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
-    Check List Data Is Visible   ${PROFILE_ID}
     Auto Check List Data   ${PROFILE_ID}     ${TC_015_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Product Type    ${TC_015_DATA.profile_name}    ${TC_015_DATA.is_active}
     Sleep    ${DELAY}
 
 
@@ -83,16 +84,18 @@ TC_016
     [Documentation]    ที่หน้าจอ "Add Profile" กรณีระบุ/เลือก Profile Name, Profile Group, Profile Table, Checkbox (Active) = Inactive และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
-    Input Text Data    ${TC_016_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
-    Input Check Box Data    ${TC_016_DATA}    ${CHOOSE_KEY_INPUT_CHECKBOX}
+    Auto Insert Data    ${TC_016_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${EMPTY}
     Click Button Save
     Alert Popup Message     ${TC_016_DATA.result.expected_result}
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_016_DATA.condition}
-    Check List Data Is Not Visible   ${PROFILE_ID}
     Auto Check List Data   ${PROFILE_ID}     ${TC_016_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
+    Close Browser
+    # #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Product Type    ${TC_016_DATA.profile_name}    ${TC_016_DATA.is_active}
     Sleep    ${DELAY}
 
 
@@ -100,8 +103,7 @@ TC_017
     [Documentation]    ที่หน้าจอ "Add Profile" กรณีระบุ "Profile Name" ที่มีอยู่แล้วในระบบ และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
-    Input Text Data    ${TC_017_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
-    Input Check Box Data    ${TC_017_DATA}    ${CHOOSE_KEY_INPUT_CHECKBOX}
+    Auto Insert Data    ${TC_017_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${EMPTY}
     Click Button Save
     Alert Popup Message     ${TC_017_DATA.result.expected_result}
     Sleep    ${DELAY}
@@ -111,8 +113,7 @@ TC_018
     [Documentation]    ที่หน้าจอ "Add Profile" กรณีไม่ได้ระบุ "Profile Name" และกดปุ่ม "Save"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
-    Input Text Data    ${TC_018_DATA}    ${CHOOSE_KEY_INPUT_TEXT}
-    Input Check Box Data    ${TC_018_DATA}    ${CHOOSE_KEY_INPUT_CHECKBOX}
+    Auto Insert Data    ${TC_018_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${EMPTY}
     Click Button Save
     Check Validate Edit Page    ${TC_018_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_018_DATA.result.validate_data}
     Sleep    ${DELAY}
@@ -132,6 +133,7 @@ TC_020
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Click Button Cancel
+    Check Screen    Configuration Profile
     Sleep    ${DELAY}
 
 
@@ -141,6 +143,7 @@ TC_022
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
     Click Button Back
+    Check Screen    Configuration Profile
     Sleep    ${DELAY}
 
 
@@ -157,9 +160,12 @@ TC_023
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
-    Check List Data Is Visible   ${PROFILE_ID}
     Auto Check List Data   ${PROFILE_ID}     ${TC_023_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Product Type    ${TC_023_DATA.profile_name}    ${TC_023_DATA.is_active}
     Sleep    ${DELAY}
 
 
@@ -175,9 +181,12 @@ TC_024
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_024_DATA.condition}
-    Check List Data Is Not Visible   ${PROFILE_ID}
     Auto Check List Data   ${PROFILE_ID}     ${TC_024_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${PROFILE_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Product Type    ${TC_024_DATA.profile_name}    ${TC_024_DATA.is_active}
     Sleep    ${DELAY}
 
 
@@ -220,9 +229,10 @@ TC_027
 TC_028
     [Documentation]    ที่หน้าจอ "Edit Profile" กรณีกดปุ่ม "Cancel"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_023_DATA.condition}
     Click Edit Botton    ${PROFILE_ID}
     Click Button Cancel
+    Check Screen    Configuration Profile
     Sleep    ${DELAY}
 
 

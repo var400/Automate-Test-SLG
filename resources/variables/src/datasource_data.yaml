@@ -1,0 +1,63 @@
+TC_016:
+  datasource_name: "Test Datasource 1"
+  datasource_host: "localhost"
+  datasource_dbname: "dbadmin"
+  datasource_port: "5433"
+  default_schema: "CVMSBOX"
+  datasource_type: "VerticaSQL"
+  user_exec: "dbadmin"
+  pass_exec: "password"
+  user_batch: "dbadmin"
+  pass_batch: "password"
+  datasource_desc: "Test Datasource 1 Description"
+  remark: "Test Datasource 1 Remark"
+  is_active: "true"
+  condition: where datasource_name='Test Datasource 1'
+  result:
+    validate_connect_status: Success
+
+
+TC_017:
+  datasource_name: "Test Datasource 2"
+  datasource_host: "localhost2"
+  datasource_dbname: "dbadmin2"
+  datasource_port: "5434"
+  default_schema: "CVMSBOX"
+  datasource_type: "VerticaSQL"
+  user_exec: "dbadmin2"
+  pass_exec: "password2"
+  user_batch: "dbadmin2"
+  pass_batch: "password2"
+  datasource_desc: "Test Datasource 2 Description"
+  remark: "Test Datasource 2 Remark"
+  is_active: "true"
+  condition: where datasource_name='Test Datasource 2'
+  result:
+    validate_connect_status: Fail
+
+
+TC_018:
+  result:
+    validate_connect_status: Fail
+
+
+TC_019:
+  datasource_name: "Test Datasource 3"
+  datasource_host: "localhost"
+  datasource_dbname: "dbadmin"
+  datasource_port: "5433"
+  default_schema: "SLG"
+  datasource_type: "VerticaSQL"
+  user_exec: "dbadmin"
+  pass_exec: "password"
+  user_batch: "dbadmin"
+  pass_batch: "password"
+  datasource_desc: "Test Datasource 3 Description"
+  remark: "Test Datasource 3 Remark"
+  is_active: "true"
+  condition: where datasource_name='Test Datasource 3'
+  result:
+    validate_connect_status: Success
+    expected_result: Save Complete.
+
+  

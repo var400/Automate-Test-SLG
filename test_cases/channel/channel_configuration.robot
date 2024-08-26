@@ -19,7 +19,7 @@ TC_002
     [Documentation]    ที่หน้าจอ "Configuration Channel" กรณีกดปุ่ม "ย้อนกลับ"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Back
-    Check the Screen    Main
+    Check Screen    Main
     Sleep    ${DELAY}
 
 
@@ -64,7 +64,7 @@ TC_014
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Click Button Back
-    Check the Screen    Configuration Channel
+    Check Screen    Configuration Channel
     Sleep    ${DELAY}
 
 
@@ -78,9 +78,12 @@ TC_015
     Click Button Cancel
     #CHECK DATABASE & CHANNEL LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
-    Check List Data Is Visible   ${CHANNEL_ID} 
     Auto Check List Data   ${CHANNEL_ID}     ${TC_015_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_015_DATA.channel_label}    ${TC_015_DATA.is_active}    ${TC_015_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -94,9 +97,12 @@ TC_016
     Click Button Cancel
     #CHECK DATABASE & CHANNEL LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_016_DATA.condition}
-    Check List Data Is Visible   ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_016_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_016_DATA.channel_label}    ${TC_016_DATA.is_active}    ${TC_016_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -110,9 +116,12 @@ TC_017
     Click Button Cancel
     #CHECK DATABASE & CHANNEL LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_017_DATA.condition}
-    Check List Data Is Visible   ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_017_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_017_DATA.channel_label}    ${TC_017_DATA.is_active}    ${TC_017_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -126,9 +135,12 @@ TC_018
     Click Button Cancel
     # CHECK DATABASE & CHANNEL LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_018_DATA.condition}
-    Check List Data Is Not Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_018_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_018_DATA.channel_label}    ${TC_018_DATA.is_active}    ${TC_018_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -142,9 +154,12 @@ TC_019
     Click Button Cancel
     # CHECK DATABASE & CHANNEL LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_019_DATA.condition}
-    Check List Data Is Visible   ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_019_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_019_DATA.channel_label}    ${TC_019_DATA.is_active}    ${TC_019_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -158,9 +173,12 @@ TC_020
     Click Button Cancel
     # CHECK DATABASE & CHANNEL LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_020_DATA.condition}
-    Check List Data Is Visible   ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_020_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_020_DATA.channel_label}    ${TC_020_DATA.is_active}    ${TC_020_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -174,9 +192,12 @@ TC_021
     Click Button Cancel
     # CHECK DATABASE & CHANNEL LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_021_DATA.condition}
-    Check List Data Is Visible   ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_021_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_021_DATA.channel_label}    ${TC_021_DATA.is_active}    ${TC_021_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -190,9 +211,12 @@ TC_022
     Click Button Cancel
     # CHECK DATABASE & CHANNEL LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_022_DATA.condition}
-    Check List Data Is Not Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_022_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_022_DATA.channel_label}    ${TC_022_DATA.is_active}    ${TC_022_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -340,6 +364,7 @@ TC_037
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Add
     Click Button Cancel
+    Check Screen    Configuration Channel
     Sleep    ${DELAY}
 
 
@@ -349,6 +374,7 @@ TC_039
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_015_DATA.condition}
     Click Edit Botton    ${CHANNEL_ID}
     Click Button Back
+    Check Screen    Configuration Channel
     Sleep    ${DELAY}
 
 
@@ -366,9 +392,12 @@ TC_040
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_040_DATA.condition}
-    Check List Data Is Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_040_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console    ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_040_DATA.channel_label}    ${TC_040_DATA.is_active}    ${TC_040_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -385,9 +414,12 @@ TC_041
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_041_DATA.condition}
-    Check List Data Is Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_041_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console    ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_041_DATA.channel_label}    ${TC_041_DATA.is_active}    ${TC_041_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -404,9 +436,12 @@ TC_042
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_042_DATA.condition}
-    Check List Data Is Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_042_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console    ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_042_DATA.channel_label}    ${TC_042_DATA.is_active}    ${TC_042_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -423,9 +458,12 @@ TC_043
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_043_DATA.condition}
-    Check List Data Is Not Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_043_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console    ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_043_DATA.channel_label}    ${TC_043_DATA.is_active}    ${TC_043_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -443,9 +481,12 @@ TC_044
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
-    Check List Data Is Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_044_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console    ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_044_DATA.channel_label}    ${TC_044_DATA.is_active}    ${TC_044_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -462,9 +503,12 @@ TC_045
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
-    Check List Data Is Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_045_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console    ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_045_DATA.channel_label}    ${TC_045_DATA.is_active}    ${TC_045_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -481,9 +525,12 @@ TC_046
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_046_DATA.condition}
-    Check List Data Is Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_046_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console    ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_046_DATA.channel_label}    ${TC_046_DATA.is_active}    ${TC_046_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
@@ -500,19 +547,22 @@ TC_047
     Click Button Cancel
     #CHECK DATABASE & PROFILE LIST
     ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_047_DATA.condition}
-    Check List Data Is Not Visible    ${CHANNEL_ID}
     Auto Check List Data   ${CHANNEL_ID}     ${TC_047_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console    ${CHANNEL_ID}
+    Close Browser
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Screen Create Criteria For Output Templete    ${TC_047_DATA.channel_label}    ${TC_047_DATA.is_active}    ${TC_047_DATA.is_teohong}
     Sleep    ${DELAY}
 
 
 TC_048
     [Documentation]    ที่หน้าจอ "Edit Channel" ตรวจสอบกรณีผู้ใช้ระบุ/เลือกข้อมูลครบ แต่ผู้ใช้ระบุ "Channel Label" ที่มีอยู่แล้วในระบบ
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_048_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Alert Popup Message     ${TC_048_DATA.result.expected_result}
@@ -522,10 +572,10 @@ TC_048
 TC_049
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Name" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_049_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_049_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_049_DATA.result.validate_data}
@@ -535,10 +585,10 @@ TC_049
 TC_050
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Delimiter" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_050_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_050_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_050_DATA.result.validate_data}
@@ -548,10 +598,10 @@ TC_050
 TC_051
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Label" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_051_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_051_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_051_DATA.result.validate_data}
@@ -561,10 +611,10 @@ TC_051
 TC_052
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel File Name Format" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_052_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_052_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_052_DATA.result.validate_data}
@@ -574,10 +624,10 @@ TC_052
 TC_053
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Format" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_053_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_053_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_053_DATA.result.validate_data}
@@ -587,10 +637,10 @@ TC_053
 TC_054
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Temp Path" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_054_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_054_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_054_DATA.result.validate_data}
@@ -600,10 +650,10 @@ TC_054
 TC_055
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Target Path" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_055_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_055_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_055_DATA.result.validate_data}
@@ -613,10 +663,10 @@ TC_055
 TC_056
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Host" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_056_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_056_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_056_DATA.result.validate_data}
@@ -626,10 +676,10 @@ TC_056
 TC_057
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel User" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_057_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_057_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_057_DATA.result.validate_data}
@@ -639,10 +689,10 @@ TC_057
 TC_058
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Pass" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_058_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_058_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_058_DATA.result.validate_data}
@@ -652,10 +702,10 @@ TC_058
 TC_059
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ "Channel Port" และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_059_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_059_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_059_DATA.result.validate_data}
@@ -665,10 +715,10 @@ TC_059
 TC_060
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีไม่ได้ระบุ/เลือกข้อมูล และกดปุ่ม "Save"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
-    Auto Check Text Data Edit Page    ${TC_044_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Edit Page    ${TC_045_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_060_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Click Button Save
     Check Validate Edit Page    ${TC_060_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_060_DATA.result.validate_data}
@@ -678,10 +728,11 @@ TC_060
 TC_061
     [Documentation]    ที่หน้าจอ "Edit Channel" กรณีกดปุ่ม "Cancel"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_044_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_045_DATA.condition}
     Check List Data Is Visible    ${CHANNEL_ID}
     Click Edit Botton    ${CHANNEL_ID}
     Click Button Cancel
+    Check Screen    Configuration Channel
     Sleep    ${DELAY}
 
 

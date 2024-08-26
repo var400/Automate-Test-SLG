@@ -15,8 +15,6 @@ TC_010:
   is_header: "true"
   is_teohong: "false"
   condition: where channel_label='New Channel'
-  result:
-    expected_result: Save Complete.
 
 
 TC_015:
