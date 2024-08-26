@@ -5,7 +5,6 @@ Library    String
 Resource   ../../resources/Keywords/common_keywords.robot
 Resource   ../../resources/variables/global_variables.robot
 Resource    ../../resources/variables/common_variables.robot
-Resource    ../channel/test_scholl.robot
 
 *** Test Cases ***
 Clear And Insert Data In Database
@@ -87,10 +86,10 @@ Test Keyword Validate
     Sleep    5s
     
 Test Key Word Check Output On Create Critiria Page
-    # Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
-    # # Check Output On Create Critiria Page    ${TC_005_DATA}
-    # Check Preview Script    ${TC_005_DATA}
-    Generate Script2    ${TC_005_DATA}
+    Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check Output On Create Critiria Page    ${TC_001_DATA}
+    Check Preview Script    ${TC_005_DATA}
+    # Generate Script2    ${TC_005_DATA}
     # Scroll Element Into View    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
     # ##TEXT BOX
     # Scroll Element Into View    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]//*[*[text()="TEST TEXT BOX"]]
@@ -99,3 +98,40 @@ Test Key Word Check Output On Create Critiria Page
     #     ## 'default_value' != ''
     # Textfield Value Should Be    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]//*[@name="TEST TEXT BOX"]    TEST
     Sleep    5s
+
+TEST KEYWORD CHECK SEQ MASTER COMMON LIST
+    ${result_base}=    Check SEQ List DB    ${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP}
+    Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
+    ${result_web}=    Check Seq From Web List
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+
+TEST KEYWORD CHECK SEQ MASTER COMMON LIST DETAIL
+    ${result_base}=    Check SEQ List DB   ${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP_DETAIL}
+    Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
+    ${group_id}=    Get Data Id From Field    ${TC_004_DATA['group_name']}    group_name
+    Click Edit Botton    ${group_id}
+    ${result_web}=    Check Seq From Web List Group Detail 
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+
+TEST KEYWORD CHECK SEQ Create Critiria 
+    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA}
+    Open Browser To URL   ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    ${result_web}=    Check Seq From Web Create Criteria
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+
+TEST KEYWORD CHECK SEQ Create Critiria Detail
+    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL}
+    Open Browser To URL   ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_004_DATA}
+    # CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+
+
+TEST KEYWORD CHECK SEQ Create Critiria Detail Listbox
+    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL_LISTBOX}
+    ${result_base_is_checked}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL_LISTBOX_IS_CHECKED}
+    Append To List    ${result_base}     ${result_base_is_checked[0]}
+    Open Browser To URL   ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_004_DATA}
+    # CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}

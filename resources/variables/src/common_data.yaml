@@ -106,7 +106,7 @@ TC_003:
 TC_004:
   profile_name: ""
   group_name: "Device"
-  group_type: "checkbox"
+  group_type: "listbox"
   group_seq: ""
   group_desc: ""
   is_active: "true"

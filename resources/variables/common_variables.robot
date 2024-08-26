@@ -37,3 +37,13 @@ ${TC_002_DATA}    ${TC_002}
 ${TC_003_DATA}    ${TC_003}    #test text box
 ${TC_004_DATA}    ${TC_004}    #test check box
 ${TC_005_DATA}    ${TC_005}    #test check box
+
+#CHECK SEQ
+${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP}=    select group_seq,profile_name,group_name from slg.mst_group_common where is_active='true' order by profile_name,group_seq;
+${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP_DETAIL}=    select field_seq,field_label from slg.mst_group_common join slg.mst_group_common_detail on slg.mst_group_common.group_id  = slg.mst_group_common_detail.group_id and group_name = 'Device' order by field_seq;
+
+${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA}=    select 'Product Type' as group_name UNION all select group_name from (select * from slg.mst_group_common where is_active='true' and profile_name='Prepaid' order by profile_name,group_seq)
+${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL}=    select field_label from slg.mst_group_common join slg.mst_group_common_detail on slg.mst_group_common.group_id  = slg.mst_group_common_detail.group_id and group_name = 'Device' order by field_seq;
+
+${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL_LISTBOX_IS_CHECKED}=    select field_label from slg.mst_group_common join slg.mst_group_common_detail on slg.mst_group_common.group_id  = slg.mst_group_common_detail.group_id and group_name = 'Device' where slg.mst_group_common_detail.is_checked = 'true' order by field_seq;
+${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL_LISTBOX}=    select field_label from slg.mst_group_common join slg.mst_group_common_detail on slg.mst_group_common.group_id  = slg.mst_group_common_detail.group_id and group_name = 'Device' where slg.mst_group_common_detail.is_checked = 'false' order by field_seq;
