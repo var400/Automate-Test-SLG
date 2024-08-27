@@ -4,13 +4,12 @@ Library    String
 Library    Collections
 Library    XML
 Resource   ../../resources/keywords/global_keywords.robot
-Resource   ../../resources/locators/common_locators.robot
+Resource   ../../resources/locators/exclude_locators.robot
 
 
 *** Keywords ***
 Check Output On Create Critiria Page
     [Arguments]    ${data_list}
-    ${LOCATOR_HEADER}=    Set Variable    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
     IF    '${data_list['is_active']}' == 'true'
         Scroll Element Into View    ${LOCATOR_HEADER}
         Scroll Element Into View    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]
@@ -269,7 +268,7 @@ Check SEQ List DB
     FOR    ${element}    IN    @{queryResults}
         Append To List    ${results_list}    ${element}
     END
-    Log To Console    Results List: ${results_list}
+    # Log To Console    Results List: ${results_list}
     Return From Keyword    ${results_list}
 
 Check Seq From Web List
@@ -299,17 +298,17 @@ Check Seq From Web List Group Detail
 Check SEQ List WEB VS BASE 
     [Arguments]    ${results_base}    ${results_web}
     ${index}=    Set Variable    0
+    ${seq}=    Set Variable    1
     FOR    ${row}    IN    @{results_base}
-        Log To Console    Base Result: ${results_base[${index}]}
-        Log To Console    Web Result: ${results_web[${index}]}
+        Log To Console    INDEX ${seq}: Base Result: ${results_base[${index}]} | Web Result: ${results_web[${index}]}    no_newline=false
         Run Keyword If    ${results_base[${index}]} == ${results_web[${index}]}    Log    Seq Is True
         Run Keyword If    ${results_base[${index}]} != ${results_web[${index}]}    Fail    Seq Is Not True
         ${index}=    Evaluate    ${index}+1
+        ${seq}=    Evaluate    ${seq}+1
     END
 
 ##CREATE CRITIRIA
 Check Seq From Web Create Criteria
-    ${LOCATOR_HEADER}=    Set Variable    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
     ${elements}=    Get WebElements    ${LOCATOR_HEADER}//div[contains(@class, 'MuiGrid-root') and contains(@class, 'MuiGrid-item') and contains(@class, 'MuiGrid-grid-xs-12') and contains(@class,'MuiGrid-grid-md')]
     ${elements_list}=    Create List
     FOR    ${element}    IN    @{elements}
@@ -335,7 +334,6 @@ Check SEQ Create Criteria DB
 
 Check Seq From Web Create Criteria Detail
     [Arguments]    ${data_list}
-    ${LOCATOR_HEADER}=    Set Variable    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
     ${elements_list}=    Create List
     IF    '${data_list['group_type']}' == 'text'
         Log    No Check Seq Field

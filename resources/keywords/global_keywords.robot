@@ -115,24 +115,24 @@ Get Data Id
     ${queryResults} =    Query    ${script_qry}
     ${result} =    Set Variable    ${queryResults[0][0]}
     Disconnect From Database
-    [RETURN]    ${result}
+    Return From Keyword    ${result}
 
 Check List Data Is Visible
     [Arguments]    ${data_id}
-    Scroll Until Find Data    100    //div[@data-id="${data_id}"]
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy"]
+    IF    '${found_scroll_bar}' == 'True'
+        Scroll Until Find Data    100    //div[@data-id="${data_id}"]
+    END
     Element Should Be Visible    //div[@data-id="${data_id}"]
 
 Scroll Until Find Data
     [Arguments]    ${length}    ${locator_option}
     # Scroll Element Into View    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
-    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy"]
-    IF    '${found_scroll_bar}' == 'True'
+    ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
+    WHILE    '${found}' == 'False'
+        Scroll Page    down    ${length}
+        # Sleep    1s    # รอให้การ scroll มีผล
         ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
-        WHILE    '${found}' == 'False'
-            Scroll Page    down    ${length}
-            # Sleep    1s    # รอให้การ scroll มีผล
-            ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
-        END
     END
 
 Check List Data Is Not Visible
@@ -153,20 +153,28 @@ Auto Check List Data
         Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
         Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
     END
-    Scroll Page    left    1500
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    IF    '${found_scroll_bar}' == 'True'
+        Scroll Page    left    1500
+    END
 
 Check List Text Data
     [Arguments]    ${data_id}    ${data}    ${choose_key_text}
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
 	FOR    ${key}    ${value}    IN    &{data}
-		Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
-		Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]      ${value}
+        Run Keyword If    '${key}' in '${choose_key_text}'    Log To Console    Checking field: ${key} -> value must be ${value}    no_newline=false
+        IF    '${found_scroll_bar}' == 'True'
+            Run Keyword If    '${key}' in '${choose_key_text}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]
+        END
+		Run Keyword If    '${key}' in '${choose_key_text}'    Wait Until Keyword Succeeds   5x    1s    SeleniumLibrary.Element Text Should Be   //div[@data-id="${data_id}"]//div[@data-field="${key}"]      ${value}
 	END
 
 Check List Status Data
     [Arguments]    ${data_id}    ${data}    ${choose_key_boolean}
     FOR    ${key}    ${value}    IN    &{data}
+        Run Keyword If    '${key}' in '${choose_key_boolean}'    Log To Console    Checking field: ${key} -> value must be ${value}    no_newline=false
         Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
-        Run Keyword If    '${key}' in '${choose_key_boolean}'    Wait Until Keyword Succeeds    5x    5s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
+        Run Keyword If    '${key}' in '${choose_key_boolean}'    Wait Until Keyword Succeeds    5x    1s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
     END
 
 Click Show Status
@@ -182,29 +190,26 @@ Click Show Status
     Scroll Element Into View    //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Sleep     1s
-    Scroll Page    left    1500
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    IF    '${found_scroll_bar}' == 'True'
+        Scroll Page    left    1500
+    END
 
 Scroll Page    
     [Arguments]    ${control}    ${length}
-    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
-    IF    '${found_scroll_bar}' == 'True'
-        Run Keyword If    '${control}' == 'right'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
-        Run Keyword If    '${control}' == 'left'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
-        Run Keyword If    '${control}' == 'up'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy')[0].scrollTop -= ${length}
-        Run Keyword If    '${control}' == 'down'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy')[0].scrollTop += ${length}
-    END
+    Run Keyword If    '${control}' == 'right'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft += ${length}
+    Run Keyword If    '${control}' == 'left'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1')[0].scrollLeft -= ${length}
+    Run Keyword If    '${control}' == 'up'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy')[0].scrollTop -= ${length}
+    Run Keyword If    '${control}' == 'down'    Execute JavaScript    window.document.getElementsByClassName('MuiDataGrid-scrollbar MuiDataGrid-scrollbar--vertical css-1b9e9gy')[0].scrollTop += ${length}
 
 Scroll Until Find Element
     [Arguments]    ${length}    ${locator_option}
     # Scroll Element Into View    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
-    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
-    IF    '${found_scroll_bar}' == 'True'
+    ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
+    WHILE    '${found}' == 'False'
+        Scroll Page    right    100
+        # Sleep    1s    # รอให้การ scroll มีผล
         ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
-        WHILE    '${found}' == 'False'
-            Scroll Page    right    100
-            # Sleep    1s    # รอให้การ scroll มีผล
-            ${found}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator_option}    2
-        END
     END
 
 Auto Insert Data
@@ -236,7 +241,7 @@ Check Text Data Edit Page
 
 Check Element Type
     [Arguments]    ${locator_option}
-    ${tag_name}=    Get Element Attribute    ${locator_option}    tagName
+    ${tag_name}=    SeleniumLibrary.Get Element Attribute    ${locator_option}    tagName
     RETURN    ${tag_name}
 
 
@@ -356,20 +361,20 @@ Click Button Add Detail
 
 Auto Insert Data Detail
     [Arguments]    ${data}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}    ${auto_complete_choose_key}
-    Input Auto Complete Data Detail    ${data}    ${auto_complete_choose_key}
-    Input Text Data   ${data}    ${text_choose_key}
-    Input Check Box Data Detail    ${data}    ${check_box_choose_key}
-    Input Select Option Data    ${data}    ${select_option_choose_key}
-
+        Input Auto Complete Data Detail    ${data}    ${auto_complete_choose_key}
+        Input Text Data   ${data}    ${text_choose_key}
+        Input Check Box Data Detail    ${data}    ${check_box_choose_key}
+        Input Select Option Data    ${data}    ${select_option_choose_key}
 Input Auto Complete Data Detail
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
         IF    '${key}' in '${choose_key}'
             ${title}=    Mapping Key Title Name    ${key}
             Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}    ARROW_DOWN    ENTER
-            Log To Console    ${title}
+            # Log To Console    ${title}
         END
     END
+    
 Mapping Key Title Name
     [Arguments]    ${key}
     ${title}=    Set Variable    Not Found
@@ -380,7 +385,7 @@ Mapping Key Title Name
     ELSE IF    '${key}' == 'field_name'   
         ${title}    Set Variable    Field Name  
     END
-    [Return]    ${title}
+    Return From Keyword    ${title}
 Input Check Box Data Detail   #Work With Check Status Data Check Box
     [Arguments]    ${data}    ${choose_key}
 
@@ -391,12 +396,12 @@ Input Check Box Data Detail   #Work With Check Status Data Check Box
 Check Status Data Check Box Detail   #Work With Input Check Box Data 
     [Arguments]    ${option_locator}    ${option_value}
     Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
-    Run Keyword If    '${option_value}' == 'true'    Select Checkbox    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
-    Run Keyword If    '${option_value}' == 'false'   Unselect Checkbox    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
+    Run Keyword If    '${option_value}' == 'true'    Wait Until Keyword Succeeds    5x    5s    Select Checkbox    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
+    Run Keyword If    '${option_value}' == 'false'   Wait Until Keyword Succeeds    5x    5s    Unselect Checkbox    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
     
 Click Button Save Detail
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}${LOCATOR_SAVE_BUTTON}
-    Click Button    ${LOCATOR_SUB_WINDOWS_DETAIL}${LOCATOR_SAVE_BUTTON}
+    Wait Until Keyword Succeeds    5x    5s    Click Button    ${LOCATOR_SUB_WINDOWS_DETAIL}${LOCATOR_SAVE_BUTTON}
     Sleep    1s
 
 Click Button Close Detail
@@ -411,26 +416,27 @@ Click Dupplicate Data From
     ${index_id}=    Get Element Value From Data Field   field_label    ${data['field_label']}    data-rowindex
     ${new_index_id}=    Evaluate    int(${index_id}) + 1
     ${new_group_id}=    Get Element Value From Index Id    ${new_index_id}    data-id
-    [Return]    ${new_group_id}
+    Return From Keyword    ${new_group_id}
 
 Get Element Value From Data Field
     [Arguments]    ${key}    ${value}    ${element_value}
     ${element}=    Get WebElement    xpath=//div[div[@data-field="${key}" and (.='${value}')]]
-    ${result}=    Get Element Attribute    ${element}   ${element_value}
-    Log To Console    ${result}
-    [Return]  ${result}
+    ${result}=    SeleniumLibrary.Get Element Attribute    ${element}   ${element_value}
+    # Log To Console    ${result}
+    Return From Keyword  ${result}
 
 Get Element Value From Index Id
     [Arguments]    ${key}    ${element_value}
     ${element}=    Get WebElement    //div[@data-rowindex="${key}"]
-    ${result}=    Get Element Attribute    ${element}   ${element_value}
-    Log To Console    ${result}
-    [Return]  ${result}
+    ${result}=    SeleniumLibrary.Get Element Attribute    ${element}   ${element_value}
+    # Log To Console    ${result}
+    Return From Keyword  ${result}
 
 Get Data Id From Field 
     [Arguments]    ${data}    ${field}
     ${group_id}=    Get Element Value From Data Field   ${field}   ${data}    data-id
-    [Return]    ${group_id}
+    Log To Console    Data ID: ${group_id}
+    Return From Keyword    ${group_id}
 
 Auto Check Text Data Detail
     [Arguments]    ${data}    ${choose_key_auto_complete}    ${choose_key_text}    ${choose_key_select_option}    ${choose_key_check_box}
@@ -537,4 +543,17 @@ Check Text Alert Validate Auto Complete Data Detail
     IF    '${value}' == ''
         Wait Until Keyword Succeeds   5x    5s    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${key}"]]//*[text()="${text_validate}"]
         Wait Until Keyword Succeeds   5x    5s    Element Should Be Visible    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${key}"]]//*[text()="${text_validate}"]
+    END
+
+Click Button Save Group Control
+    [Arguments]    ${option_contol}
+    Click Button Save
+    Sleep    2s
+    Wait Until Keyword Succeeds   5x    5s    Page Should Contain    Are you sure you want to save your changes?.
+    IF    '${option_contol}' == 'Yes'
+        Wait Until Keyword Succeeds   5x    5s    Click Element    //button[text()="Yes"] 
+    ELSE IF    '${option_contol}' == 'No'
+        Wait Until Keyword Succeeds   5x    5s    Click Element    //button[text()="No"]  
+    ELSE IF    '${option_contol}' == 'Close'
+        Wait Until Keyword Succeeds   5x    5s    Click Element    //button[@aria-label="Close this dialog"]
     END

@@ -13,6 +13,19 @@ Clear And Insert Data In Database
 
 Test Variable 
     Log To Console    ${TC_001_DATA['group_details']['DATA_1']}
+    FOR    ${data}    IN    @{TC_001_DATA['group_details']}
+        Log To Console    Group Detail:${TC_001_DATA['group_details']['${data}']}
+    END
+
+Test Variable 2
+    Open Browser To URL    ${COMMON_CONFIGURATION_URL}     ${BASE_BROWSER}
+    Click Button Add
+    FOR    ${data}    IN    @{TC_005_DATA['group_details']}
+        Click Button Add Detail
+        Log To Console    Group Detail:${TC_005_DATA['group_details']['${data}']}
+        Auto Insert Data Detail    ${TC_005_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
+        Click Button Save Detail
+    END
 
 Test Keyword
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}     ${BASE_BROWSER}
