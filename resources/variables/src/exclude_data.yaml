@@ -1,7 +1,7 @@
 TC_001_TEST:
   profile_name: "Prepaid"
   group_name: "TEST CREATE ALL FLAG"
-  group_type: "listbox"
+  group_type: "checkbox"
   group_seq: "6"
   group_desc: "TEST CREATE ALL FLAG DESCRIPTION"
   is_active: "true"
@@ -17,7 +17,7 @@ TC_001_TEST:
       field_value_yes: "Y"
       field_value_no: "N"
       field_desc: "DEALER FLAG DESCRIPTION"
-      field_seq: "4"
+      field_seq: "1"
       is_active: "true"
       is_checked: "true"
       is_null: "true"
@@ -58,12 +58,6 @@ TC_001_TEST:
         is_active: "true"
         is_checked: "false"
         is_null: "false"
-      INSERT_DUPPLICATE_DATA:
-        field_name: "BLACK_LIST_TOL_FLAG"
-        field_label: "TOL FLAG"
-        field_value_yes: "Y"
-        field_value_no: "N"
-        field_desc: "TOL FLAG DESCRIPTION"
 
 TC_001_TEST_ADD:
     DATA_3:

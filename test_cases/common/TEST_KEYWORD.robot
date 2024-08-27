@@ -75,7 +75,7 @@ Test Keyword Test Click Dupplicate
     ${new_group_id}=    Click Dupplicate Data From    ${TC_001_DATA['group_details']['DATA_1']}
     Click Edit Botton    ${new_group_id}
     Auto Check List Data    ${new_group_id}    ${TC_001_DATA['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
-    Auto Check Text Data Detail    ${TC_001_DATA['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Check Text Data Detail    ${TC_001_DATA['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}
 
 Test Keyword Update Data
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}     ${BASE_BROWSER}
@@ -86,7 +86,7 @@ Test Keyword Update Data
     Click Button Save Detail
     ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_details']['DATA_1']['field_label']}    field_label
     Click Edit Botton    ${group_id}
-    Auto Update Data Detail    ${TC_001_DATA['group_details']['Change_DATA_1']}    ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Update Data Detail    ${TC_001_DATA['group_details']['Change_DATA_1']}    ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}
 
 Test Keyword Validate
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}     ${BASE_BROWSER}

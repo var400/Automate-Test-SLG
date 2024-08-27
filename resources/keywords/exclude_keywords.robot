@@ -88,7 +88,7 @@ Check Textbox Config
     END
     #Check Default Value
     IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
-        Textfield Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    ${data_list['group_details']['${data}']['field_value']}
+        Textfield Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    ${data_list['group_details']['${data}']['field_value_yes']}
     ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
         Textfield Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    ${EMPTY}
     END

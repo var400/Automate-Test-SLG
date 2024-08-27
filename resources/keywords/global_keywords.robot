@@ -367,7 +367,7 @@ Click Button Add Detail
     Click Element    //*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hk7bbc-MuiSvgIcon-root" and @data-testid="AddCircleIcon"]
 
 Auto Insert Data Detail
-    [Arguments]    ${data}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}    ${auto_complete_choose_key}
+    [Arguments]    ${data}    ${auto_complete_choose_key}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}
         Input Auto Complete Data Detail    ${data}    ${auto_complete_choose_key}
         Input Text Data   ${data}    ${text_choose_key}
         Input Check Box Data Detail    ${data}    ${check_box_choose_key}
@@ -422,9 +422,10 @@ Click Dupplicate Data From
     [Arguments]    ${data}
     ${group_id}=    Get Element Value From Data Field   field_label    ${data['field_label']}    data-id
     Click Dupplicate Button Group Detail    ${group_id}
-    ${index_id}=    Get Element Value From Data Field   field_label    ${data['field_label']}    data-rowindex
-    ${new_index_id}=    Evaluate    int(${index_id}) + 1
-    ${new_group_id}=    Get Element Value From Index Id    ${new_index_id}    data-id
+    # ${index_id}=    Get Element Value From Data Field   field_label    ${data['field_label']}    data-rowindex
+    # ${new_index_id}=    Evaluate    int(${index_id}) + 1
+    # ${new_group_id}=    Get Element Value From Index Id    ${new_index_id}    data-id
+    ${new_group_id}=    Get Element Value From Data Field   field_label    ${EMPTY}    data-id
     Return From Keyword    ${new_group_id}
 
 Get Element Value From Data Field
@@ -466,9 +467,9 @@ Check Auto Complete Data Detail Edit Page
                         ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
                         ${split_parts}=    Split String    ${text_value}    ${EMPTY}
                         ${result}=    Get From List    ${split_parts}    1
-                        Log To Console    ${result} 
+                        # Log To Console    ${result} 
                         ${value}=    Evaluate    "${value} ${result}"
-                        Log To Console    ${value}
+                        # Log To Console    ${value}
                     END
                 END
             Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input
@@ -490,7 +491,7 @@ Check Status Data Detail Check Box Edit Page   #Work With Input Check Box Data
     Run Keyword If    '${option_value}' == 'false'   Checkbox Should Not Be Selected    ${LOCATOR_SUB_WINDOWS_DETAIL}//*[@name="${option_locator}"]
 
 Auto Update Data Detail
-    [Arguments]    ${data}   ${choose_key_auto_complete}    ${choose_key_text}    ${choose_key_select_option}    ${choose_key_check_box}
+    [Arguments]    ${data}   ${choose_key_auto_complete}    ${choose_key_text}    ${choose_key_check_box}    ${choose_key_select_option}
     Update Auto Complete Data    ${data}    ${choose_key_auto_complete}
     Update Text Data    ${data}    ${choose_key_text}
     Update Select Option Data    ${data}    ${choose_key_select_option}
@@ -501,10 +502,12 @@ Update Auto Complete Data
     [Arguments]    ${data}   ${choose_key_text}
     FOR    ${key}    ${value}    IN    &{data}
         IF    '${key}' in '${choose_key_text}'
-            ${title}=    Mapping Key Title Name    ${key}
-            ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
-            ${split_parts}=    Split String    ${text_value}    ${EMPTY}
-            ${result}=    Get From List    ${split_parts}    0
+                ${title}=    Mapping Key Title Name    ${key}
+                ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input
+                IF    '${text_value}' != '${EMPTY}'
+                    ${split_parts}=    Split String    ${text_value}    ${EMPTY}
+                    ${result}=    Get From List    ${split_parts}    0
+                END
             IF    '${result}' != '${value}'
                 Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}    ARROW_DOWN    ENTER
             ELSE

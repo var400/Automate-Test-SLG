@@ -11,11 +11,15 @@ Clear And Insert Data In Database
     ${sql_script} =    Get File    ${SQLFilePath}
     Clear Database    ${sql_script}
 
-Test Variable 
-    Log To Console    ${TC_001_DATA['group_details']['DATA_1']}
-    FOR    ${data}    IN    @{TC_001_DATA['group_details']}
-        Log To Console    Group Detail:${TC_001_DATA['group_details']['${data}']}
-    END
+Test Variable
+    ${Data_List}     Create List    DATA_1    DATA_2
+    FOR    ${data}    IN    @{Data_List}
+        Log To Console    หหห:${data}
+    END 
+    # Log To Console    ${TC_001_DATA['group_details']['DATA_1']}
+    # FOR    ${data}    IN    @{TC_001_DATA['group_details']}
+    #     Log To Console    Group Detail:${TC_001_DATA['group_details']['${data}']}
+    # END
 
 Test Keyword Insert New Config
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
@@ -27,7 +31,7 @@ Test Keyword Insert New Config
     FOR    ${data}    IN    @{TC_001_DATA['group_details']}
         Click Button Add Detail
         Log To Console    Group Detail [${data}]: ${TC_001_DATA['group_details']['${data}']}
-        Auto Insert Data Detail    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
+        Auto Insert Data Detail    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
         Click Button Save Detail
         ###Check List Data When Create Detail
         ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_details']['${data}']['field_label']}    field_label
@@ -72,9 +76,10 @@ Test Keyword Insert New Config Dupplcate Detail
     Reload Page
     Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     ###Insert Group Control Detail
-    FOR    ${data}    IN    @{TC_001_DATA['group_details']}
+    ${Data_List}     Create List    DATA_1    DATA_2
+    FOR    ${data}    IN    @{Data_List}
         Click Button Add Detail
-        Auto Insert Data Detail    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
+        Auto Insert Data Detail    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
         Click Button Save Detail
     END 
     # Auto Insert Data Detail    ${TC_001_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
@@ -85,7 +90,7 @@ Test Keyword Insert New Config Dupplcate Detail
     Click Edit Botton    ${new_group_id}
     Auto Check Text Data Detail    ${TC_001_DATA['TC_001_TEST_INSERT_DUPPLICATE']['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     ###Insert Data Dupplicate
-    Auto Insert Data Detail    ${TC_001_DATA['TC_001_TEST_INSERT_DUPPLICATE']['INSERT_DUPPLICATE_DATA']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
+    Auto Update Data Detail    ${TC_001_DATA['group_details']['DATA_3']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     Click Button Save Detail
     Click Button Save Group Control    Yes
     Page Should Contain    Save Complete.
@@ -96,8 +101,6 @@ Test keyword Check Create Crireria
     ###Check Out Put Group Control Detail
     Check Output On Create Critiria Page    ${TC_001_DATA}
 
-
-
     # Check Preview Script    ${TC_001_DATA}
     ###Check Seq Grop Control
     ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA}
@@ -107,7 +110,7 @@ Test keyword Check Create Crireria
     # ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL}
     # ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_001_DATA}
     # CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
-    
+
     ###Check Seq Grop Control Detail If Control Type = listbox
     ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL_LISTBOX}
     ${result_base_is_checked}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL_LISTBOX_IS_CHECKED}
