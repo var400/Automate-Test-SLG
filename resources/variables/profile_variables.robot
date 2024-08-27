@@ -5,6 +5,7 @@ Variables    ../../resources/variables/src/profile_data.yaml
 
 *** Variables ***
 ${DELAY}    5s
+${SQLFilePath}   test_cases/profile/clear_and_insert.sql
 
 
 #SET VARIABLE DATABASE
@@ -24,6 +25,7 @@ ${TC_024_DATA}    ${TC_024}
 ${TC_025_DATA}    ${TC_025}
 ${TC_026_DATA}    ${TC_026}
 ${TC_027_DATA}    ${TC_027}
+
 
 
 #PROFILE LIST

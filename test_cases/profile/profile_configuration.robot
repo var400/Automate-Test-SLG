@@ -8,6 +8,11 @@ Resource    ../../resources/locators/profile_locators.robot
 
 
 *** Test Cases ***
+Clear and Insert Data
+    ${sql_script} =    Get File    ${SQLFilePath}
+    Clear Database    ${sql_script}
+
+
 TC_002
     [Documentation]    ที่หน้าจอ "Configuration Profile" กรณีกดปุ่ม "ย้อนกลับ"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}

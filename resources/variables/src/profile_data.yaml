@@ -1,9 +1,17 @@
 TC_010:
-  profile_name: "Test Profile"
+  profile_name: "Test Profile Delete 1"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
-  condition: where profile_name='Test Profile'
+  condition: where profile_name='Test Profile Delete 1'
+
+
+TC_012:
+  profile_name: "Test Profile Delete 2"
+  profile_group: "Product Type"
+  profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
+  is_active: "true"
+  condition: where profile_name='Test Profile Delete 2'
 
 
 TC_015:

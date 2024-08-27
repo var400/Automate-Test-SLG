@@ -9,6 +9,12 @@ Click Button Test Connect
     Sleep    1s
 
 
+Click Button Save Config Default Datasource
+    Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_SAVE_CONFIG_BUTTON}
+    Click Element   ${LOCATOR_SAVE_CONFIG_BUTTON}
+    Sleep    1s
+
+
 Check Connect Status
     [Arguments]    ${connect_status}
     ${LOCATOR_TITLE}=    Set Variable    //*[*[*[text()=" Connect Status : "]]]
@@ -16,13 +22,10 @@ Check Connect Status
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_TITLE}${LOCATOR_CONNECT_STATUS}
     Run Keyword If    '${connect_status}' == 'Success'    Element Text Should Be    ${LOCATOR_CONNECT_STATUS}    ${connect_status}
     Run Keyword If    '${connect_status}' == 'Fail'    Element Text Should Be    ${LOCATOR_CONNECT_STATUS}    ${connect_status}
-    Run Keyword If    '${connect_status}' == '-'    Element Text Should Be    ${LOCATOR_CONNECT_STATUS}    ${connect_status}
 
 
-    # IF    '${connect_status}' == 'Success'
-    #     Wait Until Keyword Succeeds    5x    5s    Element Text Should Be    ${LOCATOR_CONNECT_STATUS}    ${connect_status}
-    # ELSE IF     '${connect_status}' == 'Fail'
-    #     Wait Until Keyword Succeeds    5x    5s    Element Text Should Be    ${LOCATOR_CONNECT_STATUS}    ${connect_status}
-    # ELSE IF     '${connect_status}' == '-'
-    #     Wait Until Keyword Succeeds    5x    5s    Element Text Should Be    ${LOCATOR_CONNECT_STATUS}    ${connect_status}
-    # END
+Select Default DataSource
+    [Arguments]    ${id_datasource}    ${default_datasource}
+    Wait Until Keyword Succeeds   5x    5s    Click Element    id=mui-component-select-default_datasource
+    Wait Until Keyword Succeeds   5x    5s    Element Text Should Be    //li[@data-value="${id_datasource}" and (.='${default_datasource}')]    ${default_datasource}
+    Wait Until Keyword Succeeds   5x    5s    Click Element    //li[@data-value="${id_datasource}" and (.='${default_datasource}')]
