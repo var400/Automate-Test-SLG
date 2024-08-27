@@ -58,6 +58,17 @@ TC_001:
     is_active: "true"
     is_checked: "false"
     is_null: "false"
+  INSERT_DATA_DUPPLICATE:
+    schema_name: "SLG"
+    table_name: "CAMPAIGN_CUSTOMER_NAME"
+    field_name: "CUST_AGE"
+    field_label: ""
+    field_value: ""
+    field_desc: ""
+    field_seq: "2"
+    is_active: "true"
+    is_checked: "false"
+    is_null: "false"
 
 TC_002:
   profile_name: ""

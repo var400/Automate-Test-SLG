@@ -32,7 +32,26 @@ TC_001_TEST:
       field_seq: "2"
       is_active: "true"
       is_checked: "false"
-      is_null: "false"
+      is_null: "false"      
+  TC_001_TEST_INSERT_DUPPLICATE:
+      CHECK_DUPPLICATE_DATA:
+        schema_name: "CVMSBOX"
+        table_name: "CAMPAIGN_PREPAID_360"
+        field_name: ""
+        field_label: ""
+        field_value_yes: ""
+        field_value_no: ""
+        field_desc: ""
+        field_seq: "3"
+        is_active: "true"
+        is_checked: "false"
+        is_null: "false"
+      INSERT_DUPPLICATE_DATA:
+        field_name: "BLACK_LIST_TOL_FLAG"
+        field_label: "TOL FLAG"
+        field_value_yes: "Y"
+        field_value_no: "N"
+        field_desc: "TOL FLAG DESCRIPTION"
 
 TC_001_TEST_ADD:
     DATA_3:

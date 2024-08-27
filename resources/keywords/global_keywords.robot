@@ -377,7 +377,9 @@ Input Auto Complete Data Detail
     FOR    ${key}    ${value}    IN    &{data}
         IF    '${key}' in '${choose_key}'
             ${title}=    Mapping Key Title Name    ${key}
-            Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}    ARROW_DOWN    ENTER
+            Wait Until Keyword Succeeds    5x    5s    Press Key    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}
+            Sleep    1s
+            Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ARROW_DOWN    ENTER
             # Log To Console    ${title}
         END
     END
@@ -459,14 +461,16 @@ Check Auto Complete Data Detail Edit Page
         IF    '${key}' in '${choose_key_auto_complete}'
             # ${result}    Set Variable    ${None}
             ${title}=    Mapping Key Title Name    ${key}
-            IF    '${title}' == 'Field Name'
-                ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
-                ${split_parts}=    Split String    ${text_value}    ${EMPTY}
-                ${result}=    Get From List    ${split_parts}    1
-                Log To Console    ${result} 
-                ${value}=    Evaluate    "${value} ${result}"
-                Log To Console    ${value}
-            END
+                IF    '${value}' != '${EMPTY}'
+                    IF    '${title}' == 'Field Name'
+                        ${text_value}=    Get Value    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input 
+                        ${split_parts}=    Split String    ${text_value}    ${EMPTY}
+                        ${result}=    Get From List    ${split_parts}    1
+                        Log To Console    ${result} 
+                        ${value}=    Evaluate    "${value} ${result}"
+                        Log To Console    ${value}
+                    END
+                END
             Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input
             Wait Until Keyword Succeeds   5x    5s     Textfield Value Should Be    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}
         END

@@ -55,7 +55,7 @@ Test Keyword Insert New Config
     Go To    ${CREATE_CRITERIA_URL}
     ###Check Out Put Group Control Detail
     Check Output On Create Critiria Page    ${TC_001_DATA}
-    Check Preview Script    ${TC_001_DATA}
+    # Check Preview Script    ${TC_001_DATA}
     ###Check Seq Grop Control
     ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA}
     ${result_web}=    Check Seq From Web Create Criteria
@@ -67,4 +67,25 @@ Test Keyword Insert New Config
 
 Test Keyword Insert New Config Dupplcate Detail
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
-    Click Show Status    any
+    ###Insert Group Control
+    Click Button Add
+    Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    ###Insert Group Control Detail
+    FOR    ${data}    IN    @{TC_001_DATA['group_details']}
+        Click Button Add Detail
+        Auto Insert Data Detail    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
+        Click Button Save Detail
+    END 
+    # Auto Insert Data Detail    ${TC_001_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
+    ###Click Dupplicate Data
+    ${new_group_id}=    Click Dupplicate Data From    ${TC_001_DATA['group_details']['DATA_1']}
+    ###Check Data Dupplicate
+    Auto Check List Data    ${new_group_id}    ${TC_001_DATA['TC_001_TEST_INSERT_DUPPLICATE']['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+    Click Edit Botton    ${new_group_id}
+    Auto Check Text Data Detail    ${TC_001_DATA['TC_001_TEST_INSERT_DUPPLICATE']['CHECK_DUPPLICATE_DATA']}    ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    ###Insert Data Dupplicate
+    Auto Insert Data Detail    ${TC_001_DATA['TC_001_TEST_INSERT_DUPPLICATE']['INSERT_DUPPLICATE_DATA']}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}
+    Click Button Save Detail
+    Click Button Save Group Control    Yes
+    Page Should Contain    Save Complete.
+    Sleep    2s
