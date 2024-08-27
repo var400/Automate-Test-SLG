@@ -23,9 +23,9 @@ Check Output On Create Critiria Page
                 Check Dropdown Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
             ELSE IF    '${data_list['group_type']}' in 'checkbox,radio'
                 Check Checkbox Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
-            ELSE IF    '${data_list['group_type']}' in 'multi_dropdown'
+            ELSE IF    '${data_list['group_type']}' == 'multi_dropdown'
                 Check MultiDropdown Config    ${data}     ${data_list}    ${LOCATOR_HEADER}   
-            ELSE IF    '${data_list['group_type']}' in 'listbox'
+            ELSE IF    '${data_list['group_type']}' == 'listbox'
                 Check CheckListBox Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
             END         
         END
@@ -102,6 +102,7 @@ Check Dropdown Config
         IF    '${data_list['group_details']['${data}']['is_active']}' == 'true'
             Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//input    type    search    #Check Type
             Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[@data-testid="ArrowDropDownIcon"]
+            ##Check Field label
             Page Should Contain    ${data_list['group_details']['${data}']['field_label']}
             
             ##Check Read Only
@@ -147,27 +148,28 @@ Check MultiDropdown Config
             Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[input[@disabled]]
 
             ##Check Field Value and Label
-            Element Should Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_value']}"]
-            Element Should Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_value']}"]//*//*[text()="${data_list['group_details']['${data}']['field_label']}"]
+            Element Should Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_label']}"]
+            Element Should Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_label']}"]//*//*[text()="${data_list['group_details']['${data}']['field_label']}"]
             
             ##Check Default Value
             ${default_string_value}=    Get Text    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox"]
             IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
                 Run Keyword If    '${data_list['group_details']['${data}']['field_label']}' not in '${default_string_value}'    Fail    This data is set default value, but not in control
-                Element Should Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_value']}" and @aria-selected="true"]
+                Element Should Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_label']}" and @aria-selected="true"]
             ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
                 Run Keyword If    '${data_list['group_details']['${data}']['field_label']}' in '${default_string_value}'    Fail    This data is set default value, but not in control
-                Element Should Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_value']}" and @aria-selected="false"]
+                Element Should Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_label']}" and @aria-selected="false"]
             END
 
         ELSE 
-            Element Should Not Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_value']}"]
+            Element Should Not Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_label']}"]
         END
     ELSE
         #Check Read Only
         Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox"]   id    demo-multiple-checkbox    #Check Type
         Element Should Be Visible   ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[input[@disabled]]
         ${default_string_value}=    Get Text    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox"]
+        ##Check Default Value
         IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
             Run Keyword If    '${data_list['group_details']['${data}']['field_label']}' not in '${default_string_value}'    Fail    This data is set default value, but not in control
         ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
@@ -181,7 +183,7 @@ Check CheckListBox Config
     Log To Console    default_value: ${data_list['group_details']['${data}']['is_checked']}
     IF    '${data_list['group_details']['${data}']['is_active']}' == 'true'
         ##Check Type
-        Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_value']}-label"]]]]    role    listitem
+        Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]]    role    listitem
         ##READ ONLY
         IF    '${data_list['is_disable']}' == 'true'    #Check Read Only
             Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][2]//button[@aria-label="move all right" and @disabled][1]
@@ -189,19 +191,19 @@ Check CheckListBox Config
             Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][2]//button[@aria-label="move all right" and @disabled][1]
         END
         ##Check Label
-        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_value']}-label"]]]]
+        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]]
         ##Check Value
-        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_value']}-label"]]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]
+        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]
         ##Check Default Value
         IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
-            Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][3]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_value']}-label"]]]]
-            Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][1]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_value']}-label"]]]] 
+            Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][3]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]]
+            Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][1]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]] 
         ELSE IF    '${data_list['group_details']['${data}']['is_checked']}' == 'false'
-            Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][1]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_value']}-label"]]]] 
-            Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][3]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_value']}-label"]]]] 
+            Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][1]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]] 
+            Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][3]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]] 
         END
     ELSE
-        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_value']}-label"]]]]
+        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]]
     END
 
 # CVMSBOX.CAMPAIGN_PREPAID_360.Smartphone = 'Smart Phone'
@@ -343,7 +345,8 @@ Check Seq From Web Create Criteria Detail
     ELSE IF    '${data_list['group_type']}' == 'checkbox'
         ${elements}=    Get WebElements    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]
     ELSE IF    '${data_list['group_type']}' == 'multi_dropdown'
-        Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox" and @aria-expanded="false"]
+        ${check_locator}=    Run Keyword And Return Status    Element Should Be Visible    //ul[@role="listbox"]//li[@data-value!="all"]
+        Run Keyword If    '${check_locator}' != 'True'    Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox" and @aria-expanded="false"]
         ${elements}=    Get WebElements    //ul[@role="listbox"]//li[@data-value!="all"]
     ELSE IF    '${data_list['group_type']}' == 'listbox'
         ${elements}=    Get WebElements    //div[*[*[text()="${data_list['group_name']}"]]]//div[@role="list"]//div[@role="listitem"]

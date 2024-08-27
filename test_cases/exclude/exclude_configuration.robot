@@ -69,6 +69,7 @@ Test Keyword Insert New Config Dupplcate Detail
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
     ###Insert Group Control
     Click Button Add
+    Reload Page
     Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     ###Insert Group Control Detail
     FOR    ${data}    IN    @{TC_001_DATA['group_details']}
@@ -89,3 +90,28 @@ Test Keyword Insert New Config Dupplcate Detail
     Click Button Save Group Control    Yes
     Page Should Contain    Save Complete.
     Sleep    2s
+
+Test keyword Check Create Crireria
+    Open Browser To URL    ${CREATE_CRITERIA_URL}     ${BASE_BROWSER}
+    ###Check Out Put Group Control Detail
+    Check Output On Create Critiria Page    ${TC_001_DATA}
+
+
+
+    # Check Preview Script    ${TC_001_DATA}
+    ###Check Seq Grop Control
+    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA}
+    ${result_web}=    Check Seq From Web Create Criteria
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    ###Check Seq Grop Control Detail
+    # ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL}
+    # ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_001_DATA}
+    # CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    
+    ###Check Seq Grop Control Detail If Control Type = listbox
+    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL_LISTBOX}
+    ${result_base_is_checked}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL_LISTBOX_IS_CHECKED}
+    Append To List    ${result_base}     ${result_base_is_checked[0]}
+    ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_001_DATA}
+    # CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}

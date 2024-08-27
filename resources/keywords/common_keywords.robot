@@ -24,9 +24,9 @@ Check Output On Create Critiria Page
                 Check Dropdown Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
             ELSE IF    '${data_list['group_type']}' in 'checkbox,radio'
                 Check Checkbox Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
-            ELSE IF    '${data_list['group_type']}' in 'multi_dropdown'
+            ELSE IF    '${data_list['group_type']}' == 'multi_dropdown'
                 Check MultiDropdown Config    ${data}     ${data_list}    ${LOCATOR_HEADER}   
-            ELSE IF    '${data_list['group_type']}' in 'listbox'
+            ELSE IF    '${data_list['group_type']}' == 'listbox'
                 Check CheckListBox Config    ${data}     ${data_list}    ${LOCATOR_HEADER}
             END         
         END
@@ -346,7 +346,8 @@ Check Seq From Web Create Criteria Detail
     ELSE IF    '${data_list['group_type']}' == 'checkbox'
         ${elements}=    Get WebElements    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]
     ELSE IF    '${data_list['group_type']}' == 'multi_dropdown'
-        Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox" and @aria-expanded="false"]
+        ${check_locator}=    Run Keyword And Return Status    Element Should Be Visible    //ul[@role="listbox"]//li[@data-value!="all"]
+        Run Keyword If    '${check_locator}' != 'True'    Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox" and @aria-expanded="false"]
         ${elements}=    Get WebElements    //ul[@role="listbox"]//li[@data-value!="all"]
     ELSE IF    '${data_list['group_type']}' == 'listbox'
         ${elements}=    Get WebElements    //div[*[*[text()="${data_list['group_name']}"]]]//div[@role="list"]//div[@role="listitem"]
