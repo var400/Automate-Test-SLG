@@ -19,7 +19,6 @@ Test Variable
 
 Test Keyword Insert New Config
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
-
     ###Insert Group Control
     Click Button Add
     Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
@@ -63,4 +62,4 @@ Test Keyword Insert New Config
     ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_001_DATA}
     CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
 
-    
+Test Keyword Insert New Config Dupplcate Detail
