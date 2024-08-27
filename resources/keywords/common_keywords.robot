@@ -269,7 +269,7 @@ Check SEQ List DB
     FOR    ${element}    IN    @{queryResults}
         Append To List    ${results_list}    ${element}
     END
-    Log To Console    Results List: ${results_list}
+    # Log To Console    Results List: ${results_list}
     Return From Keyword    ${results_list}
 
 Check Seq From Web List
@@ -281,7 +281,7 @@ Check Seq From Web List
         ${joined_values}=    Set Variable    (${text_split[0]}, '${text_split[1]}', '${text_split[2]}')
         Append To List    ${elements_list}    ${joined_values}
     END
-    Log To Console    Check Seq From Web ${elements_list}
+    # Log To Console    Check Seq From Web ${elements_list}
     Return From Keyword    ${elements_list}
 
 Check Seq From Web List Group Detail 
@@ -299,17 +299,19 @@ Check Seq From Web List Group Detail
 Check SEQ List WEB VS BASE 
     [Arguments]    ${results_base}    ${results_web}
     ${index}=    Set Variable    0
+    ${seq}=    Set Variable    1
     FOR    ${row}    IN    @{results_base}
-        Log To Console    Base Result: ${results_base[${index}]}
-        Log To Console    Web Result: ${results_web[${index}]}
+        Log To Console    INDEX ${seq}: Base Result: ${results_base[${index}]} | Web Result: ${results_web[${index}]}    no_newline=false
         Run Keyword If    ${results_base[${index}]} == ${results_web[${index}]}    Log    Seq Is True
         Run Keyword If    ${results_base[${index}]} != ${results_web[${index}]}    Fail    Seq Is Not True
         ${index}=    Evaluate    ${index}+1
+        ${seq}=    Evaluate    ${seq}+1
     END
 
 ##CREATE CRITIRIA
 Check Seq From Web Create Criteria
     ${LOCATOR_HEADER}=    Set Variable    //div[div[div[@id="Header"]//*[text()="Common Criteria"]]]
+    Scroll Element Into View    ${LOCATOR_HEADER}
     ${elements}=    Get WebElements    ${LOCATOR_HEADER}//div[contains(@class, 'MuiGrid-root') and contains(@class, 'MuiGrid-item') and contains(@class, 'MuiGrid-grid-xs-12') and contains(@class,'MuiGrid-grid-md')]
     ${elements_list}=    Create List
     FOR    ${element}    IN    @{elements}
@@ -318,7 +320,7 @@ Check Seq From Web Create Criteria
         ${joined_values}=    Set Variable    ${text_split[0]}
         Append To List    ${elements_list}    '${joined_values}'
     END
-    Log To Console    Check Seq From Web ${elements_list}
+    # Log To Console    Check Seq From Web ${elements_list}
     Return From Keyword    ${elements_list}
 
 Check SEQ Create Criteria DB
@@ -330,7 +332,7 @@ Check SEQ Create Criteria DB
     FOR    ${element}    IN    @{queryResults}
         Append To List    ${results_list}    '${element[0]}'
     END
-    Log To Console    Results List: ${results_list}
+    # Log To Console    Results List: ${results_list}
     Return From Keyword    ${results_list}
 
 Check Seq From Web Create Criteria Detail
@@ -359,5 +361,5 @@ Check Seq From Web Create Criteria Detail
         ${joined_values}=    Set Variable    ${text_split}
         Append To List    ${elements_list}    '${joined_values[0]}'
     END
-    Log To Console    Check Seq From Web ${elements_list}       
+    # Log To Console    Check Seq From Web ${elements_list}       
     Return From Keyword    ${elements_list}

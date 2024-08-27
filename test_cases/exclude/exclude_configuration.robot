@@ -49,3 +49,18 @@ Test Keyword Insert New Config
     ${result_base}=    Check SEQ List DB    ${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP}
     ${result_web}=    Check Seq From Web List
     CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    ###Go To Create Critiria Page
+    Go To    ${CREATE_CRITERIA_URL}
+    ###Check Out Put Group Control Detail
+    Check Output On Create Critiria Page    ${TC_001_DATA}
+    Check Preview Script    ${TC_001_DATA}
+    ###Check Seq Grop Control
+    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA}
+    ${result_web}=    Check Seq From Web Create Criteria
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    ###Check Seq Grop Control Detail
+    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL}
+    ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_001_DATA}
+    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+
+    

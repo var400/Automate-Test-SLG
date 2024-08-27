@@ -309,6 +309,7 @@ Check SEQ List WEB VS BASE
 
 ##CREATE CRITIRIA
 Check Seq From Web Create Criteria
+    Scroll Element Into View    ${LOCATOR_HEADER}
     ${elements}=    Get WebElements    ${LOCATOR_HEADER}//div[contains(@class, 'MuiGrid-root') and contains(@class, 'MuiGrid-item') and contains(@class, 'MuiGrid-grid-xs-12') and contains(@class,'MuiGrid-grid-md')]
     ${elements_list}=    Create List
     FOR    ${element}    IN    @{elements}
@@ -317,7 +318,7 @@ Check Seq From Web Create Criteria
         ${joined_values}=    Set Variable    ${text_split[0]}
         Append To List    ${elements_list}    '${joined_values}'
     END
-    Log To Console    Check Seq From Web ${elements_list}
+    # Log To Console    Check Seq From Web ${elements_list}
     Return From Keyword    ${elements_list}
 
 Check SEQ Create Criteria DB
@@ -357,5 +358,5 @@ Check Seq From Web Create Criteria Detail
         ${joined_values}=    Set Variable    ${text_split}
         Append To List    ${elements_list}    '${joined_values[0]}'
     END
-    Log To Console    Check Seq From Web ${elements_list}       
+    # Log To Console    Check Seq From Web ${elements_list}       
     Return From Keyword    ${elements_list}

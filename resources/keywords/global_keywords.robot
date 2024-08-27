@@ -171,14 +171,21 @@ Check List Text Data
 
 Check List Status Data
     [Arguments]    ${data_id}    ${data}    ${choose_key_boolean}
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
     FOR    ${key}    ${value}    IN    &{data}
         Run Keyword If    '${key}' in '${choose_key_boolean}'    Log To Console    Checking field: ${key} -> value must be ${value}    no_newline=false
-        Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
+        IF    '${found_scroll_bar}' == 'True'
+            Run Keyword If    '${key}' in '${choose_key_boolean}'    Scroll Until Find Element    100    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
+        END
         Run Keyword If    '${key}' in '${choose_key_boolean}'    Wait Until Keyword Succeeds    5x    1s    Wait Until Element Is Visible    //div[@data-id="${data_id}"]//div[@data-field="${key}"]//*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-booleanCell css-ptiqhd-MuiSvgIcon-root" and @data-value="${value}"]
     END
 
 Click Show Status
     [Arguments]    ${status}
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    IF    '${found_scroll_bar}' == 'True'
+        Scroll Until Find Element    100    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}
+    END
     Scroll Until Find Element    100    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}
     Wait Until Keyword Succeeds    5x    5s    Click Element    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}
     Wait Until Element Is Visible    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}//div[@class="MuiDataGrid-menuIcon"]
@@ -190,7 +197,6 @@ Click Show Status
     Scroll Element Into View    //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Sleep     1s
-    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
     IF    '${found_scroll_bar}' == 'True'
         Scroll Page    left    1500
     END
