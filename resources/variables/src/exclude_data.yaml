@@ -7,7 +7,7 @@ TC_001_TEST:
   is_active: "true"
   is_disable: "false"
   is_authorize: "true"
-  default_value: "DEALER FLAG"
+  default_value: "Y"
   group_details:
     DATA_1:
       schema_name: "CVMSBOX"

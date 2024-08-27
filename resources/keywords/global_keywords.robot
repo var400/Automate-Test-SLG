@@ -32,7 +32,7 @@ Open Browser To URL
     Wait Until Keyword Succeeds        5x    5s    Click Element    //button[text()="Sign In"]
     Sleep    5s
     Wait Until Keyword Succeeds        5x    5s    Go To    ${url}
-    Maximize Browser Window
+    # Maximize Browser Window
     # Set Window Size    1024    768
     # Execute JavaScript    document.body.style.zoom = "80%";
     # Resize Browser Window To 80 Percent

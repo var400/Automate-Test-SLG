@@ -41,13 +41,16 @@ Test Keyword Insert New Config
     ${result_base}=    Check SEQ List DB   ${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP_DETAIL}
     ${result_web}=    Check Seq From Web List Group Detail 
     CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    
     ###Check List Data On Configuration Exclude Criteria
     Click Button Back
     ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_name']}    group_name
+    Auto Check List Data    ${group_id}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     ###Check Order by Seq On Configuration Exclude Criteria
     ${result_base}=    Check SEQ List DB    ${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP}
     ${result_web}=    Check Seq From Web List
     CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+
     ###Go To Create Critiria Page
     Go To    ${CREATE_CRITERIA_URL}
     ###Check Out Put Group Control Detail
@@ -63,3 +66,5 @@ Test Keyword Insert New Config
     CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
 
 Test Keyword Insert New Config Dupplcate Detail
+    Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
+    Click Show Status    any
