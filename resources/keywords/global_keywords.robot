@@ -35,18 +35,19 @@ Open Browser To URL
     Maximize Browser Window
     # Set Window Size    1024    768
     # Execute JavaScript    document.body.style.zoom = "80%";
-    Execute JavaScript    document.querySelector('div.MuiContainer-root.MuiContainer-maxWidthXl.css-19r6kue-MuiContainer-root').style.zoom = "80%";
+    Resize Browser Window To
     # Execute JavaScript    document.querySelector('div.MuiContainer-root MuiContainer-maxWidthXl css-19r6kue-MuiContainer-root').style.zoom = "80%";
     # Resize Browser Window To 80 Percent
     Sleep    5s
 
-Resize Browser Window To 80 Percent
-    Execute javascript       document.body.style.zoom="80%"
+Resize Browser Window To
+    Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "60%";
 
 Click Button Add
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
     Click Element   ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
     Sleep    1s
+    Resize Browser Window To
 
 Click Button Save
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_SAVE_BUTTON}
@@ -63,6 +64,7 @@ Click Button Back
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    //div[@class="MuiBox-root css-1pgize9"]
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_BUTTON_BACK}
     Wait Until Keyword Succeeds    5x    5s    Click Button    ${LOCATOR_BUTTON_BACK}
+    Resize Browser Window To
 
 Click Edit Botton
     [Arguments]    ${data_id}
@@ -582,3 +584,5 @@ Click Button Save Group Control
     ELSE IF    '${option_contol}' == 'Close'
         Wait Until Keyword Succeeds   5x    5s    Click Element    //button[@aria-label="Close this dialog"]
     END
+    Resize Browser Window To
+    

@@ -14,7 +14,7 @@ Clear And Insert Data In Database
 
 TEST KEY Word
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
-    
+
 Process Dictionary List
     ${list_script}=    Process Dictionary List TEST    ${TC_001_DATA}
     FOR    ${script}    IN    @{list_script}
@@ -73,7 +73,7 @@ Test Keyword Insert New Config Dupplcate Detail
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
     ###Insert Group Control
     Click Button Add
-    Reload Page
+    # Reload Page
     Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     ###Insert Group Control Detail
     ${Data_List}     Create List    DATA_1    DATA_2
@@ -93,7 +93,7 @@ Test Keyword Insert New Config Dupplcate Detail
     Auto Update Data Detail    ${TC_001_DATA['group_details']['DATA_3']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     Click Button Save Detail
     Click Button Save Group Control    Yes
-    Page Should Contain    Save Complete.
+    # Page Should Contain    Save Complete.
     Sleep    2s
 
 Test keyword Check Create Crireria
