@@ -386,13 +386,13 @@ Process Dictionary List TEST
             END
             IF    ${count_round} == 1
                 IF    ${count_isnull} >= 1
-                    Append To List    ${list_script}    COALESCE(${header},${collease}) ${type} '${script_condition}'
+                    Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} '${script_condition}'
                 ELSE
                     Append To List    ${list_script}    ${header} ${type} '${script_condition}'
                 END
             ELSE IF    ${count_round} > 1
                 IF    ${count_isnull} >= 1
-                    Append To List    ${list_script}    COALESCE(${header},${collease}) ${type} (${script_condition})
+                    Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} (${script_condition})
                 ELSE
                     Append To List    ${list_script}    ${header} ${type} (${script_condition})
                 END
@@ -417,7 +417,7 @@ Check Preview Script
     Wait Until Element Is Visible    //*[*[h5[text()="Preview"]]]//textarea[1]
     FOR    ${script}    IN    @{list_script}
         Log To Console   condition: ${script}
-        IF    ${script} != ${EMPTY}
+        IF    "${script}" != "${EMPTY}"
             Wait Until Keyword Succeeds    5x    5s    Textarea Should Contain    //*[*[h5[text()="Preview"]]]//textarea[1]    ${script}
         END
     END

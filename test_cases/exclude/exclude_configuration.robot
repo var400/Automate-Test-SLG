@@ -11,7 +11,11 @@ Resource    ../../resources/variables/exclude_variables.robot
 Clear And Insert Data In Database
     ${sql_script} =    Get File    ${SQLFilePath}
     Clear Database    ${sql_script}
-    
+
+TEST KEY Word
+    Open Browser To URL    ${CREATE_CRITERIA_URL}     ${BASE_BROWSER}
+    Check Preview Script    ${TC_001_DATA}
+
 Process Dictionary List
     ${list_script}=    Process Dictionary List TEST    ${TC_001_DATA}
     FOR    ${script}    IN    @{list_script}

@@ -186,14 +186,17 @@ Click Show Status
     IF    '${found_scroll_bar}' == 'True'
         Scroll Until Find Element    100    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}
     END
+    Wait Until Element Is Visible    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}
     Wait Until Keyword Succeeds    5x    5s    Click Element    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}
     Wait Until Element Is Visible    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}//div[@class="MuiDataGrid-menuIcon"]
     Wait Until Keyword Succeeds    5x    5s    Click Element    ${LOCATOR_GROUP_TITLE_ACTIVE_LIST}//div[@class="MuiDataGrid-menuIcon"]
+    Wait Until Element Is Visible    //ul[@class="MuiList-root MuiList-padding MuiDataGrid-menuList css-fsg6gs-MuiList-root"]//li[@class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"]//*[text()="Filter"]
     Wait Until Keyword Succeeds    5x    5s    Click Element    //ul[@class="MuiList-root MuiList-padding MuiDataGrid-menuList css-fsg6gs-MuiList-root"]//li[@class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"]//*[text()="Filter"]
     # Scroll Element Into View    //div[@class="MuiDataGrid-panelWrapper css-1miuj5f-MuiDataGrid-panelWrapper"]//div[@class="MuiFormControl-root MuiDataGrid-filterFormValueInput css-1h08ml-MuiFormControl-root-MuiDataGrid-filterFormValueInput"]//div[@role="combobox"]
-    Wait Until Element Is Visible    //div[@role="combobox" and text()="true"]
     # Wait Until Keyword Succeeds    5x    5s    Click Element    //div[@class="MuiDataGrid-panelWrapper css-1miuj5f-MuiDataGrid-panelWrapper"]//div[@class="MuiFormControl-root MuiDataGrid-filterFormValueInput css-1h08ml-MuiFormControl-root-MuiDataGrid-filterFormValueInput"]//div[@role="combobox"]
+    Wait Until Element Is Visible    //div[@role="combobox" and text()="true"]
     Wait Until Keyword Succeeds    5x    5s    Click Element    //div[@role="combobox" and text()="true"]
+    Wait Until Element Is Visible    //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper MuiMenu-paper MuiMenu-paper css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper"]//ul[@role="listbox"]//li[text()="${status}"]
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper MuiMenu-paper MuiMenu-paper css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper"]//ul[@role="listbox"]//li[text()="${status}"]
     Scroll Element Into View    //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
     Wait Until Keyword Succeeds    5x    5s    Click Element   //div[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-7kmsou-MuiPaper-root-MuiCard-root"]//div[@class="MuiBox-root css-i9gxme"]
@@ -377,9 +380,10 @@ Input Auto Complete Data Detail
     FOR    ${key}    ${value}    IN    &{data}
         IF    '${key}' in '${choose_key}'
             ${title}=    Mapping Key Title Name    ${key}
-            Wait Until Keyword Succeeds    5x    5s    Press Key    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}
-            Sleep    1s
-            Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ARROW_DOWN    ENTER
+            Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}    ARROW_DOWN    ENTER
+            # Sleep    2s
+            # Wait Until Page Contains    ${value}
+            # Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ARROW_DOWN    ENTER
             # Log To Console    ${title}
         END
     END
