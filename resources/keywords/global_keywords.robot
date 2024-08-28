@@ -35,6 +35,8 @@ Open Browser To URL
     Maximize Browser Window
     # Set Window Size    1024    768
     # Execute JavaScript    document.body.style.zoom = "80%";
+    Execute JavaScript    document.querySelector('div.MuiContainer-root.MuiContainer-maxWidthXl.css-19r6kue-MuiContainer-root').style.zoom = "80%";
+    # Execute JavaScript    document.querySelector('div.MuiContainer-root MuiContainer-maxWidthXl css-19r6kue-MuiContainer-root').style.zoom = "80%";
     # Resize Browser Window To 80 Percent
     Sleep    5s
 
@@ -380,7 +382,12 @@ Input Auto Complete Data Detail
     FOR    ${key}    ${value}    IN    &{data}
         IF    '${key}' in '${choose_key}'
             ${title}=    Mapping Key Title Name    ${key}
-            Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}    ARROW_DOWN    ENTER
+            Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ${value}
+            Sleep    1s
+            Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ARROW_DOWN
+            Sleep    1s
+            Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ENTER
+            Sleep    1s
             # Sleep    2s
             # Wait Until Page Contains    ${value}
             # Wait Until Keyword Succeeds    5x    5s    Press Keys    ${LOCATOR_SUB_WINDOWS_DETAIL}//div[div[text()="${title}"]]//input    ARROW_DOWN    ENTER
