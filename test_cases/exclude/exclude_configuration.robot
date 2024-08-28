@@ -6,20 +6,14 @@ Resource   ../../resources/Keywords/exclude_keywords.robot
 Resource   ../../resources/variables/global_variables.robot
 Resource    ../../resources/variables/exclude_variables.robot
 
+
 *** Test Cases ***
 Clear And Insert Data In Database
     ${sql_script} =    Get File    ${SQLFilePath}
     Clear Database    ${sql_script}
-
-Test Variable
-    ${Data_List}     Create List    DATA_1    DATA_2
-    FOR    ${data}    IN    @{Data_List}
-        Log To Console    หหห:${data}
-    END 
-    # Log To Console    ${TC_001_DATA['group_details']['DATA_1']}
-    # FOR    ${data}    IN    @{TC_001_DATA['group_details']}
-    #     Log To Console    Group Detail:${TC_001_DATA['group_details']['${data}']}
-    # END
+    
+Process Dictionary List
+    Process Dictionary List TEST    ${TC_001_DATA}
 
 Test Keyword Insert New Config
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
@@ -59,7 +53,7 @@ Test Keyword Insert New Config
     Go To    ${CREATE_CRITERIA_URL}
     ###Check Out Put Group Control Detail
     Check Output On Create Critiria Page    ${TC_001_DATA}
-    # Check Preview Script    ${TC_001_DATA}
+    Check Preview Script    ${TC_001_DATA}
     ###Check Seq Grop Control
     ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA}
     ${result_web}=    Check Seq From Web Create Criteria
