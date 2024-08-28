@@ -235,7 +235,7 @@ Check Seq From Web List Group Detail
     FOR    ${element}    IN    @{elements}
         ${text}=    Get Text    ${element}
         ${text_split}=    Split String    ${text}    \n
-        ${joined_values}=    Set Variable    (${text_split[0]}, '${text_split[4]}')
+        ${joined_values}=    Set Variable    (${text_split[2]}, '${text_split[4]}')
         Append To List    ${elements_list}    ${joined_values}
     END
     # Log To Console    Check Seq From Web ${elements_list}

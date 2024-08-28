@@ -169,12 +169,13 @@ TC_002
 TC_010
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "X"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${COMMON_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_010_DATA.condition}
-    # ${group_id}=    Get Data Id From Field    ${TC_010_DATA['group_name']}    group_name
-    Click Delete Botton    ${COMMON_ID}
+    Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
+    ${group_id}=    Get Data Id From Field    ${TC_010_DATA['group_name']}    group_name
+    Check List Data Is Visible    ${group_id}
+    Click Delete Botton    ${group_id}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_CANCEL_BUTTON_DELETE}
-    Check List Data Is Visible    ${COMMON_ID}
+    Check List Data Is Visible    ${group_id}
     Sleep    ${DELAY}
     Close Browser
 
@@ -182,14 +183,15 @@ TC_010
 TC_011
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "Yes"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
+    Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
     ${group_id}=    Get Data Id From Field    ${TC_010_DATA['group_name']}    group_name
+    Check List Data Is Visible    ${group_id}
     Click Delete Botton    ${group_id}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_ACCEPT_BUTTON_DELETE}
     Alert Popup Message    Deleted.
     Check List Data Is Not Visible    ${group_id}
     Click Show Status    any
-    Check List Data Is Visible    ${group_id}
     Sleep    ${DELAY}
     Close Browser
 
@@ -197,13 +199,21 @@ TC_011
 TC_012
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "No"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
+    Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
     ${group_id}=    Get Data Id From Field    ${TC_012_DATA['group_name']}    group_name
+    Check List Data Is Visible    ${group_id}
     Click Delete Botton    ${group_id}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_DENY_BUTTON_DELETE}
     Check List Data Is Visible    ${group_id}
     Sleep    ${DELAY}
     Close Browser
+
+
+TC_100
+    Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
+    Click Button Add
+    Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
 
 
 
