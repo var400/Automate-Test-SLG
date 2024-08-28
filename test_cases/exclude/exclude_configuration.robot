@@ -13,7 +13,10 @@ Clear And Insert Data In Database
     Clear Database    ${sql_script}
     
 Process Dictionary List
-    Process Dictionary List TEST    ${TC_001_DATA}
+    ${list_script}=    Process Dictionary List TEST    ${TC_001_DATA}
+    FOR    ${script}    IN    @{list_script}
+        Log To Console   ${script}
+    END
 
 Test Keyword Insert New Config
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}

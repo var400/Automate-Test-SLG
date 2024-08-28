@@ -206,61 +206,6 @@ Check CheckListBox Config
         Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[*[*[input[@aria-labelledby="transfer-list-item-${data_list['group_details']['${data}']['field_label']}-label"]]]]
     END
 
-# CVMSBOX.CAMPAIGN_PREPAID_360.Smartphone = 'Smart Phone'
-# CVMSBOX.CAMPAIGN_PREPAID_360.Smartphone in ('Smart Phone','WLAN Router')
-# COLLEASE(CVMSBOX.CAMPAIGN_PREPAID_360.Smartphone) in ('Smart Phone','WLAN Router')
-Check Preview Script
-    [Arguments]     ${data_list}
-    ${script}=    Generate Script    ${data_list}
-    Click Element    //div[input[@name="OutputTemplate"]]
-    Click Element    //li[text()="Template Channel Prepaid"]
-    Scroll Element Into View    //button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xnayt1-MuiButtonBase-root-MuiButton-root" and (.='Preview')]
-    Click Element    //button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xnayt1-MuiButtonBase-root-MuiButton-root" and (.='Preview')]
-    Sleep    1s
-    Textarea Should Contain    //*[*[h5[text()="Preview"]]]//textarea[1]    ${script}
-
-Generate Script
-    [Arguments]    ${data_list}
-    ${count_con}=    Set Variable    0
-    ${count_isnull}=    Set Variable    0
-    
-    FOR    ${data}    IN    @{data_list['group_details']}
-        IF    '${data_list['group_details']['${data}']['is_active']}' == 'true'
-            ${schema}=    Set Variable    ${data_list['group_details']['${data}']['schema_name']}
-            ${table}=    Set Variable    ${data_list['group_details']['${data}']['table_name']}
-            ${column}=    Set Variable    ${data_list['group_details']['${data}']['field_name']}
-            IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
-                IF    ${count_con} == 0
-                    # First active and checked element
-                    ${type}=    Set Variable    =
-                    ${condition}=    Set Variable    '${data_list['group_details']['${data}']['field_value']}'
-                ELSE
-                    # Subsequent elements
-                    ${type}=    Set Variable    IN
-                    ${condition}=    Evaluate    ${Condition}, '${data_list['group_details']['${data}']['field_value']}'
-                END
-                ${count_con}=    Evaluate    ${count_con} + 1
-            END
-            IF    '${data_list['group_details']['${data}']['is_null']}' == 'true'
-                ${count_isnull}=    Set Variable    1
-                ${value_collease}=    Set Variable    ${data_list['group_details']['${data}']['field_value']}
-            END
-        END
-    END
-    # Construct final script
-    ${script}=    Set Variable    ${EMPTY}
-    IF    ${count_con} >= 1
-        ${final_Table}=    Set Variable    ${schema}.${table}.${column}
-        ${final_Condition}=    Set Variable    ${condition}
-        IF    ${count_isnull} == 1
-            ${script}=    Set Variable    COALESCE(${final_Table},'${value_collease}') ${type} ${final_Condition}
-        ELSE
-            ${script}=    Set Variable    ${final_Table} ${type} ${final_Condition}
-        END
-    END
-    Return From Keyword    ${script}
-
-
 Check SEQ List DB
     [Arguments]    ${script_qry}
     Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
@@ -393,7 +338,7 @@ Process Dictionary List TEST
     ${list_script}    Create List
     ${get_all_header}=    Set Variable    ExampleHeader
     ${list_count}=    Get Length    ${list_data}
-    Log To Console    ${list_count}
+    # Log To Console    ${list_count}
     FOR    ${element}    IN    @{list_data}
         # ${script_condition}=    Set Variable
         ${count_isnull}=    Set Variable    0
@@ -454,6 +399,25 @@ Process Dictionary List TEST
             END
         END
         ${get_all_header}=    Evaluate    "${get_all_header}, ${header}"
-        Log To Console    test: ${get_all_header}
+        # Log To Console    test: ${get_all_header}
     END
     Log To Console    ${list_script}
+    Return From Keyword    ${list_script}
+
+# CVMSBOX.CAMPAIGN_PREPAID_360.Smartphone = 'Smart Phone'
+# CVMSBOX.CAMPAIGN_PREPAID_360.Smartphone in ('Smart Phone','WLAN Router')
+# COLLEASE(CVMSBOX.CAMPAIGN_PREPAID_360.Smartphone) in ('Smart Phone','WLAN Router')
+Check Preview Script
+    [Arguments]     ${data_list}
+    ${list_script}=    Process Dictionary List TEST    ${data_list}
+    Click Element    //div[input[@name="OutputTemplate"]]
+    Click Element    //li[text()="Template Channel Prepaid"]
+    Scroll Element Into View    //button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xnayt1-MuiButtonBase-root-MuiButton-root" and (.='Preview')]
+    Click Element    //button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xnayt1-MuiButtonBase-root-MuiButton-root" and (.='Preview')]
+    Wait Until Element Is Visible    //*[*[h5[text()="Preview"]]]//textarea[1]
+    FOR    ${script}    IN    @{list_script}
+        Log To Console   condition: ${script}
+        IF    ${script} != ${EMPTY}
+            Wait Until Keyword Succeeds    5x    5s    Textarea Should Contain    //*[*[h5[text()="Preview"]]]//textarea[1]    ${script}
+        END
+    END

@@ -11,6 +11,12 @@ Clear And Insert Data In Database
     ${sql_script} =    Get File    ${SQLFilePath}
     Clear Database    ${sql_script}
 
+Process Dictionary List
+    ${list_script}=    Process Dictionary List TEST    ${TC_005_DATA}
+    FOR    ${script}    IN    @{list_script}
+        Log To Console   ${script}
+    END
+
 Test Variable 
     Log To Console    ${TC_001_DATA['group_details']['DATA_1']}
     FOR    ${data}    IN    @{TC_001_DATA['group_details']}
