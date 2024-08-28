@@ -315,54 +315,18 @@ Check Seq From Web Create Criteria Detail
 # COLLEASE(CVMSBOX.CAMPAIGN_PREPAID_360.Smartphone) in ('Smart Phone','WLAN Router')
 Check Preview Script
     [Arguments]     ${data_list}
-    ${script}=    Generate Script    ${data_list}
+    ${list_script}=    Process Dictionary List TEST    ${data_list}
     Click Element    //div[input[@name="OutputTemplate"]]
     Click Element    //li[text()="Template Channel Prepaid"]
     Scroll Element Into View    //button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xnayt1-MuiButtonBase-root-MuiButton-root" and (.='Preview')]
     Click Element    //button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xnayt1-MuiButtonBase-root-MuiButton-root" and (.='Preview')]
-    Sleep    1s
-    Textarea Should Contain    //*[*[h5[text()="Preview"]]]//textarea[1]    ${script}
-
-Generate Script
-    [Arguments]    ${data_list}
-    ${count_con}=    Set Variable    0
-    ${count_isnull}=    Set Variable    0
-    
-    FOR    ${data}    IN    @{data_list['group_details']}
-        IF    '${data_list['group_details']['${data}']['is_active']}' == 'true'
-            ${schema}=    Set Variable    ${data_list['group_details']['${data}']['schema_name']}
-            ${table}=    Set Variable    ${data_list['group_details']['${data}']['table_name']}
-            ${column}=    Set Variable    ${data_list['group_details']['${data}']['field_name']}
-            IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
-                IF    ${count_con} == 0
-                    # First active and checked element
-                    ${type}=    Set Variable    =
-                    ${condition}=    Set Variable    '${data_list['group_details']['${data}']['field_value']}'
-                ELSE
-                    # Subsequent elements
-                    ${type}=    Set Variable    IN
-                    ${condition}=    Evaluate    ${Condition}, '${data_list['group_details']['${data}']['field_value']}'
-                END
-                ${count_con}=    Evaluate    ${count_con} + 1
-            END
-            IF    '${data_list['group_details']['${data}']['is_null']}' == 'true'
-                ${count_isnull}=    Set Variable    1
-                ${value_collease}=    Set Variable    ${data_list['group_details']['${data}']['field_value']}
-            END
+    Wait Until Element Is Visible    //*[*[h5[text()="Preview"]]]//textarea[1]
+    FOR    ${script}    IN    @{list_script}
+        Log To Console   condition: ${script}
+        IF    ${script} != ${EMPTY}
+            Wait Until Keyword Succeeds    5x    5s    Textarea Should Contain    //*[*[h5[text()="Preview"]]]//textarea[1]    ${script}
         END
     END
-    # Construct final script
-    ${script}=    Set Variable    ${EMPTY}
-    IF    ${count_con} >= 1
-        ${final_Table}=    Set Variable    ${schema}.${table}.${column}
-        ${final_Condition}=    Set Variable    ${condition}
-        IF    ${count_isnull} == 1
-            ${script}=    Set Variable    COALESCE(${final_Table},'${value_collease}') ${type} ${final_Condition}
-        ELSE
-            ${script}=    Set Variable    ${final_Table} ${type} ${final_Condition}
-        END
-    END
-    Return From Keyword    ${script}
 
 Generate Dictionary List
     [Arguments]    ${data}
@@ -407,22 +371,22 @@ Process Dictionary List TEST
                 ${first_key_level2}=    Get From List    ${keys_level2}    0
                 ${value_level2}=    Get From Dictionary    ${element_level2}    ${first_key_level2}
                 # Log To Console    ${get_all_header}
-                    IF    '${value_level2['schema']}.${value_level2['table']}.${value_level2['column']}' == '${header}'
-                        IF    '${value_level2['is_checked']}'=='true'
-                            IF    ${count_round} <= 0
+                IF    '${value_level2['schema']}.${value_level2['table']}.${value_level2['column']}' == '${header}'
+                    IF    '${value_level2['is_checked']}'=='true'
+                        IF    ${count_round} <= 0
                                 ${script_condition}=    Set Variable    ${value_level2['field_value']}
                                 ${count_round}=    Evaluate    ${count_round}+1
-                            ELSE
+                        ELSE
                                 ${script_condition}=    Evaluate    "${script_condition}, '${value_level2['field_value']}'"
                                 ${type}    Set Variable    IN
                                 ${count_round}=    Evaluate    ${count_round}+1
-                            END
-                            IF    '${value_level2['is_null']}' == 'true'
+                        END
+                        IF    '${value_level2['is_null']}' == 'true'
                                 ${count_isnull}=    Set Variable    1
                                 ${collease}=    Set Variable    ${value_level2['field_value']}
-                            END
                         END
                     END
+                END
             END
             IF    ${count_round} == 1
                 IF    ${count_isnull} >= 1
