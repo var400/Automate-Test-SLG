@@ -2,9 +2,9 @@ TC_010:
   channel_name: "SMS"
   channel_file_type: "txt"
   channel_delimiter: "|"
-  channel_label: "New Channel"
-  channel_file_name_format: "[date]_[planlead_id]"
-  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MOBILE_NUMBER"
+  channel_label: "Test Channel Delete 1"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MSISDN"
   channel_temp_path: "/temp/slg"
   channel_target_path: "/upload/slg"
   channel_host: "localhost"
@@ -12,9 +12,28 @@ TC_010:
   channel_pass: "admin"
   channel_port: "22"
   is_active: "true"
-  is_header: "true"
+  is_header: "false"
   is_teohong: "false"
-  condition: where channel_label='New Channel'
+  condition: where channel_label='Test Channel Delete 1'
+
+
+TC_012:
+  channel_name: "SMS"
+  channel_file_type: "csv"
+  channel_delimiter: "|"
+  channel_label: "Test Channel Delete 2"
+  channel_file_name_format: "[planlead_id]_[date]_[campaign_code]_[offer_code]"
+  channel_format: "CVMSBOX.CAMPAIGN_PREPAID_360.PROD_KEY AS PROD_KEY,CVMSBOX.CAMPAIGN_PREPAID_360.MSISDN AS MSISDN"
+  channel_temp_path: "/temp/slg"
+  channel_target_path: "/upload/slg"
+  channel_host: "localhost"
+  channel_user: "admin"
+  channel_pass: "admin"
+  channel_port: "22"
+  is_active: "true"
+  is_header: "false"
+  is_teohong: "false"
+  condition: where channel_label='Test Channel Delete 2'
 
 
 TC_015:

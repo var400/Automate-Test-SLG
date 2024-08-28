@@ -8,7 +8,7 @@ Resource    ../../resources/locators/profile_locators.robot
 
 
 *** Test Cases ***
-Clear and Insert Data
+Clear And Insert Data In Database
     ${sql_script} =    Get File    ${SQLFilePath}
     Clear Database    ${sql_script}
 
@@ -19,6 +19,7 @@ TC_002
     Click Button Back
     Check Screen    Main
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_010
@@ -30,6 +31,7 @@ TC_010
     Click Button    ${LOCATOR_CANCEL_BUTTON_DELETE}
     Check List Data Is Visible    ${PROFILE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_011
@@ -44,17 +46,19 @@ TC_011
     Click Show Status    any
     Check List Data Is Visible    ${PROFILE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_012
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "No"
     Open Browser To URL    ${PROFILE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_010_DATA.condition}
+    ${PROFILE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_012_DATA.condition}
     Click Delete Botton    ${PROFILE_ID}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_DENY_BUTTON_DELETE}
     Check List Data Is Visible    ${PROFILE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_014
@@ -64,6 +68,7 @@ TC_014
     Click Button Back
     Check Screen    Configuration Profile
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_015 
@@ -83,6 +88,7 @@ TC_015
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Product Type    ${TC_015_DATA.profile_name}    ${TC_015_DATA.is_active}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_016
@@ -102,6 +108,7 @@ TC_016
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Product Type    ${TC_016_DATA.profile_name}    ${TC_016_DATA.is_active}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_017
@@ -112,6 +119,7 @@ TC_017
     Click Button Save
     Alert Popup Message     ${TC_017_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_018
@@ -122,6 +130,7 @@ TC_018
     Click Button Save
     Check Validate Edit Page    ${TC_018_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_018_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_019
@@ -131,6 +140,7 @@ TC_019
     Click Button Save
     Check Validate Edit Page    ${TC_019_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_019_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_020
@@ -140,6 +150,7 @@ TC_020
     Click Button Cancel
     Check Screen    Configuration Profile
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_022
@@ -150,6 +161,7 @@ TC_022
     Click Button Back
     Check Screen    Configuration Profile
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_023
@@ -172,6 +184,7 @@ TC_023
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Product Type    ${TC_023_DATA.profile_name}    ${TC_023_DATA.is_active}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_024
@@ -193,6 +206,7 @@ TC_024
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Product Type    ${TC_024_DATA.profile_name}    ${TC_024_DATA.is_active}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_025
@@ -205,6 +219,7 @@ TC_025
     Click Button Save
     Alert Popup Message     ${TC_025_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_026
@@ -217,6 +232,7 @@ TC_026
     Click Button Save
     Check Validate Edit Page    ${TC_026_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_026_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_027
@@ -229,6 +245,7 @@ TC_027
     Click Button Save
     Check Validate Edit Page    ${TC_027_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_027_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_028
@@ -239,6 +256,7 @@ TC_028
     Click Button Cancel
     Check Screen    Configuration Profile
     Sleep    ${DELAY}
+    Close Browser
 
 
     

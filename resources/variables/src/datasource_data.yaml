@@ -1,5 +1,5 @@
-TC_011:
-  datasource_name: "Test Datasource"
+TC_004:
+  datasource_name: "Test Datasource Save Config"
   datasource_host: "localhost"
   datasource_dbname: "dbadmin"
   datasource_port: "5433"
@@ -10,10 +10,50 @@ TC_011:
   pass_exec: "password"
   user_batch: "dbadmin"
   pass_batch: "password"
-  datasource_desc: "Test Datasource Description"
-  remark: "Test Datasource Remark"
+  datasource_desc: "Test Datasource Save Config Description"
+  remark: "Test Datasource Save Config Remark"
   is_active: "true"
-  condition: where datasource_name='Test Datasource'
+  condition: where datasource_name='Test Datasource Save Config'
+  result:
+    expected_result: Save Complete.
+
+
+TC_011:
+  datasource_name: "Test Datasource Delete 1"
+  datasource_host: "localhost"
+  datasource_dbname: "dbadmin"
+  datasource_port: "5433"
+  default_schema_contact: "SLG"
+  default_schema_temp: "SLG"
+  datasource_type: "VerticaSQL"
+  user_exec: "dbadmin"
+  pass_exec: "password"
+  user_batch: "dbadmin"
+  pass_batch: "password"
+  datasource_desc: "Test Datasource Delete 1 Description"
+  remark: "Test Datasource Delete 1 Remark"
+  is_active: "true"
+  condition: where datasource_name='Test Datasource Delete 1'
+  result:
+    expected_result: Save Complete.
+
+
+TC_013:
+  datasource_name: "Test Datasource Delete 2"
+  datasource_host: "localhost"
+  datasource_dbname: "dbadmin"
+  datasource_port: "5433"
+  default_schema_contact: "SLG"
+  default_schema_temp: "SLG"
+  datasource_type: "VerticaSQL"
+  user_exec: "dbadmin"
+  pass_exec: "password"
+  user_batch: "dbadmin"
+  pass_batch: "password"
+  datasource_desc: "Test Datasource Delete 2 Description"
+  remark: "Test Datasource Delete 2 Remark"
+  is_active: "true"
+  condition: where datasource_name='Test Datasource Delete 2'
   result:
     expected_result: Save Complete.
 

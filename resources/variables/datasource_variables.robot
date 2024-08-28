@@ -6,13 +6,19 @@ Variables    ../../resources/variables/src/datasource_data.yaml
 ${DELAY}    5s
 
 
+#CLEAR AND INSERT DATA
+${SQLFilePath}   test_cases/datasource/clear_and_insert.sql
+
+
 #SET VARIABLE DATABASE
 ${TABLE_NAME}    slg.mst_datasource
 ${COLUMN_ID}    id
 
 
 #GET DATA YAML
+${TC_004_DATA}    ${TC_004}
 ${TC_011_DATA}    ${TC_011}
+${TC_013_DATA}    ${TC_013}
 ${TC_016_DATA}    ${TC_016}
 ${TC_017_DATA}    ${TC_017}
 ${TC_018_DATA}    ${TC_018}

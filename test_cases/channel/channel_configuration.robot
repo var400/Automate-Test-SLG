@@ -21,6 +21,7 @@ TC_002
     Click Button Back
     Check Screen    Main
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_010
@@ -32,6 +33,7 @@ TC_010
     Click Button    ${LOCATOR_CANCEL_BUTTON_DELETE}
     Check List Data Is Visible    ${CHANNEL_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_011
@@ -46,17 +48,19 @@ TC_011
     Click Show Status    any
     Check List Data Is Visible    ${CHANNEL_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_012
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "No"
     Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_010_DATA.condition}
+    ${CHANNEL_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_012_DATA.condition}
     Click Delete Botton    ${CHANNEL_ID}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_DENY_BUTTON_DELETE}
     Check List Data Is Visible    ${CHANNEL_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_014
@@ -66,6 +70,7 @@ TC_014
     Click Button Back
     Check Screen    Configuration Channel
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_015
@@ -85,6 +90,7 @@ TC_015
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_015_DATA.channel_label}    ${TC_015_DATA.is_active}    ${TC_015_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_016
@@ -104,6 +110,7 @@ TC_016
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_016_DATA.channel_label}    ${TC_016_DATA.is_active}    ${TC_016_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_017
@@ -123,6 +130,7 @@ TC_017
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_017_DATA.channel_label}    ${TC_017_DATA.is_active}    ${TC_017_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_018
@@ -142,6 +150,7 @@ TC_018
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_018_DATA.channel_label}    ${TC_018_DATA.is_active}    ${TC_018_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_019
@@ -161,6 +170,7 @@ TC_019
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_019_DATA.channel_label}    ${TC_019_DATA.is_active}    ${TC_019_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_020
@@ -180,6 +190,7 @@ TC_020
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_020_DATA.channel_label}    ${TC_020_DATA.is_active}    ${TC_020_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_021
@@ -199,6 +210,7 @@ TC_021
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_021_DATA.channel_label}    ${TC_021_DATA.is_active}    ${TC_021_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_022
@@ -218,6 +230,7 @@ TC_022
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_022_DATA.channel_label}    ${TC_022_DATA.is_active}    ${TC_022_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_023
@@ -228,6 +241,7 @@ TC_023
     Click Button Save
     Alert Popup Message     ${TC_023_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_024
@@ -238,6 +252,7 @@ TC_024
     Click Button Save
     Check Validate Edit Page    ${TC_024_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_024_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_025
@@ -248,6 +263,7 @@ TC_025
     Click Button Save
     Check Validate Edit Page    ${TC_025_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_025_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_026
@@ -258,6 +274,7 @@ TC_026
     Click Button Save
     Check Validate Edit Page    ${TC_026_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_026_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_027
@@ -268,6 +285,7 @@ TC_027
     Click Button Save
     Check Validate Edit Page    ${TC_027_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_027_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_028
@@ -278,6 +296,7 @@ TC_028
     Click Button Save
     Check Validate Edit Page    ${TC_028_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_028_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_029
@@ -288,6 +307,7 @@ TC_029
     Click Button Save
     Check Validate Edit Page    ${TC_029_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_029_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_030
@@ -298,6 +318,7 @@ TC_030
     Click Button Save
     Check Validate Edit Page    ${TC_030_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_030_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_031
@@ -308,6 +329,7 @@ TC_031
     Click Button Save
     Check Validate Edit Page    ${TC_031_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_031_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_032
@@ -318,6 +340,7 @@ TC_032
     Click Button Save
     Check Validate Edit Page    ${TC_032_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_032_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_033
@@ -328,6 +351,7 @@ TC_033
     Click Button Save
     Check Validate Edit Page    ${TC_033_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_033_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_034
@@ -338,6 +362,7 @@ TC_034
     Click Button Save
     Check Validate Edit Page    ${TC_034_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_034_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_035
@@ -348,6 +373,7 @@ TC_035
     Click Button Save
     Check Validate Edit Page    ${TC_035_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_035_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_036
@@ -357,6 +383,7 @@ TC_036
     Click Button Save
     Check Validate Edit Page    ${TC_036_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_036_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_037
@@ -366,6 +393,7 @@ TC_037
     Click Button Cancel
     Check Screen    Configuration Channel
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_039
@@ -376,6 +404,7 @@ TC_039
     Click Button Back
     Check Screen    Configuration Channel
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_040
@@ -399,6 +428,7 @@ TC_040
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_040_DATA.channel_label}    ${TC_040_DATA.is_active}    ${TC_040_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_041
@@ -421,6 +451,7 @@ TC_041
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_041_DATA.channel_label}    ${TC_041_DATA.is_active}    ${TC_041_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_042
@@ -443,6 +474,7 @@ TC_042
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_042_DATA.channel_label}    ${TC_042_DATA.is_active}    ${TC_042_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_043
@@ -465,6 +497,7 @@ TC_043
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_043_DATA.channel_label}    ${TC_043_DATA.is_active}    ${TC_043_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_044
@@ -488,6 +521,7 @@ TC_044
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_044_DATA.channel_label}    ${TC_044_DATA.is_active}    ${TC_044_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_045
@@ -510,6 +544,7 @@ TC_045
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_045_DATA.channel_label}    ${TC_045_DATA.is_active}    ${TC_045_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_046
@@ -532,6 +567,7 @@ TC_046
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_046_DATA.channel_label}    ${TC_046_DATA.is_active}    ${TC_046_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_047
@@ -554,6 +590,7 @@ TC_047
     Open Browser To URL    ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
     Check Output On Screen Create Criteria For Output Templete    ${TC_047_DATA.channel_label}    ${TC_047_DATA.is_active}    ${TC_047_DATA.is_teohong}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_048
@@ -567,6 +604,7 @@ TC_048
     Click Button Save
     Alert Popup Message     ${TC_048_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_049
@@ -580,6 +618,7 @@ TC_049
     Click Button Save
     Check Validate Edit Page    ${TC_049_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_049_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_050
@@ -593,6 +632,7 @@ TC_050
     Click Button Save
     Check Validate Edit Page    ${TC_050_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_050_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_051
@@ -606,6 +646,7 @@ TC_051
     Click Button Save
     Check Validate Edit Page    ${TC_051_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_051_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_052
@@ -619,6 +660,7 @@ TC_052
     Click Button Save
     Check Validate Edit Page    ${TC_052_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_052_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_053
@@ -632,6 +674,7 @@ TC_053
     Click Button Save
     Check Validate Edit Page    ${TC_053_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_053_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_054
@@ -645,6 +688,7 @@ TC_054
     Click Button Save
     Check Validate Edit Page    ${TC_054_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_054_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_055
@@ -658,6 +702,7 @@ TC_055
     Click Button Save
     Check Validate Edit Page    ${TC_055_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_055_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_056
@@ -671,6 +716,7 @@ TC_056
     Click Button Save
     Check Validate Edit Page    ${TC_056_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_056_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_057
@@ -684,6 +730,7 @@ TC_057
     Click Button Save
     Check Validate Edit Page    ${TC_057_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_057_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_058
@@ -697,6 +744,7 @@ TC_058
     Click Button Save
     Check Validate Edit Page    ${TC_058_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_058_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_059
@@ -710,6 +758,7 @@ TC_059
     Click Button Save
     Check Validate Edit Page    ${TC_059_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_059_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_060
@@ -723,6 +772,7 @@ TC_060
     Click Button Save
     Check Validate Edit Page    ${TC_060_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_060_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_061
@@ -734,6 +784,7 @@ TC_061
     Click Button Cancel
     Check Screen    Configuration Channel
     Sleep    ${DELAY}
+    Close Browser
 
 
 

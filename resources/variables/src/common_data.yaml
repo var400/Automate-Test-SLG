@@ -223,3 +223,82 @@ TC_005:
       is_active: "true"
       is_checked: "true"
       is_null: "false"
+
+
+
+
+
+
+
+
+
+
+#YAML
+TC_010:
+  profile_name: "Prepaid"
+  group_name: "TEST COMMON DELETE 1"
+  group_type: "dropdown"
+  group_seq: "20"
+  group_desc: "TEST COMMON DELETE 1 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  # default_value: "10"
+  condition: where group_name='TEST COMMON DELETE 1'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_GP_SIM_TYPE"
+      field_label: "SOCIAL"
+      field_value: "SOCIAL"
+      field_desc: "SOCIAL DESCRIPTION"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_GP_SIM_TYPE"
+      field_label: "E-SPORT"
+      field_value: "E-SPORT"
+      field_desc: "E-SPORT DESCRIPTION"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_012:
+  profile_name: "Prepaid"
+  group_name: "TEST COMMON DELETE 2"
+  group_type: "checkbox"
+  group_seq: "21"
+  group_desc: "TEST COMMON DELETE 2 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  # default_value: "10"
+  condition: where group_name='TEST COMMON DELETE 2'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_PARTNER_TYPE"
+      field_label: "SUB DEALER"
+      field_value: "Sub Dealer"
+      field_desc: "SUB DEALER DESCRIPTION"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_PARTNER_TYPE"
+      field_label: "TRUE CENTER"
+      field_value: "True Center"
+      field_desc: "TRUE CENTER DESCRIPTION"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"

@@ -7,22 +7,29 @@ Resource    ../../resources/variables/datasource_variables.robot
 
 
 *** Test Cases ***
+Clear And Insert Data In Database
+    ${sql_script} =    Get File    ${SQLFilePath}
+    Clear Database    ${sql_script}
+
+
 TC_002
     [Documentation]    ที่หน้าจอ "Configuration Datasource" กรณีกดปุ่ม "ย้อนกลับ"
     Open Browser To URL    ${DATASOURCE_CONFIGURATION_URL}    ${BASE_BROWSER}
     Click Button Back
     Check Screen    Main
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_004
     [Documentation]    ที่หน้าจอ "Configuration Datasource" กรณีเลือก "Default DataSource" และกดปุ่ม "Save Config"
     Open Browser To URL    ${DATASOURCE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${DATASOURCE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_011_DATA.condition}
-    Select Default DataSource    ${DATASOURCE_ID}    ${TC_011_DATA.datasource_name}
+    ${DATASOURCE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_004_DATA.condition}
+    Select Default DataSource    ${DATASOURCE_ID}    ${TC_004_DATA.datasource_name}
     Click Button Save Config Default Datasource
-    Alert Popup Message     ${TC_011_DATA.result.expected_result}
+    Alert Popup Message     ${TC_004_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_011
@@ -34,6 +41,7 @@ TC_011
     Click Button    ${LOCATOR_CANCEL_BUTTON_DELETE}
     Check List Data Is Visible    ${DATASOURCE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_012
@@ -48,17 +56,19 @@ TC_012
     Click Show Status    any
     Check List Data Is Visible    ${DATASOURCE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_013
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "No"
     Open Browser To URL    ${DATASOURCE_CONFIGURATION_URL}    ${BASE_BROWSER}
-    ${DATASOURCE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_011_DATA.condition}
+    ${DATASOURCE_ID}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_013_DATA.condition}
     Click Delete Botton    ${DATASOURCE_ID}
     Alert Popup Message    Do you want to delete item ?
     Click Button    ${LOCATOR_DENY_BUTTON_DELETE}
     Check List Data Is Visible    ${DATASOURCE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_015
@@ -68,6 +78,7 @@ TC_015
     Click Button Back
     Check Screen    Configuration DataSource
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_016
@@ -78,6 +89,7 @@ TC_016
     Click Button Test Connect
     Check Connect Status    ${TC_016_DATA.result.validate_connect_status}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_017
@@ -88,6 +100,7 @@ TC_017
     Click Button Test Connect
     Check Connect Status    ${TC_017_DATA.result.validate_connect_status}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_018
@@ -97,6 +110,7 @@ TC_018
     Click Button Test Connect
     Check Connect Status    ${TC_018_DATA.result.validate_connect_status}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_019
@@ -114,6 +128,7 @@ TC_019
     Auto Check List Data   ${DATASOURCE_ID}     ${TC_019_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${DATASOURCE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_020
@@ -131,6 +146,7 @@ TC_020
     Auto Check List Data   ${DATASOURCE_ID}     ${TC_020_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${DATASOURCE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_021
@@ -143,6 +159,7 @@ TC_021
     Click Button Save
     Alert Popup Message     ${TC_021_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_022
@@ -155,6 +172,7 @@ TC_022
     Click Button Save
     Alert Popup Message     ${TC_022_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_023
@@ -167,6 +185,7 @@ TC_023
     Click Button Save
     Check Validate Edit Page    ${TC_023_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_023_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_024
@@ -176,6 +195,7 @@ TC_024
     Click Button Save
     Check Validate Edit Page    ${TC_024_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_024_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_025
@@ -185,6 +205,7 @@ TC_025
     Click Button Cancel
     Check Screen    Configuration DataSource
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_027
@@ -195,6 +216,7 @@ TC_027
     Click Button Back
     Check Screen    Configuration DataSource
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_028
@@ -207,6 +229,7 @@ TC_028
     Click Button Test Connect
     Check Connect Status    ${TC_028_DATA.result.validate_connect_status}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_029
@@ -219,6 +242,7 @@ TC_029
     Click Button Test Connect
     Check Connect Status    ${TC_029_DATA.result.validate_connect_status}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_030
@@ -231,6 +255,7 @@ TC_030
     Click Button Test Connect
     Check Connect Status    ${TC_030_DATA.result.validate_connect_status}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_031
@@ -251,6 +276,7 @@ TC_031
     Auto Check List Data   ${DATASOURCE_ID}     ${TC_031_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${DATASOURCE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_032
@@ -270,6 +296,7 @@ TC_032
     Auto Check List Data   ${DATASOURCE_ID}     ${TC_032_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     Log To Console      ${DATASOURCE_ID}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_033
@@ -284,6 +311,7 @@ TC_033
     Click Button Save
     Alert Popup Message     ${TC_033_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_034
@@ -298,6 +326,7 @@ TC_034
     Click Button Save
     Alert Popup Message     ${TC_034_DATA.result.expected_result}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_035
@@ -312,6 +341,7 @@ TC_035
     Click Button Save
     Check Validate Edit Page    ${TC_035_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_035_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_036
@@ -326,6 +356,7 @@ TC_036
     Click Button Save
     Check Validate Edit Page    ${TC_036_DATA}    ${CHOOSE_KEY_VALIDATE_DATA_EDIT_PAGE}    ${TC_036_DATA.result.validate_data}
     Sleep    ${DELAY}
+    Close Browser
 
 
 TC_037
@@ -336,5 +367,6 @@ TC_037
     Click Button Cancel
     Check Screen    Configuration DataSource
     Sleep    ${DELAY}
+    Close Browser
 
 
