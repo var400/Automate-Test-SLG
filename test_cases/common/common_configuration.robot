@@ -169,7 +169,7 @@ TC_002
 TC_010
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "X"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
+    # Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
     ${group_id}=    Get Data Id From Field    ${TC_010_DATA['group_name']}    group_name
     Check List Data Is Visible    ${group_id}
     Click Delete Botton    ${group_id}
@@ -183,7 +183,7 @@ TC_010
 TC_011
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "Yes"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
+    # Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
     ${group_id}=    Get Data Id From Field    ${TC_010_DATA['group_name']}    group_name
     Check List Data Is Visible    ${group_id}
     Click Delete Botton    ${group_id}
@@ -199,7 +199,7 @@ TC_011
 TC_012
     [Documentation]    ที่หน้าจอ Popup Message "Do you want to delete item?" กรณีกดปุ่ม "No"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
+    # Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "70%";
     ${group_id}=    Get Data Id From Field    ${TC_012_DATA['group_name']}    group_name
     Check List Data Is Visible    ${group_id}
     Click Delete Botton    ${group_id}
@@ -208,12 +208,3 @@ TC_012
     Check List Data Is Visible    ${group_id}
     Sleep    ${DELAY}
     Close Browser
-
-
-TC_100
-    Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    Click Button Add
-    Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-
-
-
