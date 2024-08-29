@@ -339,10 +339,11 @@ Generate Dictionary List
         ${field_value}=    Set Variable    ${data['group_details']['${key}']['field_value']}
         ${collease}=    Set Variable    ${data['group_details']['${key}']['is_null']}
         ${seq}=    Set Variable    ${data['group_details']['${key}']['field_seq']}
-        
+        ${status_group}=    Set Variable    ${data['is_active']}
+        ${status_detail}=    Set Variable    ${data['group_details']['${key}']['is_active']}
         # Create dictionary for current item
         ${key_name}=    Set Variable    ${seq}
-        ${dict}=    Create Dictionary    schema=${schema}    table=${table}    column=${column}    field_value=${field_value}    is_checked=${is_checked}    is_null=${collease}    field_seq=${seq}
+        ${dict}=    Create Dictionary    schema=${schema}    table=${table}    column=${column}    field_value=${field_value}    is_checked=${is_checked}    is_null=${collease}    field_seq=${seq}    status_group=${status_group}    status_detail=${status_detail}
         ${dict_entry}=    Create Dictionary    ${key_name}=${dict}
         # Append dictionary to list
         Append To List    ${list_data}    ${dict_entry}
@@ -365,40 +366,44 @@ Process Dictionary List TEST
         ${first_key}=    Get From List    ${keys}    0
         ${value}=    Get From Dictionary    ${element}    ${first_key}
         ${header}=    Set Variable    ${value['schema']}.${value['table']}.${value['column']}
-        IF    '${value['schema']}.${value['table']}.${value['column']}' not in '${get_all_header}'
-            FOR    ${element_level2}    IN    @{list_data}
-                ${keys_level2}=    Get Dictionary Keys    ${element_level2}
-                ${first_key_level2}=    Get From List    ${keys_level2}    0
-                ${value_level2}=    Get From Dictionary    ${element_level2}    ${first_key_level2}
-                # Log To Console    ${get_all_header}
-                IF    '${value_level2['schema']}.${value_level2['table']}.${value_level2['column']}' == '${header}'
-                    IF    '${value_level2['is_checked']}'=='true'
-                        IF    ${count_round} <= 0
-                                ${script_condition}=    Set Variable    ${value_level2['field_value']}
-                                ${count_round}=    Evaluate    ${count_round}+1
-                        ELSE
-                                ${script_condition}=    Evaluate    "${script_condition}, '${value_level2['field_value']}'"
-                                ${type}    Set Variable    IN
-                                ${count_round}=    Evaluate    ${count_round}+1
-                        END
-                        IF    '${value_level2['is_null']}' == 'true'
-                                ${count_isnull}=    Set Variable    1
-                                ${collease}=    Set Variable    ${value_level2['field_value']}
+        IF    ${value['status_group']} == 'true'
+            IF    '${value['schema']}.${value['table']}.${value['column']}' not in '${get_all_header}'
+                FOR    ${element_level2}    IN    @{list_data}
+                    ${keys_level2}=    Get Dictionary Keys    ${element_level2}
+                    ${first_key_level2}=    Get From List    ${keys_level2}    0
+                    ${value_level2}=    Get From Dictionary    ${element_level2}    ${first_key_level2}
+                    # Log To Console    ${get_all_header}
+                    IF    '${value_level2['status_detail']}' == 'true'
+                        IF    '${value_level2['schema']}.${value_level2['table']}.${value_level2['column']}' == '${header}'
+                            IF    '${value_level2['is_checked']}'=='true'
+                                IF    ${count_round} <= 0
+                                        ${script_condition}=    Set Variable    ${value_level2['field_value']}
+                                        ${count_round}=    Evaluate    ${count_round}+1
+                                ELSE
+                                        ${script_condition}=    Evaluate    "${script_condition}, '${value_level2['field_value']}'"
+                                        ${type}    Set Variable    IN
+                                        ${count_round}=    Evaluate    ${count_round}+1
+                                END
+                                IF    '${value_level2['is_null']}' == 'true'
+                                        ${count_isnull}=    Set Variable    1
+                                        ${collease}=    Set Variable    ${value_level2['field_value']}
+                                END
+                            END
                         END
                     END
                 END
-            END
-            IF    ${count_round} == 1
-                IF    ${count_isnull} >= 1
-                    Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} '${script_condition}'
-                ELSE
-                    Append To List    ${list_script}    ${header} ${type} '${script_condition}'
-                END
-            ELSE IF    ${count_round} > 1
-                IF    ${count_isnull} >= 1
-                    Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} (${script_condition})
-                ELSE
-                    Append To List    ${list_script}    ${header} ${type} (${script_condition})
+                IF    ${count_round} == 1
+                    IF    ${count_isnull} >= 1
+                        Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} '${script_condition}'
+                    ELSE
+                        Append To List    ${list_script}    ${header} ${type} '${script_condition}'
+                    END
+                ELSE IF    ${count_round} > 1
+                    IF    ${count_isnull} >= 1
+                        Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} (${script_condition})
+                    ELSE
+                        Append To List    ${list_script}    ${header} ${type} (${script_condition})
+                    END
                 END
             END
         END
