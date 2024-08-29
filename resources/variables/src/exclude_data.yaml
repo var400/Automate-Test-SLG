@@ -1,12 +1,12 @@
 TC_001_TEST:
   profile_name: "Prepaid"
   group_name: "TEST CREATE ALL FLAG"
-  group_type: "checkbox"
+  group_type: "listbox"
   group_seq: "6"
   group_desc: "TEST CREATE ALL FLAG DESCRIPTION"
   is_active: "true"
   is_disable: "false"
-  is_authorize: "true"
+  is_authorize: "false"
   default_value: "Y"
   group_details:
     DATA_1:

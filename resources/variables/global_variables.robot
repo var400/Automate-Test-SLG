@@ -5,6 +5,7 @@ ${TIMEOUT}     10
 
 #PATH
 ${CREATE_CRITERIA_URL}    ${BASE_URL}/create?campCode=CM-2400001&offerCode=OF-240000001324&campName=Campaign_Test&offerName=Offer_test&channel=SMS&expectedSize=5000&user=admin&productType=Prepaid&user_role=Planning
+${CREATE_CRITERIA_URL_NO_PERMISSTION}    ${BASE_URL}/create?campCode=CM-2400001&offerCode=OF-240000001324&campName=Campaign_Test&offerName=Offer_test&channel=SMS&expectedSize=5000&user=admin&productType=Prepaid&user_role=NoPermision
 ${CHANNEL_CONFIGURATION_URL}    ${BASE_URL}/config/ChannelList
 ${EXCLUDE_CONFIGURATION_URL}    ${BASE_URL}/config/ExcludeCriteriaList
 ${COMMON_CONFIGURATION_URL}    ${BASE_URL}/config/CommonCriteriaList

@@ -52,7 +52,7 @@ Check Checkbox Config
             Scroll Element Into View    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_label']}"]
             Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_label']}" and @disabled]]]
         END
-        Should Not Be Empty    condition
+        # Should Not Be Empty    condition
         ##Check Default Value
         IF    '${data_list['group_type']}' == 'checkbox'
             IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
@@ -68,7 +68,6 @@ Check Checkbox Config
                 Run Keyword If    '${checked}' != 'None'    Fail    Radio button should not be selected, but it is.
             END
         END
-
     ELSE
         ##Check field_label
         Element Should Not Be Visible    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]//*[text()="${data_list['group_details']['${data}']['field_label']}"]
@@ -322,10 +321,11 @@ Generate Dictionary List
         ${field_value_no}=    Set Variable    ${data['group_details']['${key}']['field_value_no']}     
         ${collease}=    Set Variable    ${data['group_details']['${key}']['is_null']}
         ${seq}=    Set Variable    ${data['group_details']['${key}']['field_seq']}
-        
+        ${status_group}=    Set Variable    ${data['is_active']}
+        ${status_detail}=    Set Variable    ${data['group_details']['${key}']['is_active']}
         # Create dictionary for current item
         ${key_name}=    Set Variable    ${seq}
-        ${dict}=    Create Dictionary    schema=${schema}    table=${table}    column=${column}    field_value_yes=${field_value_yes}    field_value_no=${field_value_no}    is_checked=${is_checked}    is_null=${collease}    field_seq=${seq}
+        ${dict}=    Create Dictionary    schema=${schema}    table=${table}    column=${column}    field_value_yes=${field_value_yes}    field_value_no=${field_value_no}    is_checked=${is_checked}    is_null=${collease}    field_seq=${seq}    status_group=${status_group}    status_detail=${status_detail}
         ${dict_entry}=    Create Dictionary    ${key_name}=${dict}
         # Append dictionary to list
         Append To List    ${list_data}    ${dict_entry}
@@ -348,53 +348,57 @@ Process Dictionary List TEST
         ${first_key}=    Get From List    ${keys}    0
         ${value}=    Get From Dictionary    ${element}    ${first_key}
         ${header}=    Set Variable    ${value['schema']}.${value['table']}.${value['column']}
-        IF    '${value['schema']}.${value['table']}.${value['column']}' not in '${get_all_header}'
-            FOR    ${element_level2}    IN    @{list_data}
-                ${keys_level2}=    Get Dictionary Keys    ${element_level2}
-                ${first_key_level2}=    Get From List    ${keys_level2}    0
-                ${value_level2}=    Get From Dictionary    ${element_level2}    ${first_key_level2}
-                # Log To Console    ${get_all_header}
-                    IF    '${value_level2['schema']}.${value_level2['table']}.${value_level2['column']}' == '${header}'
-                        IF    '${value_level2['is_checked']}'=='true'
-                            IF    ${count_round} <= 0
-                                ${script_condition}=    Set Variable    ${value_level2['field_value_yes']}
-                                ${count_round}=    Evaluate    ${count_round}+1
-                            ELSE
-                                ${script_condition}=    Evaluate    "${script_condition}, '${value_level2['field_value_yes']}'"
-                                ${type}    Set Variable    IN
-                                ${count_round}=    Evaluate    ${count_round}+1
-                            END
-                            IF    '${value_level2['is_null']}' == 'true'
-                                ${count_isnull}=    Set Variable    1
-                                ${collease}=    Set Variable    ${value_level2['field_value_yes']}
-                            END
-                        ELSE IF    '${value_level2['is_checked']}'=='false'
-                            IF    ${count_round} <= 0
-                                ${script_condition}=    Set Variable    ${value_level2['field_value_no']}
-                                ${count_round}=    Evaluate    ${count_round}+1
-                            ELSE
-                                ${script_condition}=    Evaluate     "${script_condition}, '${value_level2['field_value_no']}'"
-                                ${type}    Set Variable    IN
-                                ${count_round}=    Evaluate    ${count_round}+1
-                            END
-                            IF    '${value_level2['is_null']}' == 'true'
-                                ${count_isnull}=    Set Variable    1
-                                ${collease}=    Set Variable    ${value_level2['field_value_no']}
+        IF    ${value['status_group']} == 'true'
+            IF    '${value['schema']}.${value['table']}.${value['column']}' not in '${get_all_header}'
+                FOR    ${element_level2}    IN    @{list_data}
+                    ${keys_level2}=    Get Dictionary Keys    ${element_level2}
+                    ${first_key_level2}=    Get From List    ${keys_level2}    0
+                    ${value_level2}=    Get From Dictionary    ${element_level2}    ${first_key_level2}
+                    # Log To Console    ${get_all_header}
+                    IF    '${value_level2['status_detail']}' == 'true'
+                        IF    '${value_level2['schema']}.${value_level2['table']}.${value_level2['column']}' == '${header}'
+                            IF    '${value_level2['is_checked']}'=='true'
+                                IF    ${count_round} <= 0
+                                    ${script_condition}=    Set Variable    ${value_level2['field_value_yes']}
+                                    ${count_round}=    Evaluate    ${count_round}+1
+                                ELSE
+                                    ${script_condition}=    Evaluate    "${script_condition}, '${value_level2['field_value_yes']}'"
+                                    ${type}    Set Variable    IN
+                                    ${count_round}=    Evaluate    ${count_round}+1
+                                END
+                                IF    '${value_level2['is_null']}' == 'true'
+                                    ${count_isnull}=    Set Variable    1
+                                    ${collease}=    Set Variable    ${value_level2['field_value_yes']}
+                                END
+                            ELSE IF    '${value_level2['is_checked']}'=='false'
+                                IF    ${count_round} <= 0
+                                    ${script_condition}=    Set Variable    ${value_level2['field_value_no']}
+                                    ${count_round}=    Evaluate    ${count_round}+1
+                                ELSE
+                                    ${script_condition}=    Evaluate     "${script_condition}, '${value_level2['field_value_no']}'"
+                                    ${type}    Set Variable    IN
+                                    ${count_round}=    Evaluate    ${count_round}+1
+                                END
+                                IF    '${value_level2['is_null']}' == 'true'
+                                    ${count_isnull}=    Set Variable    1
+                                    ${collease}=    Set Variable    ${value_level2['field_value_no']}
+                                END
                             END
                         END
                     END
-            END
-            IF    ${count_round} == 1
-                IF    ${count_isnull} >= 1
-                    Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} '${script_condition}'
-                ELSE
-                    Append To List    ${list_script}    ${header} ${type} '${script_condition}'
                 END
-            ELSE IF    ${count_round} > 1
-                IF    ${count_isnull} >= 1
-                    Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} (${script_condition})
-                ELSE
-                    Append To List    ${list_script}    ${header} ${type} (${script_condition})
+                IF    ${count_round} == 1
+                    IF    ${count_isnull} >= 1
+                        Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} '${script_condition}'
+                    ELSE
+                        Append To List    ${list_script}    ${header} ${type} '${script_condition}'
+                    END
+                ELSE IF    ${count_round} > 1
+                    IF    ${count_isnull} >= 1
+                        Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} (${script_condition})
+                    ELSE
+                        Append To List    ${list_script}    ${header} ${type} (${script_condition})
+                    END
                 END
             END
         END
@@ -421,3 +425,46 @@ Check Preview Script
             Wait Until Keyword Succeeds    5x    5s    Textarea Should Contain    //*[*[h5[text()="Preview"]]]//textarea[1]    ${script}
         END
     END
+
+Check Permision On Create Criteria
+    [Arguments]    ${data_list}
+    IF    '${data_list['is_active']}' == 'true'
+        Scroll Element Into View    ${LOCATOR_HEADER}
+        Scroll Element Into View    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]
+        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]
+        IF    '${data_list['group_type']}' in 'text,dropdown,multi_dropdown'
+            IF    '${data_list['is_authorize']}' == 'true'
+                Log To Console    Group Control ${data_list['group_name']}: Is Disabled
+                Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[input[@disabled]]
+            ELSE
+                Log To Console    Group Control ${data_list['group_name']}: Is Enabled
+                Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[input[@disabled]]
+            END
+        ELSE IF    '${data_list['group_type']}' in 'checkbox,radio'
+            FOR    ${data}    IN    @{data_list['group_details']}
+                IF    '${data_list['group_details']['${data}']['is_active']}' == 'true'
+                    IF    '${data_list['is_authorize']}' == 'true'
+                        Log To Console    Group Control ${data_list['group_name']} - ${data_list['group_details']['${data}']['field_label']}: Is Disabled
+                        Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//*[input[@disabled]]
+                    ELSE
+                        Log To Console    Group Control ${data_list['group_name']} - ${data_list['group_details']['${data}']['field_label']}: Is Enabled
+                        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_label']}" and @disabled]]] 
+                    END
+                ELSE
+                    Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[*[@name="${data_list['group_name']}" and @value="${data_list['group_details']['${data}']['field_label']}" and @disabled]]] 
+                END
+            END
+        ELSE IF    '${data_list['group_type']}' == 'listbox'
+            IF    '${data_list['is_authorize']}' == 'true'
+                Log To Console    Group Control ${data_list['group_name']}: Is Disabled
+                Element Should Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][2]//button[@aria-label="move all right" and @disabled][1]
+            ELSE
+                Log To Console    Group Control ${data_list['group_name']}: Is Enabled
+                Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"][2]//button[@aria-label="move all right" and @disabled][1]
+            END
+        END
+    ELSE
+        Scroll Element Into View    ${LOCATOR_HEADER}
+        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]
+    END
+

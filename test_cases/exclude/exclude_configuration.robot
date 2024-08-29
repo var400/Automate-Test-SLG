@@ -13,7 +13,8 @@ Clear And Insert Data In Database
     Clear Database    ${sql_script}
 
 TEST KEY Word
-    Open Browser To URL    ${CHANNEL_CONFIGURATION_URL}     ${BASE_BROWSER}
+    Open Browser To URL    ${CREATE_CRITERIA_URL_NO_PERMISSTION}      ${BASE_BROWSER}
+    Check Permision On Create Criteria    ${TC_001_DATA}
 
 Process Dictionary List
     ${list_script}=    Process Dictionary List TEST    ${TC_001_DATA}
