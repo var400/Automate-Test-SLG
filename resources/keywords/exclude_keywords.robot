@@ -206,9 +206,8 @@ Check CheckListBox Config
     END
 
 Check SEQ List DB
-    [Arguments]    ${script_qry}
     Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
-    ${queryResults} =    Query    ${script_qry}
+    ${queryResults} =    Query    select group_seq,profile_name,group_name from slg.mst_group_exclude where is_active='true' order by profile_name,group_seq;
     ${results_list}=    Create List
     Disconnect From Database
     FOR    ${element}    IN    @{queryResults}
@@ -217,7 +216,7 @@ Check SEQ List DB
     # Log To Console    Results List: ${results_list}
     Return From Keyword    ${results_list}
 
-Check Seq From Web List
+Check SEQ From Web List
     ${elements}=    Get WebElements    //div[@role="rowgroup"]//div[@role="row"]
     ${elements_list}=    Create List
     FOR    ${element}    IN    @{elements}
@@ -229,7 +228,19 @@ Check Seq From Web List
     Log To Console    Check Seq From Web ${elements_list}
     Return From Keyword    ${elements_list}
 
-Check Seq From Web List Group Detail 
+Check SEQ List DB Group Detail
+    [Arguments]    ${group_name}
+    Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
+    ${queryResults} =    Query    select field_seq,field_label from slg.mst_group_exclude join slg.mst_group_exclude_detail on slg.mst_group_exclude.group_id = slg.mst_group_exclude_detail.group_id and group_name = '${group_name}' order by field_seq;
+    ${results_list}=    Create List
+    Disconnect From Database
+    FOR    ${element}    IN    @{queryResults}
+        Append To List    ${results_list}    ${element}
+    END
+    # Log To Console    Results List: ${results_list}
+    Return From Keyword    ${results_list}
+
+Check SEQ From Web List Group Detail 
     ${elements}=    Get WebElements    //div[@role="rowgroup"]//div[@role="row"]
     ${elements_list}=    Create List
     FOR    ${element}    IN    @{elements}
@@ -241,20 +252,8 @@ Check Seq From Web List Group Detail
     # Log To Console    Check Seq From Web ${elements_list}
     Return From Keyword    ${elements_list}
 
-Check SEQ List WEB VS BASE 
-    [Arguments]    ${results_base}    ${results_web}
-    ${index}=    Set Variable    0
-    ${seq}=    Set Variable    1
-    FOR    ${row}    IN    @{results_base}
-        Log To Console    INDEX ${seq}: Base Result: ${results_base[${index}]} | Web Result: ${results_web[${index}]}    no_newline=false
-        Run Keyword If    ${results_base[${index}]} == ${results_web[${index}]}    Log    Seq Is True
-        Run Keyword If    ${results_base[${index}]} != ${results_web[${index}]}    Fail    Seq Is Not True
-        ${index}=    Evaluate    ${index}+1
-        ${seq}=    Evaluate    ${seq}+1
-    END
-
 ##CREATE CRITIRIA
-Check Seq From Web Create Criteria
+Check SEQ From Web Create Criteria
     Scroll Element Into View    ${LOCATOR_HEADER}
     ${elements}=    Get WebElements    ${LOCATOR_HEADER}//div[contains(@class, 'MuiGrid-root') and contains(@class, 'MuiGrid-item') and contains(@class, 'MuiGrid-grid-xs-12') and contains(@class,'MuiGrid-grid-md')]
     ${elements_list}=    Create List
@@ -268,9 +267,9 @@ Check Seq From Web Create Criteria
     Return From Keyword    ${elements_list}
 
 Check SEQ Create Criteria DB
-    [Arguments]    ${script_qry}
+    [Arguments]    ${profile_name}
     Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
-    ${queryResults} =    Query    ${script_qry}
+    ${queryResults} =    Query    select group_name from slg.mst_group_exclude where is_active='true' and profile_name = '${profile_name}' order by profile_name,group_seq
     ${results_list}=    Create List
     Disconnect From Database
     FOR    ${element}    IN    @{queryResults}
@@ -279,7 +278,19 @@ Check SEQ Create Criteria DB
     Log To Console    Results List: ${results_list}
     Return From Keyword    ${results_list}
 
-Check Seq From Web Create Criteria Detail
+Check SEQ Create Criteria DB Group Detail
+    [Arguments]    ${profile_name}    ${group_name}    ${is_checked}
+    Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
+    ${queryResults} =    Query    select field_label from slg.mst_group_exclude join slg.mst_group_exclude_detail on slg.mst_group_exclude.group_id = slg.mst_group_exclude_detail.group_id where slg.mst_group_exclude.is_active = 'true' and slg.mst_group_exclude.profile_name = '${profile_name}' and slg.mst_group_exclude.group_name = '${group_name}' and slg.mst_group_exclude_detail.is_checked = '${is_checked}' order by field_seq;
+    ${results_list}=    Create List
+    Disconnect From Database
+    FOR    ${element}    IN    @{queryResults}
+        Append To List    ${results_list}    '${element[0]}'
+    END
+    Log To Console    Results List: ${results_list}
+    Return From Keyword    ${results_list}
+
+Check SEQ From Web Create Criteria Detail
     [Arguments]    ${data_list}
     ${elements_list}=    Create List
     IF    '${data_list['group_type']}' == 'text'
@@ -308,6 +319,53 @@ Check Seq From Web Create Criteria Detail
     # Log To Console    Check Seq From Web ${elements_list}       
     Return From Keyword    ${elements_list}
 
+Check SEQ List WEB VS BASE 
+    [Arguments]    ${results_base}    ${results_web}
+    ${index}=    Set Variable    0
+    ${seq}=    Set Variable    1
+    FOR    ${row}    IN    @{results_base}
+        Log To Console    INDEX ${seq}: Base Result: ${results_base[${index}]} | Web Result: ${results_web[${index}]}    no_newline=false
+        Run Keyword If    ${results_base[${index}]} == ${results_web[${index}]}    Log    Seq Is True
+        Run Keyword If    ${results_base[${index}]} != ${results_web[${index}]}    Fail    Seq Is Not True
+        ${index}=    Evaluate    ${index}+1
+        ${seq}=    Evaluate    ${seq}+1
+    END
+
+Auto Check Seq Group List
+    ${seq_Db}=    Check SEQ List DB
+    ${seq_Web}=    Check SEQ From Web List
+    Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+Auto Check Seq Group Detail
+    [Arguments]    ${data}
+    ${seq_Db}=    Check SEQ List DB Group Detail    ${data['group_name']}
+    ${seq_Web}=    Check SEQ From Web List Group Detail
+    Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+
+Auto Check Seq On Create Criteria
+    [Arguments]    ${data}
+    Scroll Element Into View    ${LOCATOR_HEADER}
+    ##CHECK GROUP CONTROL
+    ${seq_Web}=    Check Seq From Web Create Criteria
+    ${seq_Db}=    Check SEQ Create Criteria DB    ${data['profile_name']}
+    Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+    ##CHECK GROUP DETAIL
+    ${seq_Web}=    Check SEQ From Web Create Criteria Detail    ${data}
+    ${seq_Db}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    true
+    Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+
+Auto Check Seq On Create Criteria Listbox
+    [Arguments]    ${data}
+    Scroll Element Into View    ${LOCATOR_HEADER}
+    ##CHECK GROUP CONTROL
+    ${seq_Web}=    Check SEQ From Web Create Criteria
+    ${seq_Db}=    Check SEQ Create Criteria DB    ${data['profile_name']}
+    Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+    ##CHECK GROUP DETAIL
+    ${seq_Web}=    Check SEQ From Web Create Criteria Detail    ${data}
+    ${seq_Db}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    false
+    ${seq_Db_ischecked}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    true
+    Append To List    ${seq_Db}     ${seq_Db_ischecked[0]}
+    Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
 
 Generate Dictionary List
     [Arguments]    ${data}

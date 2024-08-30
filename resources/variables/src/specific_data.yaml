@@ -1,0 +1,43 @@
+TC_001_TEST:
+  profile_name: "Prepaid"
+  group_name: "TEST CREATE SPECIFIC TEST"
+  group_seq: "6"
+  group_desc: "TEST CREATE SPECIFIC TEST DESCRIPTION"
+  is_active: "true"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUST_AGE"
+      field_label: "CUSTUMER AGE"
+      field_type: "number"
+      field_desc: "CUSTUMER AGE DESCRIPTION"
+      field_seq: "1"
+      is_active: "true"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "BLACK_LIST_TMH_FLAG"
+      field_label: "CUSTOMER GRADE"
+      field_type: "text"
+      field_desc: "CUSTOMER GRADE DESCRIPTION"
+      field_seq: "2"
+      is_active: "true"
+    DATA_3:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUST_BIRTHDATE"
+      field_label: "CUSTOMER BIRTHDATE"
+      field_type: "date"
+      field_desc: "CUSTOMER BIRTHDATE DESCRIPTION"
+      field_seq: "3"
+      is_active: "true"               
+  TC_001_TEST_INSERT_DUPPLICATE:
+      CHECK_DUPPLICATE_DATA:
+        schema_name: "CVMSBOX"
+        table_name: "CAMPAIGN_PREPAID_360"
+        field_name: ""
+        field_label: ""
+        field_type: ""
+        field_seq: "3"
+        is_active: "true"
