@@ -335,6 +335,7 @@ Auto Check Seq Group List
     ${seq_Db}=    Check SEQ List DB
     ${seq_Web}=    Check SEQ From Web List
     Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+    
 Auto Check Seq Group Detail
     [Arguments]    ${data}
     ${seq_Db}=    Check SEQ List DB Group Detail    ${data['group_name']}

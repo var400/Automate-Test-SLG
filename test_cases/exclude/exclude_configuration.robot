@@ -43,18 +43,14 @@ Test Keyword Insert New Config
     Page Should Contain    Save Complete.
     Sleep    2s   
     ###Check Order by Seq On Add Exclude Criteria Group Detail
-    ${result_base}=    Check SEQ List DB   ${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP_DETAIL}
-    ${result_web}=    Check Seq From Web List Group Detail 
-    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    Auto Check Seq Group Detail    ${TC_001_DATA}
     
     ###Check List Data On Configuration Exclude Criteria
     Click Button Back
     ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_name']}    group_name
     Auto Check List Data    ${group_id}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     ###Check Order by Seq On Configuration Exclude Criteria
-    ${result_base}=    Check SEQ List DB    ${SCRIPT_CHECK_SEQ_BASE_LIST_GROUP}
-    ${result_web}=    Check Seq From Web List
-    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    Auto Check Seq Group List
 
     ###Go To Create Critiria Page
     Go To    ${CREATE_CRITERIA_URL}
@@ -62,13 +58,7 @@ Test Keyword Insert New Config
     Check Output On Create Critiria Page    ${TC_001_DATA}
     Check Preview Script    ${TC_001_DATA}
     ###Check Seq Grop Control
-    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA}
-    ${result_web}=    Check Seq From Web Create Criteria
-    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
-    ###Check Seq Grop Control Detail
-    ${result_base}=    Check SEQ Create Criteria DB    ${SCRIPT_CHECK_SEQ_BASE_CREATE_CRITIRIA_DETAIL}
-    ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_001_DATA}
-    CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+    Auto Check Seq On Create Criteria    ${TC_001_DATA}
 
 Test Keyword Insert New Config Dupplcate Detail
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
