@@ -406,7 +406,7 @@ Process Dictionary List TEST
         ${first_key}=    Get From List    ${keys}    0
         ${value}=    Get From Dictionary    ${element}    ${first_key}
         ${header}=    Set Variable    ${value['schema']}.${value['table']}.${value['column']}
-        IF    ${value['status_group']} == 'true'
+        IF    '${value['status_group']}' == 'true'
             IF    '${value['schema']}.${value['table']}.${value['column']}' not in '${get_all_header}'
                 FOR    ${element_level2}    IN    @{list_data}
                     ${keys_level2}=    Get Dictionary Keys    ${element_level2}
@@ -472,6 +472,7 @@ Process Dictionary List TEST
 Check Preview Script
     [Arguments]     ${data_list}
     ${list_script}=    Process Dictionary List TEST    ${data_list}
+    Scroll Element Into View    //div[input[@name="OutputTemplate"]]
     Click Element    //div[input[@name="OutputTemplate"]]
     Click Element    //li[text()="Template Channel Prepaid"]
     Scroll Element Into View    //button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xnayt1-MuiButtonBase-root-MuiButton-root" and (.='Preview')]
