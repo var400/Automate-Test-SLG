@@ -1,0 +1,17 @@
+curl -k -X POST 'http://localhost:44300/service/api/UpdateStatusSLG' \
+-H 'slg-api-key: mWLnpzU+9q0GJye0mRJsB2URkz9Qic52wLgKTluiMwA=' \
+-H 'Content-Type: application/json' \
+-d '{
+  "campCode": "CM-2400001",
+  "offerlist": [
+    {
+      "offercode": "OF-240000001324",
+      "campname": "Campaign_Test",
+      "offername": "Offer_test",
+      "channel": "SMS",
+      "slgcode": SLG-00000145,
+      "expectedsize": 5000,
+      "status": "Active"
+    }
+  ]
+}'

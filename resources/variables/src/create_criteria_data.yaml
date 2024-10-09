@@ -1,0 +1,101 @@
+TC_001:
+  Channel: "Template Channel Prepaid"
+  Profile: "Prepaid"
+  Common:
+    Group_1:
+      group_type: "dropdown"
+      table_name: "CVMSBOX.CAMPAIGN_PREPAID_360"
+      group_name: "Subscriber Status"
+      field_value: "A"
+      field_label: "Active"
+      is_null: "true"
+    Group_2:
+      group_type: "checkbox"
+      table_name: "CVMSBOX.CAMPAIGN_PREPAID_360"
+      group_name: "Subscriber Status"
+      field_value: "D"
+      field_label: "Soft Suspend"
+      is_null: "false"
+  Exclude: ""
+  Specific: ""
+  Custom_Sql: "SELECT * FROM CVMSBOX.CAMPAIGN_PREPAID_360 LIMIT 500"
+
+TC_002:
+  Channel: "Template Channel Prepaid"
+  Profile_name: "TRUE_MOBILE_PREPAID"
+  Common:
+    Group_1:
+      group_type: "dropdown"
+      group_name: "Thai ID Card"
+      value:
+        field_label_1: "Yes"
+    Group_2:
+      group_type: "checkbox"
+      group_name: "Device"
+      value:
+        field_label_1: "Smart Phone"
+        field_label_2: "Feature phone"
+    Group_3:
+      group_type: "radio"
+      group_name: "Subscriber Type"
+      value:
+        field_label_1: "Indy"
+    Group_4:
+      group_type: "listbox"
+      group_name: "Turecard Type"
+      value:
+        field_label_1: "Green"
+        field_label_2: "White"
+    Group_5:
+      group_type: "multi_dropdown"
+      group_name: "Subscriber Status"
+      value:
+        field_label_1: "Active"
+        field_label_2: "Soft Suspend"
+    Group_6:
+      group_type: "text"
+      group_name: "Grade"
+      field_label: "Grade"
+      value:
+        field_value_1: "G1"
+  Exclude:
+    Group_1:
+      group_type: "listbox"
+      group_name: "LAST BUY FLAG"
+      value:
+        field_label_1: "EXP FLAG"
+        field_label_2: "IPK FUP FLAG"
+        field_label_3: "IPK ULM FLAG"
+        field_label_4: "LAST BUY FLAG"
+    Group_2:
+      group_type: "radio"
+      group_name: "Ture Subscription"
+      value:
+        field_label_1: "POSTPAID SUBS"
+        field_label_2: "TOL SUBS"
+  Specific:
+    Group_1:
+      group_name: "Usage"
+      inc_exc: "EXC"
+      level: "0"
+      field_label: "STREAMING VIU"
+      condition: "="
+      value: "10"
+      and_or: "None"
+    Group_2:
+      group_name: "Usage"
+      inc_exc: "EXC"
+      level: "1"
+      field_label: "LAST BUY OC DATE"
+      condition: "<"
+      value: "09/02/2024"
+      and_or: "AND"
+    Group_3:
+      group_name: "Usage"
+      inc_exc: "INC"
+      level: "1"
+      field_label: "CLM LIFESTAGE"
+      condition: "BETWEEN"
+      value: "G1,G2"
+      and_or: "OR"   
+  Custom_Sql: "SELECT * FROM CVMSBOX.CAMPAIGN_PREPAID_360 LIMIT 500"
