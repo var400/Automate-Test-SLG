@@ -24,33 +24,33 @@ Process Dictionary List
 
 Test Keyword Insert New Config
     Open Browser To URL    ${EXCLUDE_CONFIGURATION_URL}     ${BASE_BROWSER}
-    # ###Insert Group Control
-    # Click Button Add
-    # Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    # Sleep    2s
-    # ###Insert Group Detail
-    # FOR    ${data}    IN    @{TC_001_DATA['group_details']}
-    #     Click Button Add Detail
-    #     Log To Console    Group Detail [${data}]: ${TC_001_DATA['group_details']['${data}']}
-    #     Auto Insert Data Detail    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    #     Click Button Save Detail
-    #     ###Check List Data When Create Detail
-    #     ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_details']['${data}']['field_label']}    field_label
-    #     Auto Check List Data    ${group_id}    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
-    # END
-    # ###Save Group Control
-    # Click Button Save Group Control    Yes
-    # Page Should Contain    Save Complete.
-    # Sleep    2s   
-    # ###Check Order by Seq On Add Exclude Criteria Group Detail
-    # Auto Check Seq Group Detail    ${TC_001_DATA}
+    ###Insert Group Control
+    Click Button Add
+    Auto Insert Data    ${TC_001_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    Sleep    2s
+    ###Insert Group Detail
+    FOR    ${data}    IN    @{TC_001_DATA['group_details']}
+        Click Button Add Detail
+        Log To Console    Group Detail [${data}]: ${TC_001_DATA['group_details']['${data}']}
+        Auto Insert Data Detail    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+        Click Button Save Detail
+        ###Check List Data When Create Detail
+        ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_details']['${data}']['field_label']}    field_label
+        Auto Check List Data    ${group_id}    ${TC_001_DATA['group_details']['${data}']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+    END
+    ###Save Group Control
+    Click Button Save Group Control    Yes
+    Page Should Contain    Save Complete.
+    Sleep    2s   
+    ###Check Order by Seq On Add Exclude Criteria Group Detail
+    Auto Check Seq Group Detail    ${TC_001_DATA}
     
-    # ###Check List Data On Configuration Exclude Criteria
-    # Click Button Back
-    # ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_name']}    group_name
-    # Auto Check List Data    ${group_id}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
-    # ###Check Order by Seq On Configuration Exclude Criteria
-    # Auto Check Seq Group List
+    ###Check List Data On Configuration Exclude Criteria
+    Click Button Back
+    ${group_id}=    Get Data Id From Field    ${TC_001_DATA['group_name']}    group_name
+    Auto Check List Data    ${group_id}    ${TC_001_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
+    ###Check Order by Seq On Configuration Exclude Criteria
+    Auto Check Seq Group List
 
     ###Go To Create Critiria Page
     Go To    ${CREATE_CRITERIA_URL}

@@ -5,7 +5,6 @@ Library    String
 Resource   ../../resources/Keywords/channel_keywords.robot
 Resource   ../../resources/variables/global_variables.robot
 Resource    ../../resources/variables/channel_variables.robot
-
 Resource    ../../resources/keywords/profile_keywords.robot
 
 

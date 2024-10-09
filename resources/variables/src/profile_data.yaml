@@ -1,5 +1,6 @@
 TC_010:
   profile_name: "Test Profile Delete 1"
+  profile_label: "Test Profile Delete 1"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
@@ -8,6 +9,7 @@ TC_010:
 
 TC_012:
   profile_name: "Test Profile Delete 2"
+  profile_label: "Test Profile Delete 2"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
@@ -16,6 +18,7 @@ TC_012:
 
 TC_015:
   profile_name: "Test Profile 1"
+  profile_label: "Test Profile 1"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
@@ -26,6 +29,7 @@ TC_015:
 
 TC_016:
   profile_name: "Test Profile 2"
+  profile_label: "Test Profile 2"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "false"
@@ -35,7 +39,8 @@ TC_016:
 
 
 TC_017:
-  profile_name: "Prepaid"
+  profile_name: "TRUE_MOBILE_PREPAID"
+  profile_label: "TRUE_MOBILE_PREPAID"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
@@ -45,6 +50,7 @@ TC_017:
 
 TC_018:
   profile_name: ""
+  profile_label: "Test Profile 3"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
@@ -53,7 +59,18 @@ TC_018:
 
 
 TC_019:
+  profile_name: "Test Profile 4"
+  profile_label: ""
+  profile_group: "Product Type"
+  profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
+  is_active: "true"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_020:
   profile_name: ""
+  profile_label: ""
   profile_group: ""
   profile_table: ""
   is_active: "false"
@@ -61,8 +78,9 @@ TC_019:
     validate_data: This value cannot be null.
 
 
-TC_023:
+TC_024:
   profile_name: "Test Profile 2_Edit"
+  profile_label: "Test Profile 2_Edit"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
@@ -71,8 +89,9 @@ TC_023:
     expected_result: Save Complete.
 
 
-TC_024:
+TC_025:
   profile_name: "Test Profile 1_Edit"
+  profile_label: "Test Profile 1_Edit"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "false"
@@ -81,8 +100,9 @@ TC_024:
     expected_result: Save Complete.
 
 
-TC_025:
-  profile_name: "Postpaid"
+TC_026:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  profile_label: "TRUE_MOBILE_PREPAID"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
@@ -90,8 +110,9 @@ TC_025:
     expected_result: Duplicate name
 
 
-TC_026:
+TC_027:
   profile_name: ""
+  profile_label: "Test Profile 3_Edit"
   profile_group: "Product Type"
   profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
   is_active: "true"
@@ -99,8 +120,19 @@ TC_026:
     validate_data: This value cannot be null.
 
 
-TC_027:
+TC_028:
+  profile_name: "Test Profile 4_Edit"
+  profile_label: ""
+  profile_group: "Product Type"
+  profile_table: "CVMSBOX.CAMPAIGN_PREPAID_360"
+  is_active: "true"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_029:
   profile_name: ""
+  profile_label: ""
   profile_group: ""
   profile_table: ""
   is_active: "true"
