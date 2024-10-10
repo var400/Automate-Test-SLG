@@ -261,9 +261,11 @@ Check SEQ From Web Create Criteria
         ${text}=    Get Text    ${element}
         ${text_split}=    Split String    ${text}    \n
         ${joined_values}=    Set Variable    ${text_split[0]}
-        Append To List    ${elements_list}    '${joined_values}'
+        IF    '${joined_values}' != 'Product Type'
+            Append To List    ${elements_list}    '${joined_values}'
+        END
     END
-    # Log To Console    Check Seq From Web ${elements_list}
+    Log To Console    Check Seq From Web ${elements_list}
     Return From Keyword    ${elements_list}
 
 Check SEQ Create Criteria DB
@@ -424,7 +426,7 @@ Process Dictionary List TEST
         ${first_key}=    Get From List    ${keys}    0
         ${value}=    Get From Dictionary    ${element}    ${first_key}
         ${header}=    Set Variable    ${value['schema']}.${value['table']}.${value['column']}
-        IF    ${value['status_group']} == 'true'
+        IF    '${value['status_group']}' == 'true'
             IF    '${value['schema']}.${value['table']}.${value['column']}' not in '${get_all_header}'
                 FOR    ${element_level2}    IN    @{list_data}
                     ${keys_level2}=    Get Dictionary Keys    ${element_level2}

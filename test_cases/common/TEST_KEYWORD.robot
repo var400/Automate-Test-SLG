@@ -154,3 +154,8 @@ TEST KEYWORD CHECK SEQ Create Critiria Detail Listbox
     ${result_web}=    Check Seq From Web Create Criteria Detail    ${TC_004_DATA}
     # CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
     CHECK SEQ List WEB VS BASE    ${result_base}    ${result_web}
+
+TEST FIXED KEYWORD
+    Open Browser To URL   ${CREATE_CRITERIA_URL}    ${BASE_BROWSER}
+    Check SEQ From Web Create Criteria
+    Check Preview Script    ${TC_015_DATA}
