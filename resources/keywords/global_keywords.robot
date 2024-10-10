@@ -370,8 +370,8 @@ Check Screen
 
 ###Keyword With Common Exclude Specific
 Click Button Add Detail
-    Scroll Element Into View     //*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hk7bbc-MuiSvgIcon-root" and @data-testid="AddCircleIcon"]
-    Click Element    //*[@class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hk7bbc-MuiSvgIcon-root" and @data-testid="AddCircleIcon"]
+    Scroll Element Into View     //*[@class="MuiBox-root css-1nzl2gz"]//*[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"]
+    Click Element    //*[@class="MuiBox-root css-1nzl2gz"]//*[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"]
 
 Auto Insert Data Detail
     [Arguments]    ${data}    ${auto_complete_choose_key}    ${text_choose_key}    ${check_box_choose_key}    ${select_option_choose_key}

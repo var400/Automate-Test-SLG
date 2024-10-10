@@ -1,242 +1,5 @@
-TC_001:
-  profile_name: "Prepaid"
-  group_name: "TEST CREATE COMMON"
-  group_type: "dropdown"
-  group_seq: "10"
-  group_desc: "TEST CREATE COMMON DESCRIPTION"
-  is_active: "true"
-  is_disable: "false"
-  default_value: "10"
-  group_details:
-    DATA_1:
-      schema_name: "SLG"
-      table_name: "CAMPAIGN_CUSTOMER_NAME"
-      field_name: "CUST_AGE"
-      field_label: "10 Year"
-      field_value: "10"
-      field_desc: "CUST AGE 10 DESCRIPTION"
-      field_seq: "1"
-      is_active: "true"
-      is_checked: "true"
-      is_null: "false"
-    DATA_2:
-      schema_name: "SLG"
-      table_name: "CAMPAIGN_CUSTOMER_NAME"
-      field_name: "CUST_AGE"
-      field_label: "20 Year"
-      field_value: "20"
-      field_desc: "CUST AGE 20 DESCRIPTION"
-      field_seq: "2"
-      is_active: "true"
-      is_checked: "false"
-      is_null: "false"
-    ADD_DATA_DUPPLICATE:
-      field_label: "30 Year"
-      field_value: "30"
-      field_desc: "CUST AGE 30 DESCRIPTION"
-      is_checked: "false"
-      is_null: "false"
-    Change_DATA_1:
-      schema_name: "SLG"
-      table_name: "CAMPAIGN_CUSTOMER_NAME"
-      field_name: "CUST_AGE"
-      field_label: "80"
-      field_value: "sdx"
-      field_desc: "CUST AGE 10 DESCRIPTION sasdxc"
-      field_seq: "1"
-      is_active: "true"
-      is_checked: "false"
-      is_null: "false"
-  CHECK_DUPPLICATE_DATA:
-    schema_name: "SLG"
-    table_name: "CAMPAIGN_CUSTOMER_NAME"
-    field_name: "CUST_AGE"
-    field_label: ""
-    field_value: ""
-    field_desc: ""
-    field_seq: "2"
-    is_active: "true"
-    is_checked: "false"
-    is_null: "false"
-  INSERT_DATA_DUPPLICATE:
-    schema_name: "SLG"
-    table_name: "CAMPAIGN_CUSTOMER_NAME"
-    field_name: "CUST_AGE"
-    field_label: ""
-    field_value: ""
-    field_desc: ""
-    field_seq: "2"
-    is_active: "true"
-    is_checked: "false"
-    is_null: "false"
-
-TC_002:
-  profile_name: ""
-  group_name: ""
-  group_type: ""
-  group_seq: ""
-  group_desc: ""
-  is_active: ""
-  is_disable: ""
-  default_value: ""
-  group_details:
-    DATA_1:
-      schema_name: ""
-      table_name: ""
-      field_name: ""
-      field_label: ""
-      field_value: ""
-      field_desc: ""
-      field_seq: ""
-      is_active: ""
-      is_checked: ""
-      is_null: ""
-
-TC_003:
-  profile_name: ""
-  group_name: "TEST TEXT BOX"
-  group_type: "text"
-  group_seq: ""
-  group_desc: ""
-  is_active: "true"
-  is_disable: "false"
-  default_value: "TEST"
-  group_details:
-    DATA_1:
-      schema_name: ""
-      table_name: ""
-      field_name: ""
-      field_label: ""
-      field_value: "TEST"
-      field_desc: ""
-      field_seq: ""
-      is_active: ""
-      is_checked: "true"
-      is_null: ""
-
-TC_004:
-  profile_name: ""
-  group_name: "Device"
-  group_type: "listbox"
-  group_seq: ""
-  group_desc: ""
-  is_active: "true"
-  is_disable: "false"
-  default_value: "TEST"
-  group_details:
-    DATA_1:
-      schema_name: ""
-      table_name: ""
-      field_name: "Smart Phone"
-      field_label: "Smart Phone"
-      field_value: "Smartphone"
-      field_desc: ""
-      field_seq: "1"
-      is_active: "true"
-      is_checked: "true"
-      is_null: ""
-    DATA_2:
-      schema_name: ""
-      table_name: ""
-      field_name: "Feature phone"
-      field_label: "Feature phone"
-      field_value: "Mobile Phone/Feature phone"
-      field_desc: ""
-      field_seq: "2"
-      is_active: "true"
-      is_checked: "false"
-      is_null: "false"
-    DATA_3:
-      schema_name: ""
-      table_name: ""
-      field_name: "Tablet"
-      field_label: "Tablet"
-      field_value: "Tablet"
-      field_desc: ""
-      field_seq: "3"
-      is_active: "true"
-      is_checked: "false"
-      is_null: "false"
-    DATA_4:
-      schema_name: ""
-      table_name: ""
-      field_name: "WLAN Router"
-      field_label: "WLAN Router"
-      field_value: "WLAN Router"
-      field_desc: ""
-      field_seq: "4"
-      is_active: "true"
-      is_checked: "false"
-      is_null: "false"
-
-TC_005:
-  profile_name: ""
-  group_name: "Device"
-  group_type: "checkbox"
-  group_seq: "3"
-  group_desc: ""
-  is_active: "true"
-  is_disable: "false"
-  default_value: "TEST"
-  group_details:
-    DATA_1:
-      schema_name: "CVMSBOX"
-      table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "CUR_TYPE_DEVICE"
-      field_label: "Smart Phone"
-      field_value: "Smartphone"
-      field_desc: ""
-      field_seq: "1"
-      is_active: "true"
-      is_checked: "true"
-      is_null: "true"
-    DATA_2:
-      schema_name: "CVMSBOX"
-      table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "CUR_TYPE_DEVICE"
-      field_label: "Feature phone"
-      field_value: "Mobile Phone/Feature phone"
-      field_desc: ""
-      field_seq: "2"
-      is_active: "true"
-      is_checked: "false"
-      is_null: "false"
-    DATA_3:
-      schema_name: "CVMSBOX"
-      table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "CUR_TYPE_DEVICE"
-      field_label: "Tablet"
-      field_value: "Tablet"
-      field_desc: ""
-      field_seq: "3"
-      is_active: "true"
-      is_checked: "false"
-      is_null: "false"
-    DATA_4:
-      schema_name: "SLG"
-      table_name: "SLG_360"
-      field_name: "CUR_TYPE_DEVICE2"
-      field_label: "WLAN Router"
-      field_value: "WLAN Router"
-      field_desc: ""
-      field_seq: "4"
-      is_active: "true"
-      is_checked: "true"
-      is_null: "false"
-
-
-
-
-
-
-
-
-
-
-
-#YAML
 TC_010:
-  profile_name: "Prepaid"
+  profile_name: "TRUE_MOBILE_PREPAID"
   group_name: "TEST COMMON DELETE 1"
   group_type: "dropdown"
   group_seq: "20"
@@ -271,7 +34,7 @@ TC_010:
 
 
 TC_012:
-  profile_name: "Prepaid"
+  profile_name: "TRUE_MOBILE_PREPAID"
   group_name: "TEST COMMON DELETE 2"
   group_type: "checkbox"
   group_seq: "21"
@@ -303,4 +66,77 @@ TC_012:
       is_active: "true"
       is_checked: "false"
       is_null: "false"
+
+
+TC_015:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 1"
+  group_type: "checkbox"
+  group_seq: "22"
+  group_desc: "TEST COMMON 1 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "game"
+  condition: where group_name='TEST COMMON 1'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Game"
+      field_value: "game"
+      field_desc: "Game Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Movie Streamer"
+      field_value: "movie_streamer"
+      field_desc: "Movie Streamer Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_016:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 2"
+  group_type: "checkbox"
+  group_seq: "23"
+  group_desc: "TEST COMMON 2 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "university,retirement"
+  condition: where group_name='TEST COMMON 2'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTAGE_FINAL"
+      field_label: "University"
+      field_value: "university"
+      field_desc: "University Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTAGE_FINAL"
+      field_label: "Retirement"
+      field_value: "retirement"
+      field_desc: "Retirement Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+
 

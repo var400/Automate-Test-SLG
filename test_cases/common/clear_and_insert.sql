@@ -1,5 +1,7 @@
 TRUNCATE TABLE slg.mst_group_common;
 INSERT INTO slg.mst_group_common (profile_name,group_id,group_name,group_type,group_desc,is_active,group_seq,is_disable,default_value) VALUES
+	 ('TRUE_MOBILE_PREPAID','d13d270d-114b-4f35-880c-fdb0981ca1bd','TEST COMMON DELETE 2','checkbox','TEST COMMON DELETE 2 DESCRIPTION',true,21,false,'Sub Dealer'),
+	 ('TRUE_MOBILE_PREPAID','1bd3cda0-f8d5-45ee-a260-bc4563a6f5f1','TEST COMMON DELETE 1','dropdown','TEST COMMON DELETE 1 DESCRIPTION',true,20,false,'SOCIAL'),
 	 ('TRUE_MOBILE_PREPAID','cb60ed80-9eba-46b0-9b0f-b707a19f42b8','Grade','text','Grade',true,5,false,NULL),
 	 ('TRUE_MOBILE_PREPAID','8b54828e-5659-4750-995b-e1e0bd66d902','Device','checkbox','Device',true,3,false,NULL),
 	 ('TRUE_MOBILE_PREPAID','7c9e0eea-c3de-49cd-a6c2-31802a3e6d23','Subscriber Status','multi_dropdown','Subscriber Status',true,1,true,NULL),
@@ -7,8 +9,6 @@ INSERT INTO slg.mst_group_common (profile_name,group_id,group_name,group_type,gr
 	 ('TRUE_MOBILE_PREPAID','38ac0ac1-d88d-40fb-bcff-8d8c7c3daf12','Subscriber Type','radio','Subscriber Type',true,2,false,''),
 	 ('TRUE_MOBILE_PREPAID','b5d40207-dd9f-4dab-8b8c-82f08f0f4e70','Thai  ID Card','dropdown','Thai  ID Card',true,4,false,''),
 	 ('TRUE_MOBILE_PREPAID','87cdb94a-5d6b-4d6c-81e8-6718241e96f1','Turecard Type','listbox','Turecard Type',true,6,false,'Green'),
-	 ('TRUE_MOBILE_PREPAID','1bd3cda0-f8d5-45ee-a260-bc4563a6f5f1','TEST COMMON DELETE 1','dropdown','TEST COMMON DELETE 1 DESCRIPTION',true,20,false,'SOCIAL'),
-	 ('TRUE_MOBILE_PREPAID','d13d270d-114b-4f35-880c-fdb0981ca1bd','TEST COMMON DELETE 2','checkbox','TEST COMMON DELETE 2 DESCRIPTION',true,21,false,'Sub Dealer'),
 	 ('TRUE_MOBILE_POSTPAID','7c9e0eea-c3de-49cd-a6c2-318222222222','Subscriber Status 12','checkbox','Subscriber Status 12',true,1,false,'');
 
 
@@ -37,7 +37,8 @@ INSERT INTO slg.mst_group_common_detail (group_id,field_label,field_value,field_
 	 ('87cdb94a-5d6b-4d6c-81e8-6718241e96f1','Blue','Blue','Blue',true,'TRUECARD_TYPE',false,3,'SLG','CUSTOMER_SUBSCRIBER_TYPE','PROD_KEY','PROD_KEY',NULL),
 	 ('87cdb94a-5d6b-4d6c-81e8-6718241e96f1','Red','Red','Red',true,'TRUECARD_TYPE',false,4,'SLG','CUSTOMER_SUBSCRIBER_TYPE','PROD_KEY','PROD_KEY',NULL);
 INSERT INTO slg.mst_group_common_detail (group_id,field_label,field_value,field_desc,is_active,field_name,is_checked,field_seq,schema_name,table_name,join_source_field,join_target_field,is_null) VALUES
-	 ('1bd3cda0-f8d5-45ee-a260-bc4563a6f5f1','SOCIAL','SOCIAL','SOCIAL DESCRIPTION',true,'FIRST_GP_SIM_TYPE',true,1,'CVMSBOX','CAMPAIGN_PREPAID_360','PROD_KEY','PROD_KEY',false),
-	 ('1bd3cda0-f8d5-45ee-a260-bc4563a6f5f1','E-SPORT','E-SPORT','E-SPORT DESCRIPTION',true,'FIRST_GP_SIM_TYPE',false,2,'CVMSBOX','CAMPAIGN_PREPAID_360','PROD_KEY','PROD_KEY',false),
 	 ('d13d270d-114b-4f35-880c-fdb0981ca1bd','SUB DEALER','Sub Dealer','SUB DEALER DESCRIPTION',true,'ACTV_PARTNER_TYPE',true,1,'CVMSBOX','CAMPAIGN_PREPAID_360','PROD_KEY','PROD_KEY',false),
-	 ('d13d270d-114b-4f35-880c-fdb0981ca1bd','TRUE CENTER','True Center','TRUE CENTER DESCRIPTION',true,'ACTV_PARTNER_TYPE',false,2,'CVMSBOX','CAMPAIGN_PREPAID_360','PROD_KEY','PROD_KEY',false);
+	 ('d13d270d-114b-4f35-880c-fdb0981ca1bd','TRUE CENTER','True Center','TRUE CENTER DESCRIPTION',true,'ACTV_PARTNER_TYPE',false,2,'CVMSBOX','CAMPAIGN_PREPAID_360','PROD_KEY','PROD_KEY',false),
+	 ('1bd3cda0-f8d5-45ee-a260-bc4563a6f5f1','SOCIAL','SOCIAL','SOCIAL DESCRIPTION',true,'FIRST_GP_SIM_TYPE',true,1,'CVMSBOX','CAMPAIGN_PREPAID_360','PROD_KEY','PROD_KEY',false),
+	 ('1bd3cda0-f8d5-45ee-a260-bc4563a6f5f1','E-SPORT','E-SPORT','E-SPORT DESCRIPTION',true,'FIRST_GP_SIM_TYPE',false,2,'CVMSBOX','CAMPAIGN_PREPAID_360','PROD_KEY','PROD_KEY',false);
+
