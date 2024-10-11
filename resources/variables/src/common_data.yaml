@@ -138,5 +138,502 @@ TC_016:
       is_null: "false"
 
 
+TC_017:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 3"
+  group_type: "checkbox"
+  group_seq: "24"
+  group_desc: "TEST COMMON 3 DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "Smartphone,Handheld"
+  condition: where group_name='TEST COMMON 3'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_TYPE_DEVICE"
+      field_label: "Smartphone"
+      field_value: "Smartphone"
+      field_desc: "Smartphone Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_TYPE_DEVICE"
+      field_label: "Handheld"
+      field_value: "Handheld"
+      field_desc: "Handheld Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_018:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 4"
+  group_type: "checkbox"
+  group_seq: "25"
+  group_desc: "TEST COMMON 4 DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "discount_lover,low_usage"
+  condition: where group_name='TEST COMMON 4'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Discount Lover"
+      field_value: "discount_lover"
+      field_desc: "Discount Lover Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Low Usage"
+      field_value: "low_usage"
+      field_desc: "Low Usage Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_019:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 5"
+  group_type: "dropdown"
+  group_seq: "26"
+  group_desc: "TEST COMMON 5 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "ระยอง"
+  condition: where group_name='TEST COMMON 5'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_PROVINCE"
+      field_label: "ระยอง"
+      field_value: "ระยอง"
+      field_desc: "ระยอง Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_PROVINCE"
+      field_label: "กรุงเทพมหานคร"
+      field_value: "กรุงเทพมหานคร"
+      field_desc: "กรุงเทพมหานคร Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_020:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 6"
+  group_type: "dropdown"
+  group_seq: "27"
+  group_desc: "TEST COMMON 6 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "ปลวกแดง,บางพลัด"
+  condition: where group_name='TEST COMMON 6'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_DISTRICT"
+      field_label: "ปลวกแดง"
+      field_value: "ปลวกแดง"
+      field_desc: "ปลวกแดง Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_DISTRICT"
+      field_label: "บางพลัด"
+      field_value: "บางพลัด"
+      field_desc: "บางพลัด Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+  result:
+    expected_result: Default value checked can't more than 1 values
+
+
+TC_021:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 7"
+  group_type: "dropdown"
+  group_seq: "28"
+  group_desc: "TEST COMMON 7 DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "ตาสิทธิ์"
+  condition: where group_name='TEST COMMON 7'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_SUB_DISTRICT"
+      field_label: "ตาสิทธิ์"
+      field_value: "ตาสิทธิ์"
+      field_desc: "ตาสิทธิ์ Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_SUB_DISTRICT"
+      field_label: "บางพลัด"
+      field_value: "บางพลัด"
+      field_desc: "บางพลัด Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_022:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 8"
+  group_type: "dropdown"
+  group_seq: "29"
+  group_desc: "TEST COMMON 8 DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "พระประแดง"
+  condition: where group_name='TEST COMMON 8'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_DISTRICT"
+      field_label: "พระประแดง"
+      field_value: "พระประแดง"
+      field_desc: "พระประแดง Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_DISTRICT"
+      field_label: "ธนบุรี"
+      field_value: "ธนบุรี"
+      field_desc: "ธนบุรี Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_023:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 9"
+  group_type: "radio"
+  group_seq: "30"
+  group_desc: "TEST COMMON 9 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Tablet"
+  condition: where group_name='TEST COMMON 9'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_TYPE_DEVICE"
+      field_label: "Tablet"
+      field_value: "Tablet"
+      field_desc: "Tablet Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_TYPE_DEVICE"
+      field_label: "Modem"
+      field_value: "Modem"
+      field_desc: "Modem Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_024:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 10"
+  group_type: "radio"
+  group_seq: "31"
+  group_desc: "TEST COMMON 10 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Pull,Push"
+  condition: where group_name='TEST COMMON 10'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_SALES_TYPE"
+      field_label: "Pull"
+      field_value: "Pull"
+      field_desc: "Pull Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_SALES_TYPE"
+      field_label: "Push"
+      field_value: "Push"
+      field_desc: "Push Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+  result:
+    expected_result: "radio : Default value checked can't more than 1 values"
+
+
+TC_025:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 11"
+  group_type: "radio"
+  group_seq: "32"
+  group_desc: "TEST COMMON 11 DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "Apple"
+  condition: where group_name='TEST COMMON 11'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_BRAND_DEVICE"
+      field_label: "Apple"
+      field_value: "Apple"
+      field_desc: "Apple Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_BRAND_DEVICE"
+      field_label: "Vivo"
+      field_value: "vivo"
+      field_desc: "Vivo Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_026:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 12"
+  group_type: "radio"
+  group_seq: "33"
+  group_desc: "TEST COMMON 12 DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "DATA"
+  condition: where group_name='TEST COMMON 12'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LAST_BUY_OC_IPK_CATEGORY"
+      field_label: "DATA"
+      field_value: "DATA"
+      field_desc: "DATA Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LAST_BUY_OC_IPK_CATEGORY"
+      field_label: "VOICE"
+      field_value: "VOICE"
+      field_desc: "VOICE Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_027:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 13"
+  group_type: "text"
+  group_seq: "34"
+  group_desc: "TEST COMMON 13 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "30"
+  condition: where group_name='TEST COMMON 13'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUST_AGE"
+      field_label: "AGE"
+      field_value: "30"
+      field_desc: "AGE Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_028:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 14"
+  group_type: "text"
+  group_seq: "35"
+  group_desc: "TEST COMMON 14 DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "Thai ID"
+  condition: where group_name='TEST COMMON 14'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CERT_ID_TYP"
+      field_label: "Thai ID"
+      field_value: "Thai ID"
+      field_desc: "Thai ID Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_029:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 15"
+  group_type: "text"
+  group_seq: "36"
+  group_desc: "TEST COMMON 15 DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: ""
+  condition: where group_name='TEST COMMON 15'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_CHANNEL"
+      field_label: "Community"
+      field_value: "Community"
+      field_desc: "Community Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_030:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 16"
+  group_type: "listbox"
+  group_seq: "37"
+  group_desc: "TEST COMMON 16 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "iOS"
+  condition: where group_name='TEST COMMON 16'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_OS_DEVICE"
+      field_label: "iOS"
+      field_value: "iOS"
+      field_desc: "iOS Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_OS_DEVICE"
+      field_label: "Android"
+      field_value: "Android"
+      field_desc: "Android Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_031:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 17"
+  group_type: "listbox"
+  group_seq: "38"
+  group_desc: "TEST COMMON 17 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "4G,5G"
+  condition: where group_name='TEST COMMON 17'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_NETWORK_DEVICE"
+      field_label: "4G"
+      field_value: "4G"
+      field_desc: "4G Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_NETWORK_DEVICE"
+      field_label: "5G"
+      field_value: "5G"
+      field_desc: "5G Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+
 
 

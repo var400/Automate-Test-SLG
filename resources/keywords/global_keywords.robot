@@ -43,6 +43,9 @@ Open Browser To URL
 Resize Browser Window To
     Execute JavaScript    document.querySelector('div.MuiBox-root.css-12cr23p').style.zoom = "60%";
 
+Resize Browser Window List
+    Execute JavaScript    document.querySelector('div.MuiDataGrid-root.MuiDataGrid-root--densityStandard.MuiDataGrid-withBorderColor.css-fqeier-MuiDataGrid-root').style.zoom = "40%";
+
 Click Button Add
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}
     Click Element   ${LOCATOR_BUTTON_ADD_CONFIGURATIONGROUP}

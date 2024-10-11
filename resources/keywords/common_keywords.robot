@@ -334,6 +334,7 @@ Check SEQ List WEB VS BASE
     END
 
 Auto Check Seq Group List
+    Resize Browser Window List
     ${seq_Db}=    Check SEQ List DB
     ${seq_Web}=    Check SEQ From Web List
     Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
@@ -376,6 +377,7 @@ Auto Check Seq On Create Criteria Listbox
 Check Preview Script
     [Arguments]     ${data_list}
     ${list_script}=    Process Dictionary List TEST    ${data_list}
+    Scroll Element Into View    //div[input[@name="OutputTemplate"]]
     Click Element    //div[input[@name="OutputTemplate"]]
     Click Element    //li[text()="Template Channel Prepaid"]
     Scroll Element Into View    //button[@class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xnayt1-MuiButtonBase-root-MuiButton-root" and (.='Preview')]
@@ -437,7 +439,7 @@ Process Dictionary List TEST
                         IF    '${value_level2['schema']}.${value_level2['table']}.${value_level2['column']}' == '${header}'
                             IF    '${value_level2['is_checked']}'=='true'
                                 IF    ${count_round} <= 0
-                                        ${script_condition}=    Set Variable    ${value_level2['field_value']}
+                                        ${script_condition}=    Set Variable    '${value_level2['field_value']}'
                                         ${count_round}=    Evaluate    ${count_round}+1
                                 ELSE
                                         ${script_condition}=    Evaluate    "${script_condition}, '${value_level2['field_value']}'"
@@ -454,9 +456,9 @@ Process Dictionary List TEST
                 END
                 IF    ${count_round} == 1
                     IF    ${count_isnull} >= 1
-                        Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} '${script_condition}'
+                        Append To List    ${list_script}    COALESCE(${header},'${collease}') ${type} ${script_condition}
                     ELSE
-                        Append To List    ${list_script}    ${header} ${type} '${script_condition}'
+                        Append To List    ${list_script}    ${header} ${type} ${script_condition}
                     END
                 ELSE IF    ${count_round} > 1
                     IF    ${count_isnull} >= 1
