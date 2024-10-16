@@ -146,16 +146,16 @@ TC_017:
   group_desc: "TEST COMMON 3 DESCRIPTION"
   is_active: "true"
   is_disable: "true"
-  default_value: "Smartphone,Handheld"
+  default_value: "NE-1,NE-2"
   condition: where group_name='TEST COMMON 3'
   group_details:
     DATA_1:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "CUR_TYPE_DEVICE"
-      field_label: "Smartphone"
-      field_value: "Smartphone"
-      field_desc: "Smartphone Description"
+      field_name: "ACTV_TDS_GMD"
+      field_label: "NE-1"
+      field_value: "NE-1"
+      field_desc: "NE-1 Description"
       field_seq: "1"
       is_active: "true"
       is_checked: "true"
@@ -163,10 +163,10 @@ TC_017:
     DATA_2:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "CUR_TYPE_DEVICE"
-      field_label: "Handheld"
-      field_value: "Handheld"
-      field_desc: "Handheld Description"
+      field_name: "ACTV_TDS_GMD"
+      field_label: "NE-2"
+      field_value: "NE-2"
+      field_desc: "NE-2 Description"
       field_seq: "2"
       is_active: "true"
       is_checked: "true"
@@ -181,16 +181,16 @@ TC_018:
   group_desc: "TEST COMMON 4 DESCRIPTION"
   is_active: "false"
   is_disable: "false"
-  default_value: "discount_lover,low_usage"
+  default_value: "Y,N"
   condition: where group_name='TEST COMMON 4'
   group_details:
     DATA_1:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "LIFESTYLE_FINAL"
-      field_label: "Discount Lover"
-      field_value: "discount_lover"
-      field_desc: "Discount Lover Description"
+      field_name: "TMN_FLAG"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
       field_seq: "1"
       is_active: "true"
       is_checked: "true"
@@ -198,10 +198,10 @@ TC_018:
     DATA_2:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "LIFESTYLE_FINAL"
-      field_label: "Low Usage"
-      field_value: "low_usage"
-      field_desc: "Low Usage Description"
+      field_name: "TMN_FLAG"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
       field_seq: "2"
       is_active: "true"
       is_checked: "true"
@@ -277,7 +277,7 @@ TC_020:
       is_checked: "true"
       is_null: "false"
   result:
-    expected_result: Default value checked can't more than 1 values
+    expected_result: "dropdown : Default value checked can't  more than 1 values"
 
 
 TC_021:
@@ -323,16 +323,16 @@ TC_022:
   group_desc: "TEST COMMON 8 DESCRIPTION"
   is_active: "false"
   is_disable: "false"
-  default_value: "พระประแดง"
+  default_value: "Y"
   condition: where group_name='TEST COMMON 8'
   group_details:
     DATA_1:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "MOST_USE_DISTRICT"
-      field_label: "พระประแดง"
-      field_value: "พระประแดง"
-      field_desc: "พระประแดง Description"
+      field_name: "TMN_ACTIVE"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
       field_seq: "1"
       is_active: "true"
       is_checked: "true"
@@ -340,10 +340,10 @@ TC_022:
     DATA_2:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "MOST_USE_DISTRICT"
-      field_label: "ธนบุรี"
-      field_value: "ธนบุรี"
-      field_desc: "ธนบุรี Description"
+      field_name: "TMN_ACTIVE"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
       field_seq: "2"
       is_active: "true"
       is_checked: "false"
@@ -358,16 +358,16 @@ TC_023:
   group_desc: "TEST COMMON 9 DESCRIPTION"
   is_active: "true"
   is_disable: "false"
-  default_value: "Tablet"
+  default_value: "นางสาว"
   condition: where group_name='TEST COMMON 9'
   group_details:
     DATA_1:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "CUR_TYPE_DEVICE"
-      field_label: "Tablet"
-      field_value: "Tablet"
-      field_desc: "Tablet Description"
+      field_name: "TITLE_NAME"
+      field_label: "นางสาว"
+      field_value: "นางสาว"
+      field_desc: "นางสาว Description"
       field_seq: "1"
       is_active: "true"
       is_checked: "true"
@@ -375,10 +375,10 @@ TC_023:
     DATA_2:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "CUR_TYPE_DEVICE"
-      field_label: "Modem"
-      field_value: "Modem"
-      field_desc: "Modem Description"
+      field_name: "TITLE_NAME"
+      field_label: "นาย"
+      field_value: "นาย"
+      field_desc: "นาย Description"
       field_seq: "2"
       is_active: "true"
       is_checked: "false"
@@ -419,7 +419,7 @@ TC_024:
       is_checked: "true"
       is_null: "false"
   result:
-    expected_result: "radio : Default value checked can't more than 1 values"
+    expected_result: "radio : Default value checked can't  more than 1 values"
 
 
 TC_025:
@@ -548,16 +548,16 @@ TC_029:
   group_desc: "TEST COMMON 15 DESCRIPTION"
   is_active: "false"
   is_disable: "false"
-  default_value: ""
+  default_value: "N"
   condition: where group_name='TEST COMMON 15'
   group_details:
     DATA_1:
       schema_name: "CVMSBOX"
       table_name: "CAMPAIGN_PREPAID_360"
-      field_name: "ACTV_TDS_CHANNEL"
-      field_label: "Community"
-      field_value: "Community"
-      field_desc: "Community Description"
+      field_name: "TMN_PAYBILL_FLAG"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
       field_seq: "1"
       is_active: "true"
       is_checked: "true"
@@ -632,6 +632,609 @@ TC_031:
       is_active: "true"
       is_checked: "true"
       is_null: "false"
+
+
+TC_032:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 18"
+  group_type: "listbox"
+  group_seq: "39"
+  group_desc: "TEST COMMON 18 DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "THA"
+  condition: where group_name='TEST COMMON 18'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CONTACT_LANGUAGE"
+      field_label: "THA"
+      field_value: "THA"
+      field_desc: "THA Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CONTACT_LANGUAGE"
+      field_label: "ENG"
+      field_value: "ENG"
+      field_desc: "ENG Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_033:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 19"
+  group_type: "listbox"
+  group_seq: "40"
+  group_desc: "TEST COMMON 19 DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "Y"
+  condition: where group_name='TEST COMMON 19'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "TOL_SUBS"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "TOL_SUBS"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_034:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 20"
+  group_type: "multi_dropdown"
+  group_seq: "41"
+  group_desc: "TEST COMMON 20 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "MYA"
+  condition: where group_name='TEST COMMON 20'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "SMS_LANGUAGE"
+      field_label: "MYA"
+      field_value: "MYA"
+      field_desc: "MYA Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "SMS_LANGUAGE"
+      field_label: "THA"
+      field_value: "THA"
+      field_desc: "THA Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_035:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21"
+  group_type: "multi_dropdown"
+  group_seq: "42"
+  group_desc: "TEST COMMON 21 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "SIM DON JAI"
+      field_value: "SIM DON JAI"
+      field_desc: "SIM DON JAI Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "Net SIM 4G+"
+      field_value: "Net SIM 4G+"
+      field_desc: "Net SIM 4G+ Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_036:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 22"
+  group_type: "multi_dropdown"
+  group_seq: "43"
+  group_desc: "TEST COMMON 22 DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "TRUE ID SIM"
+  condition: where group_name='TEST COMMON 22'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_GP_SIM_TYPE"
+      field_label: "TRUE ID SIM"
+      field_value: "TRUE ID SIM"
+      field_desc: "TRUE ID SIM Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_GP_SIM_TYPE"
+      field_label: "NET SIM"
+      field_value: "NET SIM"
+      field_desc: "NET SIM Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_037:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 23"
+  group_type: "multi_dropdown"
+  group_seq: "44"
+  group_desc: "TEST COMMON 23 DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "Y"
+  condition: where group_name='TEST COMMON 23'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "TVS_SUBS"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "TVS_SUBS"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_038:
+  profile_name: "TRUE_MOBILE_POSTPAID"
+  group_name: "TEST COMMON 1"
+  group_type: "checkbox"
+  group_seq: "45"
+  group_desc: "TEST COMMON 1 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "LAOS 5G SIM"
+  condition: where group_name='TEST COMMON 1' and profile_name='TRUE_MOBILE_POSTPAID'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_SIM_TYPE"
+      field_label: "LAOS 5G SIM"
+      field_value: "LAOS 5G SIM"
+      field_desc: "LAOS 5G SIM Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_SIM_TYPE"
+      field_label: "CAMBODIA 5G SIM"
+      field_value: "CAMBODIA 5G SIM"
+      field_desc: "CAMBODIA 5G SIM Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_039:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 1"
+  group_type: "checkbox"
+  group_seq: "46"
+  group_desc: "TEST COMMON 1 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Y"
+  condition: where group_name='TEST COMMON 1'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "DEALER_FLAG"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "DEALER_FLAG"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Duplicate name"
+
+
+TC_040:
+  profile_name: "TRUE_MOBILE_POSTPAID"
+  group_name: "TEST COMMON 24"
+  group_type: "checkbox"
+  group_seq: "2"
+  group_desc: "TEST COMMON 24 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Wholesales"
+  condition: where group_name='TEST COMMON 24'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_CHANNEL"
+      field_label: "Wholesales"
+      field_value: "Wholesales"
+      field_desc: "Wholesales Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_CHANNEL"
+      field_label: "Premium Retailer"
+      field_value: "Premium Retailer"
+      field_desc: "Premium Retailer Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_041:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 25"
+  group_type: "checkbox"
+  group_seq: "3"
+  group_desc: "TEST COMMON 25 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Y"
+  condition: where group_name='TEST COMMON 25'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "BLACK_LIST_TMH_FLAG"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "BLACK_LIST_TMH_FLAG"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Duplicate Sequence"
+
+
+TC_042:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 26"
+  group_type: "checkbox"
+  group_seq: "47"
+  group_desc: "TEST COMMON 26 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Y"
+  condition: where group_name='TEST COMMON 26'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "BLACK_LIST_TOL_FLAG"
+      field_label: "Y1"
+      field_value: "Y"
+      field_desc: "Y1 Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "BLACK_LIST_TOL_FLAG"
+      field_label: "Y2"
+      field_value: "Y"
+      field_desc: "Y2 Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Value is duplicate."
+
+
+TC_043:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 27"
+  group_type: "checkbox"
+  group_seq: "48"
+  group_desc: "TEST COMMON 27 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: ""
+  condition: where group_name='TEST COMMON 27'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "BLACK_LIST_TVS_FLAG"
+      field_label: "Y"
+      field_value: ""
+      field_desc: "Y Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "BLACK_LIST_TVS_FLAG"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Some value is Empty."
+
+
+TC_046:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 28"
+  group_type: "checkbox"
+  group_seq: "49"
+  group_desc: "TEST COMMON 28 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Internal Project"
+  condition: where group_name='TEST COMMON 28'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_SUB_CHANNEL"
+      field_label: "Internal Project"
+      field_value: "Internal Project"
+      field_desc: "Internal Project Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_SUB_CHANNEL"
+      field_label: "True Agent"
+      field_value: "True Agent"
+      field_desc: "True Agent Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+    DATA_3:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_SUB_CHANNEL"
+      field_label: "Device Bundle SIM"
+      field_value: "Device Bundle SIM"
+      field_desc: "Device Bundle SIM Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  TC_046_TEST_INSERT_DUPPLICATE:
+      CHECK_DUPPLICATE_DATA:
+        schema_name: "CVMSBOX"
+        table_name: "CAMPAIGN_PREPAID_360"
+        field_name: "ACTV_TDS_SUB_CHANNEL"
+        field_label: ""
+        field_value_yes: ""
+        field_value_no: ""
+        field_desc: ""
+        field_seq: "3"
+        is_active: "true"
+        is_checked: "false"
+        is_null: "false"
+
+
+TC_047:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 29"
+  group_type: "checkbox"
+  group_seq: "50"
+  group_desc: "TEST COMMON 29 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "DSP"
+  condition: where group_name='TEST COMMON 29'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_GROUP_SP_CHANNEL"
+      field_label: "DSP"
+      field_value: "DSP"
+      field_desc: "DSP Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_GROUP_SP_CHANNEL"
+      field_label: "SIT"
+      field_value: "SIT"
+      field_desc: "SIT Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_048:
+  profile_name: ""
+  group_name: "TEST COMMON 30"
+  group_type: "checkbox"
+  group_seq: "51"
+  group_desc: "TEST COMMON 30 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Y"
+  condition: where group_name='TEST COMMON 30'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "SHARE_PLAN_FLAG"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "SHARE_PLAN_FLAG"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_052:
+  profile_name: ""
+  group_name: ""
+  group_type: ""
+  group_seq: ""
+  group_desc: ""
+  is_active: "false"
+  is_disable: "false"
+  default_value: ""
+  group_details:
+    DATA_1:
+      schema_name: ""
+      table_name: ""
+      field_name: ""
+      field_label: ""
+      field_value: ""
+      field_desc: ""
+      field_seq: ""
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+    DATA_2:
+      schema_name: ""
+      table_name: ""
+      field_name: ""
+      field_label: ""
+      field_value: ""
+      field_desc: ""
+      field_seq: ""
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+
+
+
+
+
+
 
 
 

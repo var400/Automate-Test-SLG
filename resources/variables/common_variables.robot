@@ -35,6 +35,22 @@ ${TC_028_DATA}    ${TC_028}
 ${TC_029_DATA}    ${TC_029}
 ${TC_030_DATA}    ${TC_030}
 ${TC_031_DATA}    ${TC_031}
+${TC_032_DATA}    ${TC_032}
+${TC_033_DATA}    ${TC_033}
+${TC_034_DATA}    ${TC_034}
+${TC_035_DATA}    ${TC_035}
+${TC_036_DATA}    ${TC_036}
+${TC_037_DATA}    ${TC_037}
+${TC_038_DATA}    ${TC_038}
+${TC_039_DATA}    ${TC_039}
+${TC_040_DATA}    ${TC_040}
+${TC_041_DATA}    ${TC_041}
+${TC_042_DATA}    ${TC_042}
+${TC_043_DATA}    ${TC_043}
+${TC_046_DATA}    ${TC_046}
+${TC_047_DATA}    ${TC_047}
+${TC_048_DATA}    ${TC_048}
+${TC_052_DATA}    ${TC_052}
 
 
 
@@ -67,7 +83,7 @@ ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    profile_name,group_type
 
 
 #CHECK_VALIDATE
-${CHOOSE_KEY_VALIDATE_DATA}    profile_name,group_name,group_type,group_seq,field_seq
+${CHOOSE_KEY_VALIDATE_DATA}    profile_name,group_name,group_type,field_seq
 ${CHOOSE_KEY_VALIDATE_DATA_AUTO_COMPLETE}    schema_name,table_name,field_name
 
 

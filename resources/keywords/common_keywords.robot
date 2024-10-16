@@ -353,9 +353,11 @@ Auto Check Seq On Create Criteria
     ${seq_Db}=    Check SEQ Create Criteria DB    ${data['profile_name']}
     Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
     ##CHECK GROUP DETAIL
-    ${seq_Web}=    Check SEQ From Web Create Criteria Detail    ${data}
-    ${seq_Db}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    true
-    Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+    IF    '${data['is_disable']}' == 'false'
+        ${seq_Web}=    Check SEQ From Web Create Criteria Detail    ${data}
+        ${seq_Db}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    true
+        Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+    END
 
 Auto Check Seq On Create Criteria Listbox
     [Arguments]    ${data}
