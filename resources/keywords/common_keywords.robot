@@ -83,9 +83,9 @@ Check Textbox Config
     Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]    type    ${data_list['group_type']}
     ##Check Read Only
     IF    '${data_list['is_disable']}' == 'true'
-        Element Should Be Visible    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']} and @disabled"]
+        Element Should Be Visible    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @disabled]
     ELSE
-        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']} and @disabled"]
+        Element Should Not Be Visible    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}" and @disabled]
     END
     #Check Default Value
     IF    '${data_list['group_details']['${data}']['is_checked']}' == 'true'
