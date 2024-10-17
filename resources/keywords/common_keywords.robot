@@ -164,7 +164,7 @@ Check MultiDropdown Config
         ELSE 
             Element Should Not Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_value']}"]
         END
-        Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-xoceb4-MuiInputBase-root-MuiOutlinedInput-root"]
+        Press Keys    ESC
     ELSE
         #Check Read Only
         Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox"]   id    demo-multiple-checkbox    #Check Type
@@ -306,7 +306,7 @@ Check SEQ From Web Create Criteria Detail
         ${check_locator}=    Run Keyword And Return Status    Element Should Be Visible    //ul[@role="listbox"]//li[@data-value!="all"]
         Run Keyword If    '${check_locator}' != 'True'    Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox" and @aria-expanded="false"]
         ${elements}=    Get WebElements    //ul[@role="listbox"]//li[@data-value!="all"]
-        Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-xoceb4-MuiInputBase-root-MuiOutlinedInput-root"]
+        Press Keys    ESC
     ELSE IF    '${data_list['group_type']}' == 'listbox'
         ${elements}=    Get WebElements    //div[*[*[text()="${data_list['group_name']}"]]]//div[@role="list"]//div[@role="listitem"]
     ELSE IF    '${data_list['group_type']}' == 'dropdown'
