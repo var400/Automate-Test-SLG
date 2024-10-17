@@ -6,7 +6,7 @@ TC_010:
   group_desc: "TEST COMMON DELETE 1 DESCRIPTION"
   is_active: "true"
   is_disable: "false"
-  # default_value: "10"
+  default_value: "SOCIAL"
   condition: where group_name='TEST COMMON DELETE 1'
   group_details:
     DATA_1:
@@ -41,7 +41,7 @@ TC_012:
   group_desc: "TEST COMMON DELETE 2 DESCRIPTION"
   is_active: "true"
   is_disable: "false"
-  # default_value: "10"
+  default_value: "SUB DEALER"
   condition: where group_name='TEST COMMON DELETE 2'
   group_details:
     DATA_1:
@@ -1165,7 +1165,6 @@ TC_048:
   is_active: "true"
   is_disable: "false"
   default_value: "Y"
-  condition: where group_name='TEST COMMON 30'
   group_details:
     DATA_1:
       schema_name: "CVMSBOX"
@@ -1191,6 +1190,113 @@ TC_048:
       is_null: "false"
   result:
     validate_data: This value cannot be null.
+
+
+TC_049:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: ""
+  group_type: "checkbox"
+  group_seq: "52"
+  group_desc: "TEST COMMON 31 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Y"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "NOT_HAVE_TOL_BEFORE"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "NOT_HAVE_TOL_BEFORE"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_050:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 32"
+  group_type: "checkbox"
+  group_seq: "53"
+  group_desc: "TEST COMMON 32 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Y"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "TMH_POSTPAID_SUBS"
+      field_label: "Y"
+      field_value: "Y"
+      field_desc: "Y Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "TMH_POSTPAID_SUBS"
+      field_label: "N"
+      field_value: "N"
+      field_desc: "N Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_051:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 33"
+  group_type: "checkbox"
+  group_seq: ""
+  group_desc: "TEST COMMON 33 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "North"
+  condition: where group_name='TEST COMMON 33'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_RGM"
+      field_label: "North"
+      field_value: "North"
+      field_desc: "North Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_RGM"
+      field_label: "South"
+      field_value: "South"
+      field_desc: "South Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
 
 
 TC_052:
@@ -1227,6 +1333,638 @@ TC_052:
       is_null: "false"
   result:
     validate_data: This value cannot be null.
+
+
+TC_055:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+
+
+TC_056:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+
+
+TC_057:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_058:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_059:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_060:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Vehicle"
+      field_value: "vehicle"
+      field_desc: "Vehicle Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Duplicate Sequence."
+
+
+TC_061:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: ""
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: ""
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_062:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: ""
+      field_name: ""
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_063:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: ""
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_064:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: ""
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_065:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  group_details:
+    DATA_1:
+      schema_name: ""
+      table_name: ""
+      field_name: ""
+      field_label: ""
+      field_value: ""
+      field_desc: ""
+      field_seq: ""
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_066:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+
+
+TC_068:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Voice Call Only"
+      field_value: "voice_call_only"
+      field_desc: "Voice Call Only Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+
+
+TC_069:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Voice Call Only"
+      field_value: "voice_call_only"
+      field_desc: "Voice Call Only Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+
+
+TC_070:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Voice Call Only"
+      field_value: "voice_call_only"
+      field_desc: "Voice Call Only Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_071:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Voice Call Only"
+      field_value: "voice_call_only"
+      field_desc: "Voice Call Only Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_072:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Voice Call Only"
+      field_value: "voice_call_only"
+      field_desc: "Voice Call Only Description"
+      field_seq: "1"
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_073:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+    DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Vehicle"
+      field_value: "vehicle"
+      field_desc: "Vehicle Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+    EDIT DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Voice Call Only"
+      field_value: "voice_call_only"
+      field_desc: "Voice Call Only Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Duplicate Sequence."
+
+
+TC_074:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Voice Call Only"
+      field_value: "voice_call_only"
+      field_desc: "Voice Call Only Description"
+      field_seq: ""
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_075:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: ""
+      field_value: ""
+      field_desc: ""
+      field_seq: ""
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_076:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON ADD DETAIL"
+  group_type: "checkbox"
+  group_seq: "200"
+  group_desc: "TEST COMMON ADD DETAIL DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "inactive"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Inactive"
+      field_value: "inactive"
+      field_desc: "Inactive Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_078:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST POPUP MESSAGE SAVE"
+  group_type: "checkbox"
+  group_seq: "201"
+  group_desc: "TEST POPUP MESSAGE SAVE DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "R16NSOC72"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_PP_NM"
+      field_label: "R16NSOC72"
+      field_value: "R16NSOC72"
+      field_desc: "R16NSOC72 Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_080:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST POPUP MESSAGE SAVE 2"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST POPUP MESSAGE SAVE 2 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "R16N90071"
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_PP_NM"
+      field_label: "R16N90071"
+      field_value: "R16N90071"
+      field_desc: "R16N90071 Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
 
 
 

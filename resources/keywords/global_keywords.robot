@@ -108,7 +108,7 @@ Check Status Data Check Box   #Work With Input Check Box Data
 Input Select Option Data
     [Arguments]    ${data}    ${choose_key}
     FOR    ${key}    ${value}    IN    &{data}
-        IF    '${value}' != '${EMPTY}'
+        IF    "${value}" != "${EMPTY}"
             Run Keyword If    '${key}' in '${choose_key}'    Scroll Element Into View    //div[@id="mui-component-select-${key}"]
             Run Keyword If    '${key}' in '${choose_key}'    Click Element    //div[@id="mui-component-select-${key}"]
             Run Keyword If    '${key}' in '${choose_key}'    Wait Until Element Is Visible    //li[@data-value="${value}"]    timeout=5s
@@ -431,6 +431,11 @@ Click Button Save Detail
     Wait Until Keyword Succeeds    5x    5s    Click Button    ${LOCATOR_SUB_WINDOWS_DETAIL}${LOCATOR_SAVE_BUTTON}
     Sleep    1s
 
+Click Button Cancel Detail
+    Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}${LOCATOR_CANCEL_BUTTON_DETAIL}
+    Click Element    ${LOCATOR_SUB_WINDOWS_DETAIL}${LOCATOR_CANCEL_BUTTON_DETAIL}
+    Sleep    5s 
+
 Click Button Close Detail
     Wait Until Keyword Succeeds    5x    5s    Scroll Element Into View    ${LOCATOR_SUB_WINDOWS_DETAIL}${LOCATOR_CLOSE_BUTTON}
     Click Button    ${LOCATOR_SUB_WINDOWS_DETAIL}${LOCATOR_CLOSE_BUTTON}
@@ -585,7 +590,7 @@ Click Button Save Group Control
     IF    '${option_contol}' == 'Yes'
         Wait Until Keyword Succeeds   5x    5s    Click Element    //button[text()="Yes"] 
     ELSE IF    '${option_contol}' == 'No'
-        Wait Until Keyword Succeeds   5x    5s    Click Element    //button[text()="No"]  
+        Wait Until Keyword Succeeds   5x    5s    Click Element    //button[@class="swal2-cancel swal2-styled" and (.="No")]  
     ELSE IF    '${option_contol}' == 'Close'
         Wait Until Keyword Succeeds   5x    5s    Click Element    //button[@aria-label="Close this dialog"]
     END
