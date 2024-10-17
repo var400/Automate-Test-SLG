@@ -169,6 +169,16 @@ Auto Check List Data
         Scroll Page    left    1500
     END
 
+Auto Check List Data Group Detail
+    [Arguments]    ${data_id}    ${data}    ${choose_key_text}    ${choose_key_boolean}
+    Check List Data Is Visible    ${data_id}
+    Check List Text Data    ${data_id}      ${data}     ${choose_key_text}
+    Check List Status Data      ${data_id}      ${data}     ${choose_key_boolean}
+    ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
+    IF    '${found_scroll_bar}' == 'True'
+        Scroll Page    left    1500
+    END
+
 Check List Text Data
     [Arguments]    ${data_id}    ${data}    ${choose_key_text}
     ${found_scroll_bar}=    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="MuiDataGrid-scrollbar MuiDataGrid-scrollbar--horizontal css-1rtad1"]
