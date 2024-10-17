@@ -77,7 +77,7 @@ ${TC_075_DATA}    ${TC_075}
 ${TC_076_DATA}    ${TC_076}
 ${TC_078_DATA}    ${TC_078}
 ${TC_080_DATA}    ${TC_080}
-
+${TC_083_DATA}    ${TC_083}
 
 
 
@@ -85,6 +85,7 @@ ${TC_080_DATA}    ${TC_080}
 
 #COMMON LIST
 ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    profile_name,group_name,group_seq,group_type,group_desc,default_value
+${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_NO_SEQ}    profile_name,group_name,group_type,group_desc,default_value
 ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}    is_active,is_disable
 ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    schema_name,table_name,field_seq,field_name,field_label,field_value,field_desc
 ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}    is_active,is_checked,is_null

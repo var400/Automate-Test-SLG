@@ -632,6 +632,17 @@ TC_031:
       is_active: "true"
       is_checked: "true"
       is_null: "false"
+    DATA_3:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_NETWORK_DEVICE"
+      field_label: "6G"
+      field_value: "6G"
+      field_desc: "6G Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
 
 
 TC_032:
@@ -1960,6 +1971,29 @@ TC_080:
       field_value: "R16N90071"
       field_desc: "R16N90071 Description"
       field_seq: "1"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_083:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST"
+  group_type: "checkbox"
+  group_seq: "000"
+  group_desc: "TEST DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: ""
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_PP_NM"
+      field_label: "test"
+      field_value: "test"
+      field_desc: "test Description"
+      field_seq: "0"
       is_active: "true"
       is_checked: "true"
       is_null: "false"
