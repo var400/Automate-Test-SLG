@@ -103,7 +103,7 @@ ${CHOOSE_KEY_COPPY_GROUP_DETAIL}    schema_name,table_name,field_name,field_labe
 
 #UPDATE/CHECK EDIT PAGE COMMON
 ${CHOOSE_KEY_EDIT_PAGE_AUTO_COMPLETE}    schema_name,table_name,field_name
-${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    group_name,group_seq,group_desc,group_type,field_label,field_value,field_desc,field_seq
+${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    group_name,group_seq,group_desc,field_label,field_value,field_desc,field_seq
 ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}    is_active,is_disable,is_checked,is_null
 ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    profile_name,group_type
 

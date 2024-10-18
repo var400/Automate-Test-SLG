@@ -256,21 +256,21 @@ TC_021
 TC_022
     [Documentation]    ที่หน้าจอ "Add Common Criteria" ตรวจสอบกรณีระบุ/เลือกข้อมูลครบทุก Field โดยผู้ใช้เลือกตามเงื่อนไขดังนี้ Group Type = DropDown, Checkbox (Active) = Inactive, Checkbox (Read Only) = Not Read Only, Checked = 1 รายการ และกดปุ่ม "Save"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    # Click Button Add
-    # Auto Insert Data    ${TC_022_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    # ${Data_List}     Create List    DATA_1    DATA_2
-    # FOR    ${data}    IN    @{Data_List}
-    #     Click Button Add Detail
-    #     Auto Insert Data Detail    ${TC_022_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    #     Click Button Save Detail
-    # END
-    # Click Button Save Group Control    Yes
-    # Page Should Contain    Save Complete. 
-    # #CHECK DATABASE & COMMON LIST
-    # Click Button Back
-    # Auto Check Seq Group List
-    # ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_022_DATA.condition}
-    # Auto Check List Data    ${group_id}    ${TC_022_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
+    Click Button Add
+    Auto Insert Data    ${TC_022_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    ${Data_List}     Create List    DATA_1    DATA_2
+    FOR    ${data}    IN    @{Data_List}
+        Click Button Add Detail
+        Auto Insert Data Detail    ${TC_022_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+        Click Button Save Detail
+    END
+    Click Button Save Group Control    Yes
+    Page Should Contain    Save Complete. 
+    #CHECK DATABASE & COMMON LIST
+    Click Button Back
+    Auto Check Seq Group List
+    ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_022_DATA.condition}
+    Auto Check List Data    ${group_id}    ${TC_022_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     #CHECK SCREEN CREATE CRITERIA IN SLG
     Go To    ${CREATE_CRITERIA_URL}
     Check Output On Create Critiria Page    ${TC_022_DATA}
@@ -381,24 +381,24 @@ TC_026
 TC_027
     [Documentation]    ที่หน้าจอ "Add Common Criteria" ตรวจสอบกรณีระบุ/เลือกข้อมูลครบทุก Field โดยผู้ใช้เลือกตามเงื่อนไขดังนี้ Group Type = Text, Checkbox (Active) = Active, Checkbox (Read Only) = Not Read Only, Checked = 1 รายการ และกดปุ่ม "Save"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    Click Button Add
-    Auto Insert Data    ${TC_027_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    ${Data_List}     Create List    DATA_1
-    FOR    ${data}    IN    @{Data_List}
-        Click Button Add Detail
-        Auto Insert Data Detail    ${TC_027_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-        Click Button Save Detail
-        ${group_id}=    Get Data Id From Field    ${TC_027_DATA['group_details']['${data}']['field_label']}    field_label
-        Auto Check List Data    ${group_id}    ${TC_027_DATA['group_details']['${data}']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
-        Auto Check Seq Group Detail    ${TC_027_DATA}
-    END
-    Click Button Save Group Control    Yes
-    Page Should Contain    Save Complete. 
-    #CHECK DATABASE & COMMON LIST
-    Click Button Back
-    Auto Check Seq Group List
-    ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_027_DATA.condition}
-    Auto Check List Data    ${group_id}    ${TC_027_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
+    # Click Button Add
+    # Auto Insert Data    ${TC_027_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    # ${Data_List}     Create List    DATA_1
+    # FOR    ${data}    IN    @{Data_List}
+    #     Click Button Add Detail
+    #     Auto Insert Data Detail    ${TC_027_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    #     Click Button Save Detail
+    #     ${group_id}=    Get Data Id From Field    ${TC_027_DATA['group_details']['${data}']['field_label']}    field_label
+    #     Auto Check List Data    ${group_id}    ${TC_027_DATA['group_details']['${data}']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+    #     Auto Check Seq Group Detail    ${TC_027_DATA}
+    # END
+    # Click Button Save Group Control    Yes
+    # Page Should Contain    Save Complete. 
+    # #CHECK DATABASE & COMMON LIST
+    # Click Button Back
+    # Auto Check Seq Group List
+    # ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_027_DATA.condition}
+    # Auto Check List Data    ${group_id}    ${TC_027_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     #CHECK SCREEN CREATE CRITERIA IN SLG
     Go To    ${CREATE_CRITERIA_URL}
     Check Output On Create Critiria Page    ${TC_027_DATA}
@@ -410,21 +410,21 @@ TC_027
 TC_028
     [Documentation]    ที่หน้าจอ "Add Common Criteria" ตรวจสอบกรณีระบุ/เลือกข้อมูลครบทุก Field โดยผู้ใช้เลือกตามเงื่อนไขดังนี้ Group Type = Text, Checkbox (Active) = Active, Checkbox (Read Only) = Read Only, Checked = 1 รายการ และกดปุ่ม "Save"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    # Click Button Add
-    # Auto Insert Data    ${TC_028_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    # ${Data_List}     Create List    DATA_1
-    # FOR    ${data}    IN    @{Data_List}
-    #     Click Button Add Detail
-    #     Auto Insert Data Detail    ${TC_028_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    #     Click Button Save Detail
-    # END
-    # Click Button Save Group Control    Yes
-    # Page Should Contain    Save Complete. 
-    # #CHECK DATABASE & COMMON LIST
-    # Click Button Back
-    # Auto Check Seq Group List
-    # ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_028_DATA.condition}
-    # Auto Check List Data    ${group_id}    ${TC_028_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
+    Click Button Add
+    Auto Insert Data    ${TC_028_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    ${Data_List}     Create List    DATA_1
+    FOR    ${data}    IN    @{Data_List}
+        Click Button Add Detail
+        Auto Insert Data Detail    ${TC_028_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+        Click Button Save Detail
+    END
+    Click Button Save Group Control    Yes
+    Page Should Contain    Save Complete. 
+    #CHECK DATABASE & COMMON LIST
+    Click Button Back
+    Auto Check Seq Group List
+    ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_028_DATA.condition}
+    Auto Check List Data    ${group_id}    ${TC_028_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     #CHECK SCREEN CREATE CRITERIA IN SLG
     Go To    ${CREATE_CRITERIA_URL}
     Check Output On Create Critiria Page    ${TC_028_DATA}
@@ -454,7 +454,6 @@ TC_029
     #CHECK SCREEN CREATE CRITERIA IN SLG
     Go To    ${CREATE_CRITERIA_URL}
     Check Output On Create Critiria Page    ${TC_029_DATA}
-    Auto Check Seq On Create Criteria    ${TC_029_DATA}
     Check Preview Script    ${TC_029_DATA}   
     Close Browser   
 
@@ -498,9 +497,9 @@ TC_031
         Click Button Add Detail
         Auto Insert Data Detail    ${TC_031_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
         Click Button Save Detail
-        # ${group_id}=    Get Data Id From Field    ${TC_031_DATA['group_details']['${data}']['field_label']}    field_label
-        # Auto Check List Data    ${group_id}    ${TC_031_DATA['group_details']['${data}']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
-        # Auto Check Seq Group Detail    ${TC_031_DATA}
+        ${group_id}=    Get Data Id From Field    ${TC_031_DATA['group_details']['${data}']['field_label']}    field_label
+        Auto Check List Data    ${group_id}    ${TC_031_DATA['group_details']['${data}']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+        Auto Check Seq Group Detail    ${TC_031_DATA}
     END
     Click Button Save Group Control    Yes
     Page Should Contain    Save Complete. 
@@ -564,7 +563,6 @@ TC_033
     #CHECK SCREEN CREATE CRITERIA IN SLG
     Go To    ${CREATE_CRITERIA_URL}
     Check Output On Create Critiria Page    ${TC_033_DATA}
-    Auto Check Seq On Create Criteria Listbox    ${TC_033_DATA}
     Check Preview Script    ${TC_033_DATA}   
     Close Browser
 
@@ -572,24 +570,24 @@ TC_033
 TC_034
     [Documentation]    ที่หน้าจอ "Add Common Criteria" ตรวจสอบกรณีระบุ/เลือกข้อมูลครบทุก Field โดยผู้ใช้เลือกตามเงื่อนไขดังนี้ Group Type = Multi Dropdown, Checkbox (Active) = Active, Checkbox (Read Only) = Not Read Only, Checked = 1 รายการ และกดปุ่ม "Save"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    # Click Button Add
-    # Auto Insert Data    ${TC_034_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    # ${Data_List}     Create List    DATA_1    DATA_2
-    # FOR    ${data}    IN    @{Data_List}
-    #     Click Button Add Detail
-    #     Auto Insert Data Detail    ${TC_034_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    #     Click Button Save Detail
-    #     ${group_id}=    Get Data Id From Field    ${TC_034_DATA['group_details']['${data}']['field_label']}    field_label
-    #     Auto Check List Data    ${group_id}    ${TC_034_DATA['group_details']['${data}']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
-    #     Auto Check Seq Group Detail    ${TC_034_DATA}
-    # END
-    # Click Button Save Group Control    Yes
-    # Page Should Contain    Save Complete. 
-    # #CHECK DATABASE & COMMON LIST
-    # Click Button Back
-    # Auto Check Seq Group List
-    # ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_034_DATA.condition}
-    # Auto Check List Data    ${group_id}    ${TC_034_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
+    Click Button Add
+    Auto Insert Data    ${TC_034_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    ${Data_List}     Create List    DATA_1    DATA_2
+    FOR    ${data}    IN    @{Data_List}
+        Click Button Add Detail
+        Auto Insert Data Detail    ${TC_034_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+        Click Button Save Detail
+        ${group_id}=    Get Data Id From Field    ${TC_034_DATA['group_details']['${data}']['field_label']}    field_label
+        Auto Check List Data    ${group_id}    ${TC_034_DATA['group_details']['${data}']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+        Auto Check Seq Group Detail    ${TC_034_DATA}
+    END
+    Click Button Save Group Control    Yes
+    Page Should Contain    Save Complete. 
+    #CHECK DATABASE & COMMON LIST
+    Click Button Back
+    Auto Check Seq Group List
+    ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_034_DATA.condition}
+    Auto Check List Data    ${group_id}    ${TC_034_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
     #CHECK SCREEN CREATE CRITERIA IN SLG
     Go To    ${CREATE_CRITERIA_URL}
     Check Output On Create Critiria Page    ${TC_034_DATA}
@@ -674,7 +672,6 @@ TC_037
     #CHECK SCREEN CREATE CRITERIA IN SLG
     Go To    ${CREATE_CRITERIA_URL}
     Check Output On Create Critiria Page    ${TC_037_DATA}
-    Auto Check Seq On Create Criteria    ${TC_037_DATA}
     Check Preview Script    ${TC_037_DATA}
     Close Browser
 
@@ -874,18 +871,18 @@ TC_050
 TC_051
     [Documentation]    ที่หน้าจอ "Add Common Criteria" กรณีไม่ได้ระบุ "Group Sequence"
     Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
-    # Click Button Add
-    # Auto Insert Data    ${TC_051_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    # ${Data_List}     Create List    DATA_1    DATA_2
-    # FOR    ${data}    IN    @{Data_List}
-    #     Click Button Add Detail
-    #     Auto Insert Data Detail    ${TC_051_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
-    #     Click Button Save Detail
-    # END
-    # Click Button Save Group Control    Yes
-    # Page Should Contain    Save Complete. 
-    # #CHECK DATABASE & COMMON LIST
-    # Click Button Back
+    Click Button Add
+    Auto Insert Data    ${TC_051_DATA}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    ${Data_List}     Create List    DATA_1    DATA_2
+    FOR    ${data}    IN    @{Data_List}
+        Click Button Add Detail
+        Auto Insert Data Detail    ${TC_051_DATA['group_details']['${data}']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+        Click Button Save Detail
+    END
+    Click Button Save Group Control    Yes
+    Page Should Contain    Save Complete. 
+    #CHECK DATABASE & COMMON LIST
+    Click Button Back
     Auto Check Seq Group List
     ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_051_DATA.condition}
     Auto Check List Data    ${group_id}    ${TC_051_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_NO_SEQ}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
@@ -971,7 +968,7 @@ TC_059
     Auto Insert Data Detail    ${TC_059_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     Click Button Save Detail
     ${group_id}=    Get Data Id From Field    ${TC_059_DATA['group_details']['DATA_1']['field_label']}    field_label
-    Auto Check List Data    ${group_id}    ${TC_059_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+    Auto Check List Data Group Detail    ${group_id}    ${TC_059_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
     Auto Check Seq Group Detail    ${TC_059_DATA}
     Close Browser
 
@@ -1143,7 +1140,7 @@ TC_072
     Auto Update Data Detail    ${TC_072_DATA['group_details']['EDIT DATA_1']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
     Click Button Save Detail
     ${group_id}=    Get Data Id From Field    ${TC_072_DATA['group_details']['EDIT DATA_1']['field_label']}    field_label
-    Auto Check List Data    ${group_id}    ${TC_072_DATA['group_details']['EDIT DATA_1']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
+    Auto Check List Data Group Detail    ${group_id}    ${TC_072_DATA['group_details']['EDIT DATA_1']}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA_GROUP_DETAIL}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA_GROUP_DETAIL}
     Auto Check Seq Group Detail    ${TC_072_DATA}
     Close Browser
 
@@ -1274,6 +1271,51 @@ TC_083
     Click Edit Botton    ${group_id}
     Auto Check Text Data Edit Page    ${TC_037_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
     Auto Update Data    ${TC_083_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Click Button Add Detail
+    Auto Insert Data Detail    ${TC_083_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    Click Button Save Detail
+    Click Button Save Group Control    Yes
+    Page Should Contain    Save Complete. 
+    #CHECK DATABASE & COMMON LIST
+    Click Button Back
+    Auto Check Seq Group List
+    ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_083_DATA.condition}
+    Auto Check List Data    ${group_id}    ${TC_083_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Go To    ${CREATE_CRITERIA_URL}
+    Check Output On Create Critiria Page    ${TC_083_DATA}
+    Auto Check Seq On Create Criteria    ${TC_083_DATA}
+    Check Preview Script    ${TC_083_DATA}
+    Close Browser
+
+
+TC_084
+    [Documentation]    ที่หน้าจอ "Edit Common Criteria" ตรวจสอบกรณีระบุ/เลือกข้อมูลครบทุก Field โดยผู้ใช้เลือกตามเงื่อนไขดังนี้ Group Type = Checkbox, Checkbox (Active) = Active, Checkbox (Read Only) = Not Read Only, Checked > 1 รายการ และกดปุ่ม "Save"
+    Open Browser To URL    ${COMMON_CONFIGURATION_URL}    ${BASE_BROWSER}
+    Click Show Status    any
+    ${group_id}=    Get Data Id From Field    ${TC_037_DATA['group_name']}    group_name
+    Check List Data Is Visible    ${group_id}
+    Click Edit Botton    ${group_id}
+    Auto Check Text Data Edit Page    ${TC_037_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Auto Update Data    ${TC_083_DATA}    ${CHOOSE_KEY_EDIT_PAGE_TEXT_DATA}    ${CHOOSE_KEY_EDIT_PAGE_SELECT_OPTION}    ${CHOOSE_KEY_EDIT_PAGE_CHECKBOX_DATA}
+    Click Button Add Detail
+    Auto Insert Data Detail    ${TC_083_DATA['group_details']['DATA_1']}    ${CHOOSE_KEY_INPUT_AUTO_COMPLETE}    ${CHOOSE_KEY_INPUT_TEXT}    ${CHOOSE_KEY_INPUT_CHECKBOX}    ${CHOOSE_KEY_INPUT_SELECT_OPTION}
+    Click Button Save Detail
+    Click Button Save Group Control    Yes
+    Page Should Contain    Save Complete. 
+    #CHECK DATABASE & COMMON LIST
+    Click Button Back
+    Auto Check Seq Group List
+    ${group_id}=    Get Data Id     ${COLUMN_ID}    ${TABLE_NAME}    ${TC_083_DATA.condition}
+    Auto Check List Data    ${group_id}    ${TC_083_DATA}    ${CHOOSE_KEY_CHECK_LIST_TEXT_DATA}    ${CHOOSE_KEY_CHECK_LIST_BOOLEAN_DATA}
+    #CHECK SCREEN CREATE CRITERIA IN SLG
+    Go To    ${CREATE_CRITERIA_URL}
+    Check Output On Create Critiria Page    ${TC_083_DATA}
+    Auto Check Seq On Create Criteria    ${TC_083_DATA}
+    Check Preview Script    ${TC_083_DATA}
+    Close Browser    
+
+
 
 
 
