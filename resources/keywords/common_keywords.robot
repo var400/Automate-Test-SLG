@@ -164,7 +164,7 @@ Check MultiDropdown Config
         ELSE 
             Element Should Not Be Visible    //div//li[@role="option" and @data-value="${data_list['group_details']['${data}']['field_value']}"]
         END
-        Press Keys    ESC
+        Press Keys    xpath://body    ESC
     ELSE
         #Check Read Only
         Element Attribute Value Should Be    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox"]   id    demo-multiple-checkbox    #Check Type
@@ -306,7 +306,6 @@ Check SEQ From Web Create Criteria Detail
         ${check_locator}=    Run Keyword And Return Status    Element Should Be Visible    //ul[@role="listbox"]//li[@data-value!="all"]
         Run Keyword If    '${check_locator}' != 'True'    Click Element    ${LOCATOR_HEADER}//*[*[text()="${data_list['group_name']}"]]//div[@role="combobox" and @aria-expanded="false"]
         ${elements}=    Get WebElements    //ul[@role="listbox"]//li[@data-value!="all"]
-        Press Keys    ESC
     ELSE IF    '${data_list['group_type']}' == 'listbox'
         ${elements}=    Get WebElements    //div[*[*[text()="${data_list['group_name']}"]]]//div[@role="list"]//div[@role="listitem"]
     ELSE IF    '${data_list['group_type']}' == 'dropdown'
@@ -320,6 +319,7 @@ Check SEQ From Web Create Criteria Detail
         ${joined_values}=    Set Variable    ${text_split}
         Append To List    ${elements_list}    '${joined_values[0]}'
     END
+    Press Keys    xpath://body    ESC
     # Log To Console    Check Seq From Web ${elements_list}       
     Return From Keyword    ${elements_list}
 
