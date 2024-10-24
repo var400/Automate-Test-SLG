@@ -298,7 +298,7 @@ Check SEQ From Web Create Criteria Detail
     ${elements_list}=    Create List
     IF    '${data_list['group_type']}' == 'text'
         Log    No Check Seq Field
-         Append To List    ${elements_list}    ''
+        Append To List    ${elements_list}    ''
     ELSE IF    '${data_list['group_type']}' == 'radio'
         ${elements}=    Get WebElements    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]
     ELSE IF    '${data_list['group_type']}' == 'checkbox'
