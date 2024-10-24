@@ -299,7 +299,6 @@ Check SEQ From Web Create Criteria Detail
     ${elements_list}=    Create List
     IF    '${data_list['group_type']}' == 'text'
         Log    No Check Seq Field
-        ${elements}=    Set Variable    ''
     ELSE IF    '${data_list['group_type']}' == 'radio'
         ${elements}=    Get WebElements    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]
     ELSE IF    '${data_list['group_type']}' == 'checkbox'
@@ -358,9 +357,11 @@ Auto Check Seq On Create Criteria
     Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
     ##CHECK GROUP DETAIL
     IF    '${data['is_disable']}' == 'false'
-        ${seq_Web}=    Check SEQ From Web Create Criteria Detail    ${data}
-        ${seq_Db}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    true,false
-        Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+        IF     '${data['group_type']}' != 'text'
+            ${seq_Web}=    Check SEQ From Web Create Criteria Detail    ${data}
+            ${seq_Db}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    true,false
+            Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
+        END
     END
 
 Auto Check Seq On Create Criteria Listbox
