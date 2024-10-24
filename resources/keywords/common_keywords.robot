@@ -284,7 +284,8 @@ Check SEQ Create Criteria DB
 Check SEQ Create Criteria DB Group Detail
     [Arguments]    ${profile_name}    ${group_name}    ${is_checked}
     Connect To Database    psycopg2    ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
-    ${queryResults} =    Query    select field_label from slg.mst_group_common join slg.mst_group_common_detail on slg.mst_group_common.group_id = slg.mst_group_common_detail.group_id where slg.mst_group_common.is_active = 'true' and slg.mst_group_common.profile_name = '${profile_name}' and slg.mst_group_common.group_name = '${group_name}' and slg.mst_group_common_detail.is_checked = '${is_checked}' order by field_seq;
+    ${queryResults} =    Query    select field_label from slg.mst_group_common join slg.mst_group_common_detail on slg.mst_group_common.group_id = slg.mst_group_common_detail.group_id where slg.mst_group_common.is_active = 'true' and slg.mst_group_common.profile_name = '${profile_name}' and slg.mst_group_common.group_name = '${group_name}' and slg.mst_group_common_detail.is_checked in (${is_checked}) order by field_seq;
+    # ${queryResults} =    Query    select field_label from slg.mst_group_common join slg.mst_group_common_detail on slg.mst_group_common.group_id = slg.mst_group_common_detail.group_id where slg.mst_group_common.is_active = 'true' and slg.mst_group_common.profile_name = '${profile_name}' and slg.mst_group_common.group_name = '${group_name}' order by field_seq;
     ${results_list}=    Create List
     Disconnect From Database
     FOR    ${element}    IN    @{queryResults}
@@ -358,7 +359,7 @@ Auto Check Seq On Create Criteria
     ##CHECK GROUP DETAIL
     IF    '${data['is_disable']}' == 'false'
         ${seq_Web}=    Check SEQ From Web Create Criteria Detail    ${data}
-        ${seq_Db}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    true
+        ${seq_Db}=    Check SEQ Create Criteria DB Group Detail    ${data['profile_name']}    ${data['group_name']}    true,false
         Check SEQ List WEB VS BASE    ${seq_Db}    ${seq_Web}
     END
 
