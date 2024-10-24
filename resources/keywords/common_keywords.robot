@@ -297,7 +297,7 @@ Check SEQ From Web Create Criteria Detail
     [Arguments]    ${data_list}
     ${elements_list}=    Create List
     IF    '${data_list['group_type']}' == 'text'
-        Log    No Check Seq Field
+        ${elements}=    Get WebElements    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]
     ELSE IF    '${data_list['group_type']}' == 'radio'
         ${elements}=    Get WebElements    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]
     ELSE IF    '${data_list['group_type']}' == 'checkbox'
@@ -313,14 +313,11 @@ Check SEQ From Web Create Criteria Detail
         Sleep    1s
         ${elements}=    Get WebElements    //body//div[@role="presentation"][2]//li
     END
-    ${list_count}=    Get Length    ${elements}
-    IF    ${list_count} >= 1
-        FOR    ${element}    IN    @{elements}
-            ${text}=    Get Text    ${element}
-            ${text_split}=    Split String    ${text}    \n
-            ${joined_values}=    Set Variable    ${text_split}
-            Append To List    ${elements_list}    '${joined_values[0]}'
-        END
+    FOR    ${element}    IN    @{elements}
+        ${text}=    Get Text    ${element}
+        ${text_split}=    Split String    ${text}    \n
+        ${joined_values}=    Set Variable    ${text_split}
+        Append To List    ${elements_list}    '${joined_values[0]}'
     END
     Press Keys    xpath://body    ESC
     # Log To Console    Check Seq From Web ${elements_list}       
