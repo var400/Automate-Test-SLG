@@ -297,7 +297,6 @@ Check SEQ From Web Create Criteria Detail
     [Arguments]    ${data_list}
     ${elements_list}=    Create List
     IF    '${data_list['group_type']}' == 'text'
-    //*[@name="${data_list['group_name']}"]
         ${elements}=    Get WebElements    ${LOCATOR_HEADER}//*[@name="${data_list['group_name']}"]
     ELSE IF    '${data_list['group_type']}' == 'radio'
         ${elements}=    Get WebElements    ${LOCATOR_HEADER}//label[*[*[@name="${data_list['group_name']}"]]]
