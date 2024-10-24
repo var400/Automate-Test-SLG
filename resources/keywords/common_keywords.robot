@@ -313,11 +313,14 @@ Check SEQ From Web Create Criteria Detail
         Sleep    1s
         ${elements}=    Get WebElements    //body//div[@role="presentation"][2]//li
     END
-    FOR    ${element}    IN    @{elements}
-        ${text}=    Get Text    ${element}
-        ${text_split}=    Split String    ${text}    \n
-        ${joined_values}=    Set Variable    ${text_split}
-        Append To List    ${elements_list}    '${joined_values[0]}'
+    ${list_count}=    Get Length    ${elements}
+    IF    ${list_count} >= 1
+        FOR    ${element}    IN    @{elements}
+            ${text}=    Get Text    ${element}
+            ${text_split}=    Split String    ${text}    \n
+            ${joined_values}=    Set Variable    ${text_split}
+            Append To List    ${elements_list}    '${joined_values[0]}'
+        END
     END
     Press Keys    xpath://body    ESC
     # Log To Console    Check Seq From Web ${elements_list}       
