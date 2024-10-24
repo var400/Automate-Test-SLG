@@ -2000,6 +2000,1294 @@ TC_083:
       is_null: "false"
 
 
+TC_084:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 22_EDIT"
+  group_type: "checkbox"
+  group_seq: "43"
+  group_desc: "TEST COMMON 22_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "TRUE ID SIM,SIM AEC"
+  condition: where group_name='TEST COMMON 22_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_GP_SIM_TYPE"
+      field_label: "SIM AEC"
+      field_value: "SIM AEC"
+      field_desc: "SIM AEC Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_085:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "42"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "T900 SIM"
+      field_value: "T900 SIM"
+      field_desc: "T900 SIM Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_086:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 20_EDIT"
+  group_type: "checkbox"
+  group_seq: "41"
+  group_desc: "TEST COMMON 20_EDIT DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "MYA,ENG"
+  condition: where group_name='TEST COMMON 20_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "SMS_LANGUAGE"
+      field_label: "ENG"
+      field_value: "ENG"
+      field_desc: "ENG Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_087:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 19_EDIT"
+  group_type: "dropdown"
+  group_seq: "40"
+  group_desc: "TEST COMMON 19_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Surat Thani"
+  condition: where group_name='TEST COMMON 19_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_PROVINCE"
+      field_label: "Phuket"
+      field_value: "Phuket"
+      field_desc: "Phuket Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_088:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 18_EDIT"
+  group_type: "dropdown"
+  group_seq: "39"
+  group_desc: "TEST COMMON 18_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "THA,JPY"
+  condition: where group_name='TEST COMMON 18_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CONTACT_LANGUAGE"
+      field_label: "JPY"
+      field_value: "JPY"
+      field_desc: "JPY Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+  result:
+    expected_result: "dropdown : Default value checked can't  more than 1 values"
+
+
+TC_089:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 17_EDIT"
+  group_type: "dropdown"
+  group_seq: "38"
+  group_desc: "TEST COMMON 17_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "5G"
+  condition: where group_name='TEST COMMON 17_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_NETWORK_DEVICE"
+      field_label: "4G"
+      field_value: "4G"
+      field_desc: "4G Description"
+      field_seq: "1"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+    ADD_DATA:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_NETWORK_DEVICE"
+      field_label: "7G"
+      field_value: "7G"
+      field_desc: "7G Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_090:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 16_EDIT"
+  group_type: "dropdown"
+  group_seq: "37"
+  group_desc: "TEST COMMON 16_EDIT DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "iOS"
+  condition: where group_name='TEST COMMON 16_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_OS_DEVICE"
+      field_label: "NONE"
+      field_value: "NONE"
+      field_desc: "NONE Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_091:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 15_EDIT"
+  group_type: "radio"
+  group_seq: "36"
+  group_desc: "TEST COMMON 15_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "บริษัท ซีพี ออลล์ จำกัด (มหาชน)"
+  condition: where group_name='TEST COMMON 15_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_PARTNER_NAME"
+      field_label: "บริษัท คอมเซเว่น จำกัด (มหาชน)"
+      field_value: "บริษัท คอมเซเว่น จำกัด (มหาชน)"
+      field_desc: "บริษัท คอมเซเว่น จำกัด (มหาชน) Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_092:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 14_EDIT"
+  group_type: "radio"
+  group_seq: "35"
+  group_desc: "TEST COMMON 14_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Thai ID,Others"
+  condition: where group_name='TEST COMMON 14_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CERT_ID_TYP"
+      field_label: "Others"
+      field_value: "Others"
+      field_desc: "Others Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+  result:
+    expected_result: "radio : Default value checked can't  more than 1 values"
+
+
+TC_093:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 12_EDIT"
+  group_type: "radio"
+  group_seq: "33"
+  group_desc: "TEST COMMON 12_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "DATA"
+  condition: where group_name='TEST COMMON 12_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LAST_BUY_OC_IPK_CATEGORY"
+      field_label: "IR"
+      field_value: "IR"
+      field_desc: "IR Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_094:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 13_EDIT"
+  group_type: "radio"
+  group_seq: "34"
+  group_desc: "TEST COMMON 13_EDIT DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "30"
+  condition: where group_name='TEST COMMON 13_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUST_AGE"
+      field_label: "AGE"
+      field_value: "40"
+      field_desc: "AGE Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_095:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 11_EDIT"
+  group_type: "text"
+  group_seq: "32"
+  group_desc: "TEST COMMON 11 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "OPPO"
+  condition: where group_name='TEST COMMON 11_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_BRAND_DEVICE"
+      field_label: "OPPO"
+      field_value: "OPPO"
+      field_desc: "OPPO Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_096:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 9_EDIT"
+  group_type: "text"
+  group_seq: "30"
+  group_desc: "TEST COMMON 9_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "คุณ"
+  condition: where group_name='TEST COMMON 9_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "TITLE_NAME"
+      field_label: "คุณ"
+      field_value: "คุณ"
+      field_desc: "คุณ Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_097:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 7_EDIT"
+  group_type: "text"
+  group_seq: "28"
+  group_desc: "TEST COMMON 7_EDIT DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "อนุสาวรีย์"
+  condition: where group_name='TEST COMMON 7_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_SUB_DISTRICT"
+      field_label: "อนุสาวรีย์"
+      field_value: "อนุสาวรีย์"
+      field_desc: "อนุสาวรีย์ Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_098:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 8_EDIT"
+  group_type: "listbox"
+  group_seq: "29"
+  group_desc: "TEST COMMON 8_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "True Shop COM7"
+  condition: where group_name='TEST COMMON 8_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_SP_CHANNEL"
+      field_label: "Premium Retailer"
+      field_value: "Premium Retailer"
+      field_desc: "Premium Retailer Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_099:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 5_EDIT"
+  group_type: "listbox"
+  group_seq: "26"
+  group_desc: "TEST COMMON 5_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "ระยอง,สมุทรปราการ"
+  condition: where group_name='TEST COMMON 5_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "MOST_USE_PROVINCE"
+      field_label: "สมุทรปราการ"
+      field_value: "สมุทรปราการ"
+      field_desc: "สมุทรปราการ Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_100:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 14_EDIT"
+  group_type: "listbox"
+  group_seq: "35"
+  group_desc: "TEST COMMON 14_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "Thai ID,Others"
+  condition: where group_name='TEST COMMON 14_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CERT_ID_TYP"
+      field_label: "Others"
+      field_value: "Others"
+      field_desc: "Others Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_101:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 18_EDIT"
+  group_type: "listbox"
+  group_seq: "39"
+  group_desc: "TEST COMMON 18_EDIT DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "THA"
+  condition: where group_name='TEST COMMON 18_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CONTACT_LANGUAGE"
+      field_label: "CNY"
+      field_value: "CNY"
+      field_desc: "CNY Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_102:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 4_EDIT"
+  group_type: "multi_dropdown"
+  group_seq: "25"
+  group_desc: "TEST COMMON 4_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "10000770"
+  condition: where group_name='TEST COMMON 4_EDIT'
+  group_details:
+    EDIT DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_PARTNER_CODE"
+      field_label: "17036129"
+      field_value: "17036129"
+      field_desc: "17036129 Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+    ADD DATA:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_PARTNER_CODE"
+      field_label: "17330914"
+      field_value: "17330914"
+      field_desc: "17330914 Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_103:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 3_EDIT"
+  group_type: "multi_dropdown"
+  group_seq: "24"
+  group_desc: "TEST COMMON 3_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "NE-1,NE-2"
+  condition: where group_name='TEST COMMON 3_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_GMD"
+      field_label: "CW"
+      field_value: "CW"
+      field_desc: "CW Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_104:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 2_EDIT"
+  group_type: "multi_dropdown"
+  group_seq: "23"
+  group_desc: "TEST COMMON 2_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "university"
+  condition: where group_name='TEST COMMON 2_EDIT'
+  group_details:
+    EDIT DATA_2:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTAGE_FINAL"
+      field_label: "Retirement"
+      field_value: "retirement"
+      field_desc: "Retirement Description"
+      field_seq: "2"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+    ADD DATA:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTAGE_FINAL"
+      field_label: "Startcareer"
+      field_value: "startcareer"
+      field_desc: "Startcareer Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_105:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 1_EDIT"
+  group_type: "multi_dropdown"
+  group_seq: "22"
+  group_desc: "TEST COMMON 1_EDIT DESCRIPTION"
+  is_active: "false"
+  is_disable: "false"
+  default_value: "game"
+  condition: where group_name='TEST COMMON 1_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "LIFESTYLE_FINAL"
+      field_label: "Music"
+      field_value: "music"
+      field_desc: "Music Description"
+      field_seq: "3"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_106:
+  profile_name: "TRUE_MOBILE_POSTPAID"
+  group_name: "Device"
+  group_type: "checkbox"
+  group_seq: "44"
+  group_desc: "Device DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Phetchabun"
+  condition: where group_name='Device'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_SFX_PROVINCE"
+      field_label: "Rayong"
+      field_value: "Rayong"
+      field_desc: "Rayong Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_107:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "Grade"
+  group_type: "checkbox"
+  group_seq: "43"
+  group_desc: "Grade DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "TRUE ID SIM,SIM AEC"
+  condition: where group_name='Grade'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_GP_SIM_TYPE"
+      field_label: "YOKKUAN"
+      field_value: "YOKKUAN"
+      field_desc: "YOKKUAN Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Duplicate name"
+
+
+TC_108:
+  profile_name: "TRUE_MOBILE_POSTPAID"
+  group_name: "TEST COMMON 22_EDIT"
+  group_type: "checkbox"
+  group_seq: "4"
+  group_desc: "TEST COMMON 22_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "TRUE ID SIM,SIM AEC"
+  condition: where group_name='TEST COMMON 22_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "CUR_GP_SIM_TYPE"
+      field_label: "YOKKUAN"
+      field_value: "YOKKUAN"
+      field_desc: "YOKKUAN Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_109:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "4"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "7-11 YokKuan"
+      field_value: "7-11 YokKuan"
+      field_desc: "7-11 YokKuan Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Duplicate Sequence"
+
+
+TC_110:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "42"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "7-11 YokKuan"
+      field_value: "SIM DON JAI"
+      field_desc: "7-11 YokKuan Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Value is duplicate."
+
+
+TC_111:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "42"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "7-11 YokKuan"
+      field_value: ""
+      field_desc: "7-11 YokKuan Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Some value is Empty."
+
+
+TC_114:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 28_EDIT_DUP"
+  group_type: "checkbox"
+  group_seq: "49"
+  group_desc: "TEST COMMON 28_EDIT_DUP DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "Internal Project"
+  condition: where group_name='TEST COMMON 28_EDIT_DUP'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "ACTV_TDS_SUB_CHANNEL"
+      field_label: "7-Eleven"
+      field_value: "7-Eleven"
+      field_desc: "7-Eleven Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  TC_114_TEST_INSERT_DUPPLICATE_2:
+      CHECK_DUPPLICATE_DATA_2:
+        schema_name: "CVMSBOX"
+        table_name: "CAMPAIGN_PREPAID_360"
+        field_name: "ACTV_TDS_SUB_CHANNEL"
+        field_label: ""
+        field_value_yes: ""
+        field_value_no: ""
+        field_desc: ""
+        field_seq: "4"
+        is_active: "true"
+        is_checked: "false"
+        is_null: "false"
+
+
+TC_116:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: ""
+  group_type: "checkbox"
+  group_seq: "42"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "Super bonus DEVICE"
+      field_value: "Super bonus DEVICE"
+      field_desc: "Super bonus DEVICE Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_117:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: ""
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "Super bonus DEVICE"
+      field_value: "Super bonus DEVICE"
+      field_desc: "Super bonus DEVICE Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_118:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: ""
+  group_type: "checkbox"
+  group_seq: ""
+  group_desc: ""
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_122:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+
+
+TC_123:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_124:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_125:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_126:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "4"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Duplicate Sequence."
+
+
+TC_127:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: ""
+      table_name: ""
+      field_name: ""
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_128:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: ""
+      field_name: ""
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_129:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: ""
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_130:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: ""
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_131:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    DATA_1:
+      schema_name: ""
+      table_name: ""
+      field_name: ""
+      field_label: ""
+      field_value: ""
+      field_desc: ""
+      field_seq: ""
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_135:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "true"
+
+
+TC_136:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "true"
+      is_null: "false"
+
+
+TC_137:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_138:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_139:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "1"
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    expected_result: "Duplicate Sequence."
+
+
+TC_140:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: ""
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_141:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST COMMON 21_EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST COMMON 21_EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST COMMON 21_EDIT'
+  group_details:
+    EDIT DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: ""
+      field_value: ""
+      field_desc: ""
+      field_seq: ""
+      is_active: "false"
+      is_checked: "false"
+      is_null: "false"
+  result:
+    validate_data: This value cannot be null.
+
+
+TC_144:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST POPUP MESSAGE SAVE EDIT"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST POPUP MESSAGE SAVE EDIT DESCRIPTION"
+  is_active: "true"
+  is_disable: "true"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST POPUP MESSAGE SAVE EDIT'
+  group_details:
+    DATA_1:
+      schema_name: "CVMSBOX"
+      table_name: "CAMPAIGN_PREPAID_360"
+      field_name: "FIRST_SIM_TYPE"
+      field_label: "HELLO SIM"
+      field_value: "HELLO SIM"
+      field_desc: "HELLO SIM Description"
+      field_seq: "5"
+      is_active: "true"
+      is_checked: "false"
+      is_null: "false"
+
+
+TC_146:
+  profile_name: "TRUE_MOBILE_PREPAID"
+  group_name: "TEST POPUP MESSAGE SAVE EDIT 2"
+  group_type: "checkbox"
+  group_seq: "202"
+  group_desc: "TEST POPUP MESSAGE SAVE EDIT 2 DESCRIPTION"
+  is_active: "true"
+  is_disable: "false"
+  default_value: "SIM DON JAI,Net SIM 4G+"
+  condition: where group_name='TEST POPUP MESSAGE SAVE EDIT 2'
+
+
+
+
+
+
+
+
+
+
 
 
 
